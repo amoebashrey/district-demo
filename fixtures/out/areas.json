@@ -1,0 +1,92 @@
+[
+  {
+    "city": "Bengaluru",
+    "name": "Indiranagar",
+    "lat": 12.9784,
+    "lng": 77.6408
+  },
+  {
+    "city": "Bengaluru",
+    "name": "Koramangala",
+    "lat": 12.9352,
+    "lng": 77.6245
+  },
+  {
+    "city": "Bengaluru",
+    "name": "HSR Layout",
+    "lat": 12.9116,
+    "lng": 77.6389
+  },
+  {
+    "city": "Bengaluru",
+    "name": "Whitefield",
+    "lat": 12.9698,
+    "lng": 77.75
+  },
+  {
+    "city": "Bengaluru",
+    "name": "MG Road",
+    "lat": 12.9756,
+    "lng": 77.6066
+  },
+  {
+    "city": "Mumbai",
+    "name": "Bandra West",
+    "lat": 19.0596,
+    "lng": 72.8295
+  },
+  {
+    "city": "Mumbai",
+    "name": "Lower Parel",
+    "lat": 18.996,
+    "lng": 72.83
+  },
+  {
+    "city": "Mumbai",
+    "name": "Andheri West",
+    "lat": 19.1364,
+    "lng": 72.8296
+  },
+  {
+    "city": "Mumbai",
+    "name": "Powai",
+    "lat": 19.1176,
+    "lng": 72.906
+  },
+  {
+    "city": "Mumbai",
+    "name": "Colaba",
+    "lat": 18.9067,
+    "lng": 72.8147
+  },
+  {
+    "city": "Delhi NCR",
+    "name": "Hauz Khas",
+    "lat": 28.5494,
+    "lng": 77.2001
+  },
+  {
+    "city": "Delhi NCR",
+    "name": "Connaught Place",
+    "lat": 28.6315,
+    "lng": 77.2167
+  },
+  {
+    "city": "Delhi NCR",
+    "name": "Cyber Hub",
+    "lat": 28.495,
+    "lng": 77.089
+  },
+  {
+    "city": "Delhi NCR",
+    "name": "Saket",
+    "lat": 28.5245,
+    "lng": 77.2066
+  },
+  {
+    "city": "Delhi NCR",
+    "name": "Sector 29 Gurugram",
+    "lat": 28.4691,
+    "lng": 77.0625
+  }
+]

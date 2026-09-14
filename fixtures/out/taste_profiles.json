@@ -1,0 +1,2521 @@
+[
+  {
+    "user_id": "38cab921-aecf-483b-ad29-1ed84b20c4f1",
+    "cuisine_vec": {
+      "north-indian": 0.39,
+      "south-indian": 0.32,
+      "asian": 0.01,
+      "japanese": 0.38,
+      "italian": 0.97,
+      "continental": 0.79,
+      "mediterranean": 0.18,
+      "mexican": 0,
+      "street-food": 0.1,
+      "cafe": 0.93,
+      "bar-food": 0.37,
+      "seafood": 0.82,
+      "chinese": 0.08,
+      "korean": 0.04,
+      "dessert": 0.2
+    },
+    "genre_vec": {
+      "comedy": 0.4,
+      "live-music": 0.94,
+      "indie": 0.69,
+      "bollywood": 0.73,
+      "hollywood": 0.28,
+      "thriller": 0.34,
+      "drama": 0.08,
+      "theatre": 0.24,
+      "techno": 0.37,
+      "hip-hop": 0.62,
+      "sports": 0.22,
+      "activity": 0.05,
+      "rom-com": 0.25,
+      "horror": 0.24,
+      "animation": 0.08
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Whitefield",
+      "MG Road",
+      "Koramangala"
+    ],
+    "dietary": "no-beef",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 7,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "79a75bcb-3a82-4b69-ae1c-88881a80adb2",
+    "cuisine_vec": {
+      "north-indian": 0.3,
+      "south-indian": 0.32,
+      "asian": 0.32,
+      "japanese": 0.26,
+      "italian": 0.13,
+      "continental": 0.9,
+      "mediterranean": 0.29,
+      "mexican": 0.05,
+      "street-food": 0.28,
+      "cafe": 0.28,
+      "bar-food": 0.2,
+      "seafood": 0.65,
+      "chinese": 0.99,
+      "korean": 0.2,
+      "dessert": 0.8
+    },
+    "genre_vec": {
+      "comedy": 0.81,
+      "live-music": 0.24,
+      "indie": 0.28,
+      "bollywood": 0.38,
+      "hollywood": 0.16,
+      "thriller": 0.15,
+      "drama": 0.3,
+      "theatre": 0.35,
+      "techno": 0.01,
+      "hip-hop": 1,
+      "sports": 0.22,
+      "activity": 0.07,
+      "rom-com": 0.73,
+      "horror": 0.97,
+      "animation": 0.23
+    },
+    "price_band": "₹₹₹₹",
+    "fav_areas": [
+      "Indiranagar",
+      "MG Road"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 21
+    },
+    "travel_tolerance_km": 5,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "dcfe74ca-c593-4ffb-ab98-e82884285705",
+    "cuisine_vec": {
+      "north-indian": 0.87,
+      "south-indian": 0.97,
+      "asian": 0.71,
+      "japanese": 0.24,
+      "italian": 0.2,
+      "continental": 0.17,
+      "mediterranean": 0.02,
+      "mexican": 0.35,
+      "street-food": 0.15,
+      "cafe": 0.16,
+      "bar-food": 0.77,
+      "seafood": 0.15,
+      "chinese": 0.1,
+      "korean": 0.22,
+      "dessert": 0.17
+    },
+    "genre_vec": {
+      "comedy": 0.26,
+      "live-music": 0.06,
+      "indie": 0.17,
+      "bollywood": 0.34,
+      "hollywood": 0.98,
+      "thriller": 0.77,
+      "drama": 0.67,
+      "theatre": 0.39,
+      "techno": 0.35,
+      "hip-hop": 0.14,
+      "sports": 0.25,
+      "activity": 0.19,
+      "rom-com": 0.01,
+      "horror": 0.17,
+      "animation": 0.89
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Whitefield",
+      "HSR Layout",
+      "Koramangala"
+    ],
+    "dietary": "no-beef",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 21
+    },
+    "travel_tolerance_km": 7,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "667483b1-6a96-42d4-a3a6-840a843053af",
+    "cuisine_vec": {
+      "north-indian": 0.2,
+      "south-indian": 0.16,
+      "asian": 0.75,
+      "japanese": 0.67,
+      "italian": 0.25,
+      "continental": 0.29,
+      "mediterranean": 0.24,
+      "mexican": 0.97,
+      "street-food": 0.36,
+      "cafe": 0.21,
+      "bar-food": 0.06,
+      "seafood": 0.23,
+      "chinese": 0.09,
+      "korean": 0.63,
+      "dessert": 0.38
+    },
+    "genre_vec": {
+      "comedy": 0.03,
+      "live-music": 0.17,
+      "indie": 0.08,
+      "bollywood": 0.96,
+      "hollywood": 0.05,
+      "thriller": 0.04,
+      "drama": 0.36,
+      "theatre": 0.3,
+      "techno": 0.16,
+      "hip-hop": 0.17,
+      "sports": 0.92,
+      "activity": 0.26,
+      "rom-com": 0.19,
+      "horror": 0.9,
+      "animation": 0.9
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Indiranagar",
+      "Koramangala"
+    ],
+    "dietary": "halal",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 21
+    },
+    "travel_tolerance_km": 7,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "b5f89c34-b151-4b6a-a33a-b14895798731",
+    "cuisine_vec": {
+      "north-indian": 0.38,
+      "south-indian": 0.29,
+      "asian": 0.71,
+      "japanese": 0.7,
+      "italian": 0.09,
+      "continental": 0.15,
+      "mediterranean": 0.27,
+      "mexican": 0.68,
+      "street-food": 0.03,
+      "cafe": 0.65,
+      "bar-food": 0.36,
+      "seafood": 0.05,
+      "chinese": 0.03,
+      "korean": 0.27,
+      "dessert": 0.03
+    },
+    "genre_vec": {
+      "comedy": 0.4,
+      "live-music": 0.79,
+      "indie": 0.3,
+      "bollywood": 0.17,
+      "hollywood": 0.33,
+      "thriller": 0.38,
+      "drama": 0.26,
+      "theatre": 0.74,
+      "techno": 0.84,
+      "hip-hop": 0.1,
+      "sports": 0.03,
+      "activity": 0.14,
+      "rom-com": 0.28,
+      "horror": 0.26,
+      "animation": 0.99
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Indiranagar",
+      "Koramangala"
+    ],
+    "dietary": "vegan",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 6,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "ee9a8779-17ad-476f-ad80-bb4dd4f000dd",
+    "cuisine_vec": {
+      "north-indian": 0.24,
+      "south-indian": 0.01,
+      "asian": 0.27,
+      "japanese": 0.97,
+      "italian": 0.16,
+      "continental": 0.66,
+      "mediterranean": 0.91,
+      "mexican": 0.37,
+      "street-food": 0.27,
+      "cafe": 0.29,
+      "bar-food": 0.29,
+      "seafood": 0.2,
+      "chinese": 0.33,
+      "korean": 0.88,
+      "dessert": 0.24
+    },
+    "genre_vec": {
+      "comedy": 0.9,
+      "live-music": 0.64,
+      "indie": 0.09,
+      "bollywood": 0.29,
+      "hollywood": 0.39,
+      "thriller": 0.23,
+      "drama": 0.09,
+      "theatre": 0.33,
+      "techno": 0.97,
+      "hip-hop": 0.09,
+      "sports": 0.17,
+      "activity": 0.1,
+      "rom-com": 0.68,
+      "horror": 0.16,
+      "animation": 0.37
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Whitefield",
+      "HSR Layout",
+      "Indiranagar"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 22
+    },
+    "travel_tolerance_km": 6,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "c7ac7a31-11f4-4230-a05e-b7d378f8bcd3",
+    "cuisine_vec": {
+      "north-indian": 0.91,
+      "south-indian": 0.34,
+      "asian": 0.1,
+      "japanese": 0.36,
+      "italian": 0.21,
+      "continental": 0.9,
+      "mediterranean": 0.39,
+      "mexican": 0.39,
+      "street-food": 0.21,
+      "cafe": 0.36,
+      "bar-food": 0.64,
+      "seafood": 0.13,
+      "chinese": 0.81,
+      "korean": 0.05,
+      "dessert": 0.04
+    },
+    "genre_vec": {
+      "comedy": 0.93,
+      "live-music": 0.65,
+      "indie": 0.23,
+      "bollywood": 0.08,
+      "hollywood": 0.38,
+      "thriller": 0.28,
+      "drama": 0.09,
+      "theatre": 0.05,
+      "techno": 0.17,
+      "hip-hop": 0.3,
+      "sports": 0.67,
+      "activity": 0.37,
+      "rom-com": 0.93,
+      "horror": 0.31,
+      "animation": 0.37
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "MG Road",
+      "Whitefield"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 22
+    },
+    "travel_tolerance_km": 13,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "acbd2f36-b229-4c87-aa40-8461a2ba41e5",
+    "cuisine_vec": {
+      "north-indian": 0.74,
+      "south-indian": 0.1,
+      "asian": 0.31,
+      "japanese": 0.28,
+      "italian": 0.73,
+      "continental": 0.22,
+      "mediterranean": 0.23,
+      "mexican": 0.08,
+      "street-food": 0.21,
+      "cafe": 0.96,
+      "bar-food": 0.32,
+      "seafood": 0.25,
+      "chinese": 0.09,
+      "korean": 0.04,
+      "dessert": 0.68
+    },
+    "genre_vec": {
+      "comedy": 0.02,
+      "live-music": 0.03,
+      "indie": 0.27,
+      "bollywood": 0.93,
+      "hollywood": 0.13,
+      "thriller": 0.32,
+      "drama": 0.95,
+      "theatre": 0.04,
+      "techno": 0.12,
+      "hip-hop": 0.7,
+      "sports": 0.32,
+      "activity": 0.08,
+      "rom-com": 0.36,
+      "horror": 0.36,
+      "animation": 0.86
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "MG Road",
+      "Whitefield",
+      "Indiranagar"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 21
+    },
+    "travel_tolerance_km": 10,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "98ad88e0-d677-43a3-a697-586d22bee7d6",
+    "cuisine_vec": {
+      "north-indian": 0.06,
+      "south-indian": 0.39,
+      "asian": 0.07,
+      "japanese": 0.09,
+      "italian": 0.36,
+      "continental": 0.83,
+      "mediterranean": 0.87,
+      "mexican": 0.01,
+      "street-food": 0.71,
+      "cafe": 0.28,
+      "bar-food": 0.27,
+      "seafood": 0.23,
+      "chinese": 0.69,
+      "korean": 0.19,
+      "dessert": 0.33
+    },
+    "genre_vec": {
+      "comedy": 0.06,
+      "live-music": 0.18,
+      "indie": 0.3,
+      "bollywood": 0.78,
+      "hollywood": 0.35,
+      "thriller": 0.03,
+      "drama": 0.9,
+      "theatre": 0.26,
+      "techno": 0.29,
+      "hip-hop": 0.65,
+      "sports": 0.28,
+      "activity": 0.06,
+      "rom-com": 0.04,
+      "horror": 0.72,
+      "animation": 0.02
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Koramangala",
+      "Whitefield"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 10,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "6681be6e-d993-4f8c-afb7-b11e18fd6242",
+    "cuisine_vec": {
+      "north-indian": 0.77,
+      "south-indian": 0.84,
+      "asian": 0.07,
+      "japanese": 0.72,
+      "italian": 0.32,
+      "continental": 0.27,
+      "mediterranean": 0.16,
+      "mexican": 0.63,
+      "street-food": 0.14,
+      "cafe": 0.37,
+      "bar-food": 0.22,
+      "seafood": 0.34,
+      "chinese": 0.13,
+      "korean": 0.08,
+      "dessert": 0.16
+    },
+    "genre_vec": {
+      "comedy": 0.99,
+      "live-music": 0.9,
+      "indie": 0.35,
+      "bollywood": 0.79,
+      "hollywood": 0.15,
+      "thriller": 0.31,
+      "drama": 0.27,
+      "theatre": 0.33,
+      "techno": 0.06,
+      "hip-hop": 0.11,
+      "sports": 0.18,
+      "activity": 0.68,
+      "rom-com": 0.08,
+      "horror": 0.13,
+      "animation": 0.19
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "MG Road",
+      "Whitefield",
+      "Indiranagar"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 22
+    },
+    "travel_tolerance_km": 15,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "bdbc5a9a-dc64-46f8-a500-70176154859e",
+    "cuisine_vec": {
+      "north-indian": 0.12,
+      "south-indian": 0.22,
+      "asian": 0.85,
+      "japanese": 0.11,
+      "italian": 0.2,
+      "continental": 0.28,
+      "mediterranean": 0.03,
+      "mexican": 0.19,
+      "street-food": 0.96,
+      "cafe": 0.28,
+      "bar-food": 0.31,
+      "seafood": 0.07,
+      "chinese": 0.95,
+      "korean": 0.95,
+      "dessert": 0.04
+    },
+    "genre_vec": {
+      "comedy": 0.82,
+      "live-music": 0.05,
+      "indie": 0,
+      "bollywood": 0.86,
+      "hollywood": 0.39,
+      "thriller": 0.63,
+      "drama": 0.06,
+      "theatre": 0.32,
+      "techno": 0.19,
+      "hip-hop": 0.26,
+      "sports": 0.34,
+      "activity": 0.03,
+      "rom-com": 0.16,
+      "horror": 0.05,
+      "animation": 0.75
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Koramangala",
+      "MG Road",
+      "Indiranagar"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 23
+    },
+    "travel_tolerance_km": 9,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "83db87fe-2f40-463b-ac49-a500a05bf57f",
+    "cuisine_vec": {
+      "north-indian": 0.8,
+      "south-indian": 0,
+      "asian": 0.18,
+      "japanese": 0.26,
+      "italian": 0.12,
+      "continental": 0.2,
+      "mediterranean": 0.18,
+      "mexican": 0.29,
+      "street-food": 0.88,
+      "cafe": 0.28,
+      "bar-food": 0.21,
+      "seafood": 0.86,
+      "chinese": 0.74,
+      "korean": 0.11,
+      "dessert": 0.08
+    },
+    "genre_vec": {
+      "comedy": 0.71,
+      "live-music": 0.78,
+      "indie": 0.38,
+      "bollywood": 0.26,
+      "hollywood": 0.31,
+      "thriller": 0.02,
+      "drama": 0.24,
+      "theatre": 0.3,
+      "techno": 0.31,
+      "hip-hop": 0.05,
+      "sports": 0.22,
+      "activity": 0.77,
+      "rom-com": 0.01,
+      "horror": 0.31,
+      "animation": 0.64
+    },
+    "price_band": "₹₹₹₹",
+    "fav_areas": [
+      "Koramangala",
+      "Indiranagar",
+      "Whitefield"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 21
+    },
+    "travel_tolerance_km": 4,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "b5668170-f487-4322-a79c-7c94ebb0da42",
+    "cuisine_vec": {
+      "north-indian": 0.74,
+      "south-indian": 0.96,
+      "asian": 0.74,
+      "japanese": 0.01,
+      "italian": 0.34,
+      "continental": 0.1,
+      "mediterranean": 0.26,
+      "mexican": 0.06,
+      "street-food": 0.8,
+      "cafe": 0.06,
+      "bar-food": 0.31,
+      "seafood": 0.07,
+      "chinese": 0.24,
+      "korean": 0.3,
+      "dessert": 0.24
+    },
+    "genre_vec": {
+      "comedy": 0.7,
+      "live-music": 0.36,
+      "indie": 0.31,
+      "bollywood": 0.72,
+      "hollywood": 0.23,
+      "thriller": 0.23,
+      "drama": 0.68,
+      "theatre": 0.24,
+      "techno": 0.04,
+      "hip-hop": 0.28,
+      "sports": 0.02,
+      "activity": 0.84,
+      "rom-com": 0.25,
+      "horror": 0.02,
+      "animation": 0.1
+    },
+    "price_band": "₹₹₹₹",
+    "fav_areas": [
+      "Indiranagar",
+      "Whitefield"
+    ],
+    "dietary": "halal",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 19
+    },
+    "travel_tolerance_km": 6,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "d5a2df69-857e-4aca-a451-ab46b798ea82",
+    "cuisine_vec": {
+      "north-indian": 0.04,
+      "south-indian": 0.14,
+      "asian": 0.68,
+      "japanese": 0.99,
+      "italian": 0.1,
+      "continental": 0.95,
+      "mediterranean": 0.29,
+      "mexican": 0.15,
+      "street-food": 0.01,
+      "cafe": 0.28,
+      "bar-food": 0.07,
+      "seafood": 0.25,
+      "chinese": 0.36,
+      "korean": 0.74,
+      "dessert": 0.2
+    },
+    "genre_vec": {
+      "comedy": 0.35,
+      "live-music": 0.67,
+      "indie": 0.98,
+      "bollywood": 0.1,
+      "hollywood": 0.27,
+      "thriller": 0.08,
+      "drama": 0.37,
+      "theatre": 0.87,
+      "techno": 0.17,
+      "hip-hop": 0.06,
+      "sports": 0.36,
+      "activity": 0.14,
+      "rom-com": 0.29,
+      "horror": 0.22,
+      "animation": 0.71
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "MG Road",
+      "Whitefield",
+      "Indiranagar"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 8,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "b109ceb6-309a-4fa7-a89f-f92ec1421042",
+    "cuisine_vec": {
+      "north-indian": 0.71,
+      "south-indian": 0.24,
+      "asian": 0.01,
+      "japanese": 0.29,
+      "italian": 0.28,
+      "continental": 0.88,
+      "mediterranean": 0.66,
+      "mexican": 0.12,
+      "street-food": 0.06,
+      "cafe": 0.05,
+      "bar-food": 0.19,
+      "seafood": 0.67,
+      "chinese": 0.34,
+      "korean": 0.15,
+      "dessert": 0.39
+    },
+    "genre_vec": {
+      "comedy": 0.62,
+      "live-music": 0.29,
+      "indie": 0.24,
+      "bollywood": 0.18,
+      "hollywood": 0.15,
+      "thriller": 0.15,
+      "drama": 0.13,
+      "theatre": 0.3,
+      "techno": 0.26,
+      "hip-hop": 0.86,
+      "sports": 0.68,
+      "activity": 0.9,
+      "rom-com": 0.2,
+      "horror": 0.36,
+      "animation": 0.14
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Indiranagar",
+      "MG Road",
+      "Whitefield"
+    ],
+    "dietary": "vegan",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 19
+    },
+    "travel_tolerance_km": 6,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "e14db746-44f6-4ac7-a0a5-8f836514255d",
+    "cuisine_vec": {
+      "north-indian": 0.03,
+      "south-indian": 0.26,
+      "asian": 0.33,
+      "japanese": 0.01,
+      "italian": 0.23,
+      "continental": 0.26,
+      "mediterranean": 0.35,
+      "mexican": 0.65,
+      "street-food": 0.31,
+      "cafe": 0.9,
+      "bar-food": 0.19,
+      "seafood": 0.34,
+      "chinese": 0.95,
+      "korean": 0.99,
+      "dessert": 0.35
+    },
+    "genre_vec": {
+      "comedy": 0.13,
+      "live-music": 0.28,
+      "indie": 0.23,
+      "bollywood": 0.85,
+      "hollywood": 0.39,
+      "thriller": 0.37,
+      "drama": 0.14,
+      "theatre": 0.86,
+      "techno": 0.96,
+      "hip-hop": 0.33,
+      "sports": 0.01,
+      "activity": 0.85,
+      "rom-com": 0.02,
+      "horror": 0.19,
+      "animation": 0.38
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Indiranagar",
+      "Koramangala",
+      "Whitefield"
+    ],
+    "dietary": "vegan",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 19
+    },
+    "travel_tolerance_km": 6,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "7ca1f3b9-c468-4d24-a0d6-e5da9ebf5960",
+    "cuisine_vec": {
+      "north-indian": 0.16,
+      "south-indian": 0.28,
+      "asian": 0.39,
+      "japanese": 0,
+      "italian": 0.87,
+      "continental": 0.13,
+      "mediterranean": 0.85,
+      "mexican": 0.03,
+      "street-food": 0.96,
+      "cafe": 0.86,
+      "bar-food": 0.35,
+      "seafood": 0.32,
+      "chinese": 0.22,
+      "korean": 0.04,
+      "dessert": 0.28
+    },
+    "genre_vec": {
+      "comedy": 0.37,
+      "live-music": 0.01,
+      "indie": 0.17,
+      "bollywood": 0.13,
+      "hollywood": 0.76,
+      "thriller": 0.18,
+      "drama": 0.27,
+      "theatre": 0.24,
+      "techno": 0.11,
+      "hip-hop": 0.85,
+      "sports": 0.08,
+      "activity": 0.01,
+      "rom-com": 0.69,
+      "horror": 0.69,
+      "animation": 0.3
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Bandra West",
+      "Lower Parel",
+      "Andheri West"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 6,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "b4c3480e-eef0-4944-a9d1-b70776664a15",
+    "cuisine_vec": {
+      "north-indian": 0.26,
+      "south-indian": 0.93,
+      "asian": 0.3,
+      "japanese": 0.12,
+      "italian": 0.4,
+      "continental": 0.07,
+      "mediterranean": 0.29,
+      "mexican": 0.8,
+      "street-food": 0.79,
+      "cafe": 0.36,
+      "bar-food": 0.67,
+      "seafood": 0.16,
+      "chinese": 0.14,
+      "korean": 0.39,
+      "dessert": 0.19
+    },
+    "genre_vec": {
+      "comedy": 0.89,
+      "live-music": 0.7,
+      "indie": 0.12,
+      "bollywood": 0.29,
+      "hollywood": 0.05,
+      "thriller": 0.22,
+      "drama": 0.62,
+      "theatre": 0.03,
+      "techno": 0.65,
+      "hip-hop": 0.32,
+      "sports": 0.06,
+      "activity": 0.33,
+      "rom-com": 0,
+      "horror": 0.08,
+      "animation": 0.07
+    },
+    "price_band": "₹₹₹₹",
+    "fav_areas": [
+      "Colaba",
+      "Powai",
+      "Andheri West"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 8,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "c8d54df4-1d12-4dab-a5e8-e67ac9d0baa7",
+    "cuisine_vec": {
+      "north-indian": 0.38,
+      "south-indian": 0.07,
+      "asian": 0.01,
+      "japanese": 0.87,
+      "italian": 0.06,
+      "continental": 0.14,
+      "mediterranean": 0.85,
+      "mexican": 0.13,
+      "street-food": 0.75,
+      "cafe": 0.15,
+      "bar-food": 0.06,
+      "seafood": 0.67,
+      "chinese": 0.16,
+      "korean": 0.11,
+      "dessert": 0.2
+    },
+    "genre_vec": {
+      "comedy": 0.26,
+      "live-music": 0.13,
+      "indie": 0.77,
+      "bollywood": 0.94,
+      "hollywood": 0.13,
+      "thriller": 0.05,
+      "drama": 0.21,
+      "theatre": 0.16,
+      "techno": 0.33,
+      "hip-hop": 0.06,
+      "sports": 0.19,
+      "activity": 0.93,
+      "rom-com": 0.95,
+      "horror": 0.28,
+      "animation": 0.14
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Andheri West",
+      "Lower Parel",
+      "Bandra West"
+    ],
+    "dietary": "vegan",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 5,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "2cf9eec6-40e9-4e31-a20d-b0a3d038e4b2",
+    "cuisine_vec": {
+      "north-indian": 0.03,
+      "south-indian": 0.31,
+      "asian": 0.65,
+      "japanese": 0.02,
+      "italian": 0.34,
+      "continental": 0.62,
+      "mediterranean": 0.67,
+      "mexican": 0.38,
+      "street-food": 0.77,
+      "cafe": 0.35,
+      "bar-food": 0.34,
+      "seafood": 0.36,
+      "chinese": 0.21,
+      "korean": 0.2,
+      "dessert": 0.38
+    },
+    "genre_vec": {
+      "comedy": 0.32,
+      "live-music": 0.03,
+      "indie": 0.36,
+      "bollywood": 0.04,
+      "hollywood": 0.23,
+      "thriller": 0.3,
+      "drama": 0.01,
+      "theatre": 0.71,
+      "techno": 0.3,
+      "hip-hop": 0.88,
+      "sports": 0.34,
+      "activity": 0.98,
+      "rom-com": 0.33,
+      "horror": 0.12,
+      "animation": 0.75
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Colaba",
+      "Powai"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 19
+    },
+    "travel_tolerance_km": 4,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "361f8332-6905-4e53-a7af-7001445fbbf2",
+    "cuisine_vec": {
+      "north-indian": 0.26,
+      "south-indian": 0.31,
+      "asian": 0.6,
+      "japanese": 0.82,
+      "italian": 0.36,
+      "continental": 0.39,
+      "mediterranean": 0.05,
+      "mexican": 0.35,
+      "street-food": 0.31,
+      "cafe": 0.11,
+      "bar-food": 0.01,
+      "seafood": 0.68,
+      "chinese": 0.19,
+      "korean": 0.71,
+      "dessert": 0.09
+    },
+    "genre_vec": {
+      "comedy": 0.87,
+      "live-music": 0.88,
+      "indie": 0.35,
+      "bollywood": 0.14,
+      "hollywood": 0.37,
+      "thriller": 0.39,
+      "drama": 0.11,
+      "theatre": 0.09,
+      "techno": 0.97,
+      "hip-hop": 0.13,
+      "sports": 0.4,
+      "activity": 0.28,
+      "rom-com": 0.78,
+      "horror": 0.34,
+      "animation": 0.18
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Lower Parel",
+      "Bandra West",
+      "Colaba"
+    ],
+    "dietary": "halal",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 21
+    },
+    "travel_tolerance_km": 15,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "e4bb1974-8bc2-4ef3-a03f-ac4d8ce69900",
+    "cuisine_vec": {
+      "north-indian": 0.3,
+      "south-indian": 0.22,
+      "asian": 0.16,
+      "japanese": 0.95,
+      "italian": 0.69,
+      "continental": 0.07,
+      "mediterranean": 0.21,
+      "mexican": 0.28,
+      "street-food": 0.61,
+      "cafe": 0.78,
+      "bar-food": 0.3,
+      "seafood": 0.06,
+      "chinese": 0.02,
+      "korean": 0.23,
+      "dessert": 0.27
+    },
+    "genre_vec": {
+      "comedy": 0.22,
+      "live-music": 0.86,
+      "indie": 0.87,
+      "bollywood": 0.05,
+      "hollywood": 0.26,
+      "thriller": 0.72,
+      "drama": 0.27,
+      "theatre": 0.39,
+      "techno": 0.39,
+      "hip-hop": 0.38,
+      "sports": 0.24,
+      "activity": 0.12,
+      "rom-com": 0.2,
+      "horror": 0.87,
+      "animation": 0.33
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Andheri West",
+      "Powai"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 15,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "f48f1d85-80ac-4ef3-a561-1e05fcd0b97a",
+    "cuisine_vec": {
+      "north-indian": 0.7,
+      "south-indian": 0.26,
+      "asian": 0.06,
+      "japanese": 0.74,
+      "italian": 0.63,
+      "continental": 0.11,
+      "mediterranean": 0.39,
+      "mexican": 0.16,
+      "street-food": 0.2,
+      "cafe": 0.38,
+      "bar-food": 0.05,
+      "seafood": 0.98,
+      "chinese": 0.26,
+      "korean": 0.37,
+      "dessert": 0.31
+    },
+    "genre_vec": {
+      "comedy": 0.02,
+      "live-music": 0.2,
+      "indie": 0.3,
+      "bollywood": 0.66,
+      "hollywood": 0.63,
+      "thriller": 0,
+      "drama": 0.4,
+      "theatre": 0.22,
+      "techno": 0.08,
+      "hip-hop": 0.84,
+      "sports": 0.38,
+      "activity": 0.15,
+      "rom-com": 0.24,
+      "horror": 0.86,
+      "animation": 0.38
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Bandra West",
+      "Colaba",
+      "Powai"
+    ],
+    "dietary": "jain",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 23
+    },
+    "travel_tolerance_km": 9,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "e47abdd9-9a50-45ea-a47d-19b3d55a16cd",
+    "cuisine_vec": {
+      "north-indian": 0.32,
+      "south-indian": 0.28,
+      "asian": 0.71,
+      "japanese": 0.16,
+      "italian": 0.38,
+      "continental": 0.3,
+      "mediterranean": 0.31,
+      "mexican": 0.72,
+      "street-food": 0.1,
+      "cafe": 0.33,
+      "bar-food": 0.63,
+      "seafood": 0.36,
+      "chinese": 0.36,
+      "korean": 0.65,
+      "dessert": 0.21
+    },
+    "genre_vec": {
+      "comedy": 0.29,
+      "live-music": 0.64,
+      "indie": 0.93,
+      "bollywood": 0.03,
+      "hollywood": 0.02,
+      "thriller": 0.21,
+      "drama": 0.22,
+      "theatre": 0.85,
+      "techno": 0.25,
+      "hip-hop": 0.25,
+      "sports": 0.2,
+      "activity": 0.37,
+      "rom-com": 0.03,
+      "horror": 1,
+      "animation": 0.07
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Lower Parel",
+      "Colaba"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 9,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "7d8526af-35d3-4fe6-a4fd-cc0b70530159",
+    "cuisine_vec": {
+      "north-indian": 0.07,
+      "south-indian": 0.31,
+      "asian": 0.8,
+      "japanese": 0.71,
+      "italian": 0.22,
+      "continental": 0.92,
+      "mediterranean": 0.12,
+      "mexican": 0.09,
+      "street-food": 0.4,
+      "cafe": 0.31,
+      "bar-food": 0.01,
+      "seafood": 0.06,
+      "chinese": 0.2,
+      "korean": 0.35,
+      "dessert": 0.74
+    },
+    "genre_vec": {
+      "comedy": 0.87,
+      "live-music": 0.91,
+      "indie": 0.24,
+      "bollywood": 0.05,
+      "hollywood": 0.27,
+      "thriller": 0.71,
+      "drama": 0.27,
+      "theatre": 0.01,
+      "techno": 0.09,
+      "hip-hop": 0.08,
+      "sports": 0.61,
+      "activity": 0.02,
+      "rom-com": 0.08,
+      "horror": 0.02,
+      "animation": 0.21
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Powai",
+      "Lower Parel"
+    ],
+    "dietary": "halal",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 23
+    },
+    "travel_tolerance_km": 13,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "83890202-ff7a-48a0-a0d7-c77fd7ce1a7d",
+    "cuisine_vec": {
+      "north-indian": 0.08,
+      "south-indian": 0.13,
+      "asian": 0.24,
+      "japanese": 0.16,
+      "italian": 0.26,
+      "continental": 0.61,
+      "mediterranean": 0.28,
+      "mexican": 0.86,
+      "street-food": 0.93,
+      "cafe": 0.2,
+      "bar-food": 0.11,
+      "seafood": 0.25,
+      "chinese": 0.86,
+      "korean": 0.27,
+      "dessert": 0.09
+    },
+    "genre_vec": {
+      "comedy": 0.2,
+      "live-music": 0.37,
+      "indie": 0.67,
+      "bollywood": 0.2,
+      "hollywood": 0.1,
+      "thriller": 0.11,
+      "drama": 0.3,
+      "theatre": 0.12,
+      "techno": 0.61,
+      "hip-hop": 0.8,
+      "sports": 0.1,
+      "activity": 0.3,
+      "rom-com": 0.89,
+      "horror": 0.17,
+      "animation": 0.25
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Colaba",
+      "Lower Parel"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 15,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "516d30c8-7c27-452e-a401-475ff2d36702",
+    "cuisine_vec": {
+      "north-indian": 0.98,
+      "south-indian": 0.03,
+      "asian": 0.68,
+      "japanese": 0.4,
+      "italian": 0.2,
+      "continental": 0.4,
+      "mediterranean": 0.7,
+      "mexican": 0.04,
+      "street-food": 0.1,
+      "cafe": 0.14,
+      "bar-food": 0.74,
+      "seafood": 0.36,
+      "chinese": 0.01,
+      "korean": 0.17,
+      "dessert": 0.05
+    },
+    "genre_vec": {
+      "comedy": 0.1,
+      "live-music": 0.18,
+      "indie": 0.18,
+      "bollywood": 0.15,
+      "hollywood": 0.63,
+      "thriller": 0.31,
+      "drama": 0.03,
+      "theatre": 0.33,
+      "techno": 0.83,
+      "hip-hop": 0.61,
+      "sports": 0.33,
+      "activity": 0.21,
+      "rom-com": 0.14,
+      "horror": 0.83,
+      "animation": 0.38
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Bandra West",
+      "Colaba",
+      "Lower Parel"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 23
+    },
+    "travel_tolerance_km": 11,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "b59186a2-e54c-48e2-a1eb-70ba663baba3",
+    "cuisine_vec": {
+      "north-indian": 0.88,
+      "south-indian": 0.35,
+      "asian": 0.08,
+      "japanese": 0.39,
+      "italian": 0.12,
+      "continental": 0.07,
+      "mediterranean": 0.03,
+      "mexican": 0.69,
+      "street-food": 0.26,
+      "cafe": 0.13,
+      "bar-food": 0.16,
+      "seafood": 0.11,
+      "chinese": 0.15,
+      "korean": 0.68,
+      "dessert": 0.88
+    },
+    "genre_vec": {
+      "comedy": 0.17,
+      "live-music": 0.23,
+      "indie": 0.37,
+      "bollywood": 0.24,
+      "hollywood": 0.28,
+      "thriller": 0.84,
+      "drama": 1,
+      "theatre": 0.61,
+      "techno": 0.65,
+      "hip-hop": 0.31,
+      "sports": 0.16,
+      "activity": 0.13,
+      "rom-com": 0.29,
+      "horror": 0.33,
+      "animation": 0.36
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Andheri West",
+      "Lower Parel",
+      "Bandra West"
+    ],
+    "dietary": "jain",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 8,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "445470f2-8bfa-4fc7-a322-7001e6527932",
+    "cuisine_vec": {
+      "north-indian": 0.9,
+      "south-indian": 0.23,
+      "asian": 0.26,
+      "japanese": 0.24,
+      "italian": 0.15,
+      "continental": 0.15,
+      "mediterranean": 0.34,
+      "mexican": 0.84,
+      "street-food": 0.33,
+      "cafe": 0.98,
+      "bar-food": 0.35,
+      "seafood": 0.87,
+      "chinese": 0.17,
+      "korean": 0.11,
+      "dessert": 0.02
+    },
+    "genre_vec": {
+      "comedy": 0.67,
+      "live-music": 0.12,
+      "indie": 0.99,
+      "bollywood": 0.34,
+      "hollywood": 0.35,
+      "thriller": 0.34,
+      "drama": 0.25,
+      "theatre": 0.16,
+      "techno": 0.24,
+      "hip-hop": 0.2,
+      "sports": 0.69,
+      "activity": 0.18,
+      "rom-com": 0.27,
+      "horror": 0.9,
+      "animation": 0.29
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Bandra West",
+      "Powai",
+      "Lower Parel"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 22
+    },
+    "travel_tolerance_km": 9,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "51657462-feee-44bb-abc9-02bd8e2667d8",
+    "cuisine_vec": {
+      "north-indian": 0.4,
+      "south-indian": 0.76,
+      "asian": 0.4,
+      "japanese": 0.15,
+      "italian": 0.18,
+      "continental": 0.64,
+      "mediterranean": 0.32,
+      "mexican": 0.21,
+      "street-food": 0.39,
+      "cafe": 0.69,
+      "bar-food": 0.09,
+      "seafood": 0.31,
+      "chinese": 0.4,
+      "korean": 0.22,
+      "dessert": 0.72
+    },
+    "genre_vec": {
+      "comedy": 0.8,
+      "live-music": 0.98,
+      "indie": 0.03,
+      "bollywood": 0.21,
+      "hollywood": 0.72,
+      "thriller": 0.01,
+      "drama": 0.02,
+      "theatre": 0.83,
+      "techno": 0.38,
+      "hip-hop": 0.27,
+      "sports": 0.27,
+      "activity": 0.15,
+      "rom-com": 0.35,
+      "horror": 0.27,
+      "animation": 0
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Bandra West",
+      "Lower Parel"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 22
+    },
+    "travel_tolerance_km": 7,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "51307c7d-c2fe-43d8-addc-7a4b15a8b1a4",
+    "cuisine_vec": {
+      "north-indian": 0.85,
+      "south-indian": 0.99,
+      "asian": 0.11,
+      "japanese": 0.37,
+      "italian": 0.33,
+      "continental": 0.13,
+      "mediterranean": 0.28,
+      "mexican": 0.38,
+      "street-food": 0.01,
+      "cafe": 0.02,
+      "bar-food": 0.3,
+      "seafood": 0.33,
+      "chinese": 0.12,
+      "korean": 0.89,
+      "dessert": 0.67
+    },
+    "genre_vec": {
+      "comedy": 0.31,
+      "live-music": 0.81,
+      "indie": 0.15,
+      "bollywood": 0.64,
+      "hollywood": 0.29,
+      "thriller": 0.08,
+      "drama": 0.39,
+      "theatre": 0.86,
+      "techno": 0.85,
+      "hip-hop": 0.31,
+      "sports": 0.2,
+      "activity": 0.25,
+      "rom-com": 0.02,
+      "horror": 0.01,
+      "animation": 0.32
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Hauz Khas",
+      "Saket",
+      "Connaught Place"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 4,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "9bbc3e0b-8de5-4b94-abb5-0e8e9291e892",
+    "cuisine_vec": {
+      "north-indian": 0.03,
+      "south-indian": 0.09,
+      "asian": 0.03,
+      "japanese": 0.19,
+      "italian": 0.14,
+      "continental": 0.2,
+      "mediterranean": 0.12,
+      "mexican": 0.91,
+      "street-food": 0.27,
+      "cafe": 0.96,
+      "bar-food": 0.76,
+      "seafood": 0.09,
+      "chinese": 0.9,
+      "korean": 0.25,
+      "dessert": 0.21
+    },
+    "genre_vec": {
+      "comedy": 0.34,
+      "live-music": 0.05,
+      "indie": 0.34,
+      "bollywood": 0.61,
+      "hollywood": 0.13,
+      "thriller": 0.15,
+      "drama": 0.23,
+      "theatre": 0.38,
+      "techno": 0.72,
+      "hip-hop": 0.2,
+      "sports": 0.28,
+      "activity": 0.4,
+      "rom-com": 0.84,
+      "horror": 0.81,
+      "animation": 0.32
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Hauz Khas",
+      "Saket"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 19
+    },
+    "travel_tolerance_km": 5,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "2b79b38e-ea28-4db2-a5ac-e33d26d4461e",
+    "cuisine_vec": {
+      "north-indian": 0.27,
+      "south-indian": 0.04,
+      "asian": 0.74,
+      "japanese": 0.68,
+      "italian": 0.08,
+      "continental": 0.4,
+      "mediterranean": 0.29,
+      "mexican": 0.78,
+      "street-food": 0.19,
+      "cafe": 0.11,
+      "bar-food": 0.28,
+      "seafood": 0.26,
+      "chinese": 0,
+      "korean": 0.93,
+      "dessert": 0.12
+    },
+    "genre_vec": {
+      "comedy": 0.03,
+      "live-music": 0.05,
+      "indie": 0.38,
+      "bollywood": 0.67,
+      "hollywood": 0.68,
+      "thriller": 0.08,
+      "drama": 0.76,
+      "theatre": 0.28,
+      "techno": 0.14,
+      "hip-hop": 0.16,
+      "sports": 0.21,
+      "activity": 0.92,
+      "rom-com": 0.01,
+      "horror": 0.23,
+      "animation": 0.04
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Hauz Khas",
+      "Sector 29 Gurugram",
+      "Saket"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 19
+    },
+    "travel_tolerance_km": 7,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "464bef3e-e767-4819-abeb-8f915efddfbe",
+    "cuisine_vec": {
+      "north-indian": 0.89,
+      "south-indian": 0.37,
+      "asian": 0.4,
+      "japanese": 0.89,
+      "italian": 0.09,
+      "continental": 0.6,
+      "mediterranean": 0.36,
+      "mexican": 0.4,
+      "street-food": 0.04,
+      "cafe": 0.27,
+      "bar-food": 0.05,
+      "seafood": 0.24,
+      "chinese": 0.02,
+      "korean": 0.12,
+      "dessert": 0.64
+    },
+    "genre_vec": {
+      "comedy": 0.22,
+      "live-music": 0.36,
+      "indie": 0.07,
+      "bollywood": 0.82,
+      "hollywood": 0.21,
+      "thriller": 0.3,
+      "drama": 0.68,
+      "theatre": 0.74,
+      "techno": 0.04,
+      "hip-hop": 0.86,
+      "sports": 0.32,
+      "activity": 0.39,
+      "rom-com": 0.14,
+      "horror": 0.08,
+      "animation": 0.03
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Saket",
+      "Hauz Khas",
+      "Cyber Hub"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 5,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "5ecfba7e-4a50-4a8c-ac60-c6ee344c4d0c",
+    "cuisine_vec": {
+      "north-indian": 0.38,
+      "south-indian": 0.06,
+      "asian": 0.1,
+      "japanese": 0.15,
+      "italian": 0.91,
+      "continental": 0.27,
+      "mediterranean": 0.75,
+      "mexican": 0.19,
+      "street-food": 0.04,
+      "cafe": 0.93,
+      "bar-food": 0.23,
+      "seafood": 0.83,
+      "chinese": 0.34,
+      "korean": 0.35,
+      "dessert": 0.29
+    },
+    "genre_vec": {
+      "comedy": 0.9,
+      "live-music": 0.94,
+      "indie": 0.29,
+      "bollywood": 0.1,
+      "hollywood": 0.14,
+      "thriller": 0.15,
+      "drama": 0.07,
+      "theatre": 0.8,
+      "techno": 0.29,
+      "hip-hop": 0.2,
+      "sports": 0.87,
+      "activity": 0.03,
+      "rom-com": 0.12,
+      "horror": 0.32,
+      "animation": 0.16
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Sector 29 Gurugram",
+      "Saket",
+      "Cyber Hub"
+    ],
+    "dietary": "vegan",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 21
+    },
+    "travel_tolerance_km": 5,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "6e95d481-d8cf-47f7-ad23-6d5dc8d3b475",
+    "cuisine_vec": {
+      "north-indian": 0.96,
+      "south-indian": 0.71,
+      "asian": 0.34,
+      "japanese": 0.08,
+      "italian": 0.27,
+      "continental": 0.11,
+      "mediterranean": 0.22,
+      "mexican": 0.33,
+      "street-food": 0.18,
+      "cafe": 0.27,
+      "bar-food": 0.25,
+      "seafood": 0.81,
+      "chinese": 0.71,
+      "korean": 0.06,
+      "dessert": 0.1
+    },
+    "genre_vec": {
+      "comedy": 0.05,
+      "live-music": 0.28,
+      "indie": 0.66,
+      "bollywood": 0.97,
+      "hollywood": 0.03,
+      "thriller": 0.36,
+      "drama": 0.9,
+      "theatre": 0.21,
+      "techno": 0.39,
+      "hip-hop": 0.05,
+      "sports": 0.07,
+      "activity": 0.93,
+      "rom-com": 0.05,
+      "horror": 0.25,
+      "animation": 0.37
+    },
+    "price_band": "₹₹",
+    "fav_areas": [
+      "Sector 29 Gurugram",
+      "Hauz Khas",
+      "Connaught Place"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        5,
+        6
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 4,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "036f831d-6a90-4720-ad61-213c336c3a7d",
+    "cuisine_vec": {
+      "north-indian": 0.76,
+      "south-indian": 0.34,
+      "asian": 0.09,
+      "japanese": 0.01,
+      "italian": 0.32,
+      "continental": 0.91,
+      "mediterranean": 0.15,
+      "mexican": 0.82,
+      "street-food": 0.07,
+      "cafe": 0.26,
+      "bar-food": 0.89,
+      "seafood": 0.34,
+      "chinese": 0.34,
+      "korean": 0.04,
+      "dessert": 0.39
+    },
+    "genre_vec": {
+      "comedy": 0.82,
+      "live-music": 0.24,
+      "indie": 0.84,
+      "bollywood": 0.67,
+      "hollywood": 0.14,
+      "thriller": 0.02,
+      "drama": 0.34,
+      "theatre": 0.18,
+      "techno": 0.29,
+      "hip-hop": 0.37,
+      "sports": 0.2,
+      "activity": 0.84,
+      "rom-com": 0.37,
+      "horror": 0,
+      "animation": 0.1
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Connaught Place",
+      "Cyber Hub"
+    ],
+    "dietary": "vegan",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 22
+    },
+    "travel_tolerance_km": 12,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "1ae7bcda-d16b-4a27-a9d8-3a8e12ee97b8",
+    "cuisine_vec": {
+      "north-indian": 0.98,
+      "south-indian": 0.95,
+      "asian": 0.35,
+      "japanese": 0.23,
+      "italian": 0.37,
+      "continental": 0.21,
+      "mediterranean": 0.95,
+      "mexican": 0.15,
+      "street-food": 0.16,
+      "cafe": 0.08,
+      "bar-food": 0.09,
+      "seafood": 0.06,
+      "chinese": 0.28,
+      "korean": 0.16,
+      "dessert": 0.61
+    },
+    "genre_vec": {
+      "comedy": 0.16,
+      "live-music": 0.95,
+      "indie": 0.78,
+      "bollywood": 0.61,
+      "hollywood": 0.15,
+      "thriller": 0.31,
+      "drama": 0.96,
+      "theatre": 0.17,
+      "techno": 0.27,
+      "hip-hop": 0.24,
+      "sports": 0.26,
+      "activity": 0.11,
+      "rom-com": 0.26,
+      "horror": 0.24,
+      "animation": 0.2
+    },
+    "price_band": "₹₹₹₹",
+    "fav_areas": [
+      "Hauz Khas",
+      "Connaught Place",
+      "Cyber Hub"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 22
+    },
+    "travel_tolerance_km": 8,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "6e765f4e-3610-40b2-a74d-8f1bb01b139a",
+    "cuisine_vec": {
+      "north-indian": 0.39,
+      "south-indian": 0.15,
+      "asian": 0.06,
+      "japanese": 0.37,
+      "italian": 0.25,
+      "continental": 0.19,
+      "mediterranean": 0.11,
+      "mexican": 0.23,
+      "street-food": 0.74,
+      "cafe": 0.21,
+      "bar-food": 0.35,
+      "seafood": 0.82,
+      "chinese": 0.94,
+      "korean": 0.68,
+      "dessert": 0.28
+    },
+    "genre_vec": {
+      "comedy": 0.27,
+      "live-music": 0.77,
+      "indie": 0.99,
+      "bollywood": 0.22,
+      "hollywood": 0.32,
+      "thriller": 0.7,
+      "drama": 0.37,
+      "theatre": 0.8,
+      "techno": 0.37,
+      "hip-hop": 0.19,
+      "sports": 0.08,
+      "activity": 0.09,
+      "rom-com": 0.04,
+      "horror": 0.29,
+      "animation": 0.07
+    },
+    "price_band": "₹₹₹₹",
+    "fav_areas": [
+      "Cyber Hub",
+      "Connaught Place"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 6,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "0007888c-ee0f-4640-a279-b540d7d04816",
+    "cuisine_vec": {
+      "north-indian": 0.95,
+      "south-indian": 0.21,
+      "asian": 0.03,
+      "japanese": 0.03,
+      "italian": 0.03,
+      "continental": 0.23,
+      "mediterranean": 0.34,
+      "mexican": 0.97,
+      "street-food": 0.34,
+      "cafe": 0.03,
+      "bar-food": 0.18,
+      "seafood": 0.29,
+      "chinese": 0.65,
+      "korean": 0.75,
+      "dessert": 0.24
+    },
+    "genre_vec": {
+      "comedy": 0.24,
+      "live-music": 0.28,
+      "indie": 0.82,
+      "bollywood": 1,
+      "hollywood": 0.12,
+      "thriller": 0.69,
+      "drama": 0.19,
+      "theatre": 0.27,
+      "techno": 0.14,
+      "hip-hop": 0.35,
+      "sports": 0.95,
+      "activity": 0.03,
+      "rom-com": 0.4,
+      "horror": 0.18,
+      "animation": 0.39
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Hauz Khas",
+      "Cyber Hub"
+    ],
+    "dietary": "veg",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 23
+    },
+    "travel_tolerance_km": 10,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "a2e270ea-de7d-4094-a824-3c8be4d00d16",
+    "cuisine_vec": {
+      "north-indian": 0.27,
+      "south-indian": 1,
+      "asian": 0.39,
+      "japanese": 0.3,
+      "italian": 0.74,
+      "continental": 0.01,
+      "mediterranean": 0.97,
+      "mexican": 0.31,
+      "street-food": 0.02,
+      "cafe": 0.27,
+      "bar-food": 0.89,
+      "seafood": 0.4,
+      "chinese": 0.18,
+      "korean": 0.29,
+      "dessert": 0.13
+    },
+    "genre_vec": {
+      "comedy": 0.92,
+      "live-music": 0.24,
+      "indie": 0.7,
+      "bollywood": 0.09,
+      "hollywood": 0.93,
+      "thriller": 0.16,
+      "drama": 0.33,
+      "theatre": 0.17,
+      "techno": 0.89,
+      "hip-hop": 0.34,
+      "sports": 0.17,
+      "activity": 0.1,
+      "rom-com": 0.18,
+      "horror": 0.2,
+      "animation": 0.39
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Saket",
+      "Cyber Hub",
+      "Connaught Place"
+    ],
+    "dietary": "halal",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 21
+    },
+    "travel_tolerance_km": 7,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "104ec988-98bb-443f-a9a7-50f03a735554",
+    "cuisine_vec": {
+      "north-indian": 0.17,
+      "south-indian": 0.08,
+      "asian": 0.19,
+      "japanese": 0.17,
+      "italian": 0.96,
+      "continental": 0.14,
+      "mediterranean": 0.14,
+      "mexican": 0.29,
+      "street-food": 0.61,
+      "cafe": 0.65,
+      "bar-food": 0.94,
+      "seafood": 0.25,
+      "chinese": 0.03,
+      "korean": 0.12,
+      "dessert": 0.39
+    },
+    "genre_vec": {
+      "comedy": 0.96,
+      "live-music": 0.11,
+      "indie": 0.2,
+      "bollywood": 0.89,
+      "hollywood": 0.01,
+      "thriller": 0.03,
+      "drama": 0.31,
+      "theatre": 0.34,
+      "techno": 0.88,
+      "hip-hop": 0.06,
+      "sports": 0.02,
+      "activity": 0.16,
+      "rom-com": 0.07,
+      "horror": 0.23,
+      "animation": 0.77
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Hauz Khas",
+      "Saket",
+      "Sector 29 Gurugram"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 22
+    },
+    "travel_tolerance_km": 13,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "cda426ac-ce16-4ce5-a270-6d09f954ab47",
+    "cuisine_vec": {
+      "north-indian": 0.71,
+      "south-indian": 0.82,
+      "asian": 0.76,
+      "japanese": 0.36,
+      "italian": 0.39,
+      "continental": 0.36,
+      "mediterranean": 0.15,
+      "mexican": 0.9,
+      "street-food": 0.36,
+      "cafe": 0.06,
+      "bar-food": 0.23,
+      "seafood": 0.04,
+      "chinese": 0.02,
+      "korean": 0.04,
+      "dessert": 0.29
+    },
+    "genre_vec": {
+      "comedy": 0.32,
+      "live-music": 0.27,
+      "indie": 0.74,
+      "bollywood": 0.63,
+      "hollywood": 0.83,
+      "thriller": 0.24,
+      "drama": 0.37,
+      "theatre": 0.07,
+      "techno": 0.29,
+      "hip-hop": 0.02,
+      "sports": 0.06,
+      "activity": 0.14,
+      "rom-com": 0.23,
+      "horror": 0.94,
+      "animation": 0.29
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Sector 29 Gurugram",
+      "Saket"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 20
+    },
+    "travel_tolerance_km": 15,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "88535052-0388-4b42-a6de-cdd18f7d375f",
+    "cuisine_vec": {
+      "north-indian": 0.23,
+      "south-indian": 0.13,
+      "asian": 0.16,
+      "japanese": 0.79,
+      "italian": 0.83,
+      "continental": 0.65,
+      "mediterranean": 0.24,
+      "mexican": 0.05,
+      "street-food": 0.26,
+      "cafe": 0.13,
+      "bar-food": 0.4,
+      "seafood": 0.64,
+      "chinese": 0.19,
+      "korean": 0.27,
+      "dessert": 0.25
+    },
+    "genre_vec": {
+      "comedy": 0.74,
+      "live-music": 0.93,
+      "indie": 0.16,
+      "bollywood": 0.21,
+      "hollywood": 0.08,
+      "thriller": 0.35,
+      "drama": 0.23,
+      "theatre": 0.33,
+      "techno": 0.79,
+      "hip-hop": 0.08,
+      "sports": 0.1,
+      "activity": 0.84,
+      "rom-com": 0.26,
+      "horror": 0.02,
+      "animation": 0.08
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Hauz Khas",
+      "Connaught Place",
+      "Sector 29 Gurugram"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 23
+    },
+    "travel_tolerance_km": 9,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "4df476cd-1527-40ab-af6e-f5e21d2f4535",
+    "cuisine_vec": {
+      "north-indian": 0.17,
+      "south-indian": 0.71,
+      "asian": 0.77,
+      "japanese": 0.22,
+      "italian": 0.08,
+      "continental": 0.18,
+      "mediterranean": 0.06,
+      "mexican": 0.17,
+      "street-food": 0.38,
+      "cafe": 0,
+      "bar-food": 0.88,
+      "seafood": 0.77,
+      "chinese": 0.03,
+      "korean": 0.24,
+      "dessert": 0.31
+    },
+    "genre_vec": {
+      "comedy": 0.32,
+      "live-music": 0.77,
+      "indie": 0.32,
+      "bollywood": 0.11,
+      "hollywood": 0.26,
+      "thriller": 0.23,
+      "drama": 1,
+      "theatre": 0.87,
+      "techno": 0.01,
+      "hip-hop": 0.38,
+      "sports": 0.96,
+      "activity": 0.13,
+      "rom-com": 0.11,
+      "horror": 0.21,
+      "animation": 0.05
+    },
+    "price_band": "₹₹₹",
+    "fav_areas": [
+      "Saket",
+      "Hauz Khas",
+      "Sector 29 Gurugram"
+    ],
+    "dietary": "jain",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 22
+    },
+    "travel_tolerance_km": 7,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  },
+  {
+    "user_id": "051651de-12b1-4ddc-ad3a-f0fc7ba90dc4",
+    "cuisine_vec": {
+      "north-indian": 0.81,
+      "south-indian": 0.63,
+      "asian": 0.99,
+      "japanese": 0.11,
+      "italian": 0.16,
+      "continental": 0.2,
+      "mediterranean": 0.25,
+      "mexican": 0.03,
+      "street-food": 0.06,
+      "cafe": 0.05,
+      "bar-food": 0.34,
+      "seafood": 0.68,
+      "chinese": 0.24,
+      "korean": 0.02,
+      "dessert": 0.35
+    },
+    "genre_vec": {
+      "comedy": 0.15,
+      "live-music": 0.27,
+      "indie": 0.06,
+      "bollywood": 0.02,
+      "hollywood": 0.36,
+      "thriller": 0.01,
+      "drama": 0.73,
+      "theatre": 0.65,
+      "techno": 0.05,
+      "hip-hop": 0.28,
+      "sports": 0.1,
+      "activity": 0.72,
+      "rom-com": 0.35,
+      "horror": 0.22,
+      "animation": 0.76
+    },
+    "price_band": "₹",
+    "fav_areas": [
+      "Cyber Hub",
+      "Saket",
+      "Sector 29 Gurugram"
+    ],
+    "dietary": "none",
+    "time_pattern": {
+      "preferred_days": [
+        4,
+        5,
+        6,
+        0
+      ],
+      "preferred_start_hour": 21
+    },
+    "travel_tolerance_km": 15,
+    "last_built_at": "2026-09-14T04:30:00.000Z",
+    "source": "synthetic"
+  }
+]

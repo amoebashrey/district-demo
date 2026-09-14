@@ -1,0 +1,1623 @@
+[
+  {
+    "id": "1b928a8f-9790-4add-a647-791efa5f7151",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.932407520723343,
+    "lng": 77.61999011630844,
+    "title": "Go-karting Grand Prix",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-23T13:00:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1550,
+    "tickets_left": 109,
+    "status": "available",
+    "vibe_tags": [
+      "loud",
+      "chill"
+    ]
+  },
+  {
+    "id": "84903877-ddd5-4d89-a9ab-4c1bfc10d1e1",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.934648404741473,
+    "lng": 77.62265041462052,
+    "title": "When Chai Met Toast — Bengaluru show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "techno"
+    ],
+    "starts_at": "2026-09-20T16:00:00.000Z",
+    "duration_min": 78,
+    "price_per_ticket": 2000,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "big-group",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "20b32344-596c-4355-a32e-9cfdf9f267f4",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Whitefield",
+    "lat": 12.974776551425643,
+    "lng": 77.75482692140062,
+    "title": "Piya Behrupiya",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-24T15:30:00.000Z",
+    "duration_min": 125,
+    "price_per_ticket": 800,
+    "tickets_left": 115,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "9bc47fbd-052c-4a46-aa71-9d8260c61a91",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "MG Road",
+    "lat": 12.9812084022196,
+    "lng": 77.60558936759867,
+    "title": "Ritviz — Bengaluru show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "hip-hop"
+    ],
+    "starts_at": "2026-09-17T12:00:00.000Z",
+    "duration_min": 79,
+    "price_per_ticket": 1850,
+    "tickets_left": 22,
+    "status": "available",
+    "vibe_tags": [
+      "loud",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "7f8a6a4d-60c5-42e5-a316-540b56d0f2a2",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "HSR Layout",
+    "lat": 12.91677162282113,
+    "lng": 77.64437240233143,
+    "title": "Aakash Gupta Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-15T15:00:00.000Z",
+    "duration_min": 134,
+    "price_per_ticket": 950,
+    "tickets_left": 38,
+    "status": "available",
+    "vibe_tags": [
+      "cheap-and-cheerful",
+      "loud"
+    ]
+  },
+  {
+    "id": "e37303f1-2a7a-4a0a-af64-82e9710f2a08",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Whitefield",
+    "lat": 12.97486544289179,
+    "lng": 77.75184860055334,
+    "title": "When Chai Met Toast — Bengaluru show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "indie"
+    ],
+    "starts_at": "2026-09-24T13:30:00.000Z",
+    "duration_min": 91,
+    "price_per_ticket": 1150,
+    "tickets_left": 100,
+    "status": "available",
+    "vibe_tags": [
+      "cheap-and-cheerful",
+      "fancy"
+    ]
+  },
+  {
+    "id": "08acff1f-1fa3-4026-a513-b84b897bd20b",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Whitefield",
+    "lat": 12.967215918380953,
+    "lng": 77.74978461666592,
+    "title": "Abhishek Upmanyu Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-25T12:00:00.000Z",
+    "duration_min": 98,
+    "price_per_ticket": 1000,
+    "tickets_left": 92,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "big-group"
+    ]
+  },
+  {
+    "id": "d9dd3997-21ad-47ea-aa37-3f958305a70b",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.934867685252614,
+    "lng": 77.62119858033023,
+    "title": "Barff",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-26T12:30:00.000Z",
+    "duration_min": 133,
+    "price_per_ticket": 950,
+    "tickets_left": 18,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "68b2e857-f378-4687-a855-d840462d0a29",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "MG Road",
+    "lat": 12.980253480344452,
+    "lng": 77.60445392680113,
+    "title": "Kenny Sebastian Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-19T11:30:00.000Z",
+    "duration_min": 110,
+    "price_per_ticket": 750,
+    "tickets_left": 14,
+    "status": "available",
+    "vibe_tags": [
+      "cheap-and-cheerful",
+      "fancy"
+    ]
+  },
+  {
+    "id": "932a47e6-9d5d-49ee-a198-0050017babd4",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Indiranagar",
+    "lat": 12.981849941411616,
+    "lng": 77.64305157613308,
+    "title": "Anubhav Singh Bassi Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-18T16:00:00.000Z",
+    "duration_min": 143,
+    "price_per_ticket": 1600,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "a09ea6e1-321c-4a88-aa84-79172ff67538",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.931153975160607,
+    "lng": 77.62327188049629,
+    "title": "Piya Behrupiya",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-14T14:00:00.000Z",
+    "duration_min": 125,
+    "price_per_ticket": 1050,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "514fd0bd-bd63-400b-a78e-73b2c1b32f15",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Whitefield",
+    "lat": 12.968505283967778,
+    "lng": 77.75051034771185,
+    "title": "Pottery + wine",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-17T11:30:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1250,
+    "tickets_left": 107,
+    "status": "available",
+    "vibe_tags": [
+      "big-group",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "12d2e930-be77-4d79-aba6-2fb2fe34be25",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.935848759548552,
+    "lng": 77.62251958163921,
+    "title": "DC fan screening",
+    "category": "sports",
+    "genre_tags": [
+      "sports"
+    ],
+    "starts_at": "2026-09-23T14:00:00.000Z",
+    "duration_min": 119,
+    "price_per_ticket": 750,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "date-ish",
+      "loud"
+    ]
+  },
+  {
+    "id": "93254980-939f-43bb-ab7b-f4dfebdc3112",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Indiranagar",
+    "lat": 12.974241507093982,
+    "lng": 77.64643622053526,
+    "title": "Prashasti Singh Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-22T13:30:00.000Z",
+    "duration_min": 134,
+    "price_per_ticket": 950,
+    "tickets_left": 73,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "loud"
+    ]
+  },
+  {
+    "id": "8a32d903-189b-4035-a481-c16b3f9eb9b1",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "HSR Layout",
+    "lat": 12.906130091080815,
+    "lng": 77.64005233967268,
+    "title": "Hip-hop Sundays at Privee",
+    "category": "nightlife",
+    "genre_tags": [
+      "techno",
+      "bollywood"
+    ],
+    "starts_at": "2026-09-18T18:00:00.000Z",
+    "duration_min": 240,
+    "price_per_ticket": 1000,
+    "tickets_left": 45,
+    "status": "available",
+    "vibe_tags": [
+      "loud",
+      "big-group"
+    ]
+  },
+  {
+    "id": "52a2e07a-9c45-45ac-a50d-59e3db734e60",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "MG Road",
+    "lat": 12.973202123801597,
+    "lng": 77.60401017344408,
+    "title": "Anuv Jain — Bengaluru show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "hip-hop"
+    ],
+    "starts_at": "2026-09-16T13:00:00.000Z",
+    "duration_min": 123,
+    "price_per_ticket": 2250,
+    "tickets_left": 95,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "cheap-and-cheerful"
+    ]
+  },
+  {
+    "id": "70cc04ba-7b16-4519-a908-7d99e35ca2cc",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "MG Road",
+    "lat": 12.980093376293219,
+    "lng": 77.61020353189707,
+    "title": "Urooj Ashfaq Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-27T15:30:00.000Z",
+    "duration_min": 83,
+    "price_per_ticket": 1250,
+    "tickets_left": 20,
+    "status": "available",
+    "vibe_tags": [
+      "cheap-and-cheerful",
+      "fancy"
+    ]
+  },
+  {
+    "id": "14be9aa3-1b07-4ee2-af93-07ab0f88bd64",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "HSR Layout",
+    "lat": 12.913596699732729,
+    "lng": 77.63663926010263,
+    "title": "Disco Deewane at Koko",
+    "category": "nightlife",
+    "genre_tags": [
+      "techno",
+      "bollywood"
+    ],
+    "starts_at": "2026-09-26T17:30:00.000Z",
+    "duration_min": 240,
+    "price_per_ticket": 1500,
+    "tickets_left": 62,
+    "status": "available",
+    "vibe_tags": [
+      "loud",
+      "big-group"
+    ]
+  },
+  {
+    "id": "bb02a3fb-7e9f-4eef-a9a7-592b3672e700",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "HSR Layout",
+    "lat": 12.908278360824474,
+    "lng": 77.63631963887588,
+    "title": "Peter Cat Recording Co. — Bengaluru show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "hip-hop"
+    ],
+    "starts_at": "2026-09-23T13:00:00.000Z",
+    "duration_min": 91,
+    "price_per_ticket": 700,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "cheap-and-cheerful",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "fbe818f2-004f-4d10-a373-4623f54dfdc5",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "MG Road",
+    "lat": 12.981546597210132,
+    "lng": 77.60076304997169,
+    "title": "Sir Sir Sarla",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-23T15:00:00.000Z",
+    "duration_min": 103,
+    "price_per_ticket": 1450,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "e2a0965b-fa56-4139-aecf-afe1505c2478",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "Indiranagar",
+    "lat": 12.975300627394207,
+    "lng": 77.6454249343399,
+    "title": "Bowling & arcade night",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-25T14:30:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1000,
+    "tickets_left": 75,
+    "status": "available",
+    "vibe_tags": [
+      "fancy",
+      "cheap-and-cheerful"
+    ]
+  },
+  {
+    "id": "ed552f5d-24a0-4ae3-a495-405e6a07f439",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "MG Road",
+    "lat": 12.978071883913502,
+    "lng": 77.61108997124563,
+    "title": "Hip-hop Sundays at Koko",
+    "category": "nightlife",
+    "genre_tags": [
+      "techno",
+      "bollywood"
+    ],
+    "starts_at": "2026-09-15T18:00:00.000Z",
+    "duration_min": 240,
+    "price_per_ticket": 850,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "loud",
+      "big-group"
+    ]
+  },
+  {
+    "id": "948ef1d5-5d37-4c75-a81e-211a8878fc0e",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "MG Road",
+    "lat": 12.977316231241822,
+    "lng": 77.60969575507417,
+    "title": "Anuv Jain — Bengaluru show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "techno"
+    ],
+    "starts_at": "2026-09-15T11:30:00.000Z",
+    "duration_min": 87,
+    "price_per_ticket": 2350,
+    "tickets_left": 47,
+    "status": "available",
+    "vibe_tags": [
+      "cheap-and-cheerful",
+      "chill"
+    ]
+  },
+  {
+    "id": "9d72806d-1237-4166-a5b3-f676552f975c",
+    "kind": "event",
+    "city": "Bengaluru",
+    "area": "MG Road",
+    "lat": 12.972010104897805,
+    "lng": 77.6038685083365,
+    "title": "Trampoline park slot",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-20T11:30:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 450,
+    "tickets_left": 65,
+    "status": "available",
+    "vibe_tags": [
+      "big-group",
+      "fancy"
+    ]
+  },
+  {
+    "id": "312761d1-1a3f-4a7d-a1c7-22bad742decb",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.13092522120066,
+    "lng": 72.82551511627473,
+    "title": "Karaoke room",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-14T14:00:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1750,
+    "tickets_left": 8,
+    "status": "available",
+    "vibe_tags": [
+      "big-group",
+      "cheap-and-cheerful"
+    ]
+  },
+  {
+    "id": "dc2159a3-1cab-44e4-a83b-30e2e27570b0",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Powai",
+    "lat": 19.112128420858085,
+    "lng": 72.90225385280885,
+    "title": "Barff",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-22T13:00:00.000Z",
+    "duration_min": 88,
+    "price_per_ticket": 1600,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "e07878fb-27aa-4692-a526-570eaf2c881d",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Bandra West",
+    "lat": 19.056061690359748,
+    "lng": 72.82922163333278,
+    "title": "Sir Sir Sarla",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-17T16:00:00.000Z",
+    "duration_min": 137,
+    "price_per_ticket": 650,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "ce6f41b9-ca88-4cdd-a98e-eb944dd2f3bf",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.136489145530014,
+    "lng": 72.83292222599816,
+    "title": "Sumukhi Suresh Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-27T16:00:00.000Z",
+    "duration_min": 84,
+    "price_per_ticket": 1500,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "loud",
+      "chill"
+    ]
+  },
+  {
+    "id": "110dedf1-25af-4f50-a51e-ce0e97ce2952",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Colaba",
+    "lat": 18.909814994852805,
+    "lng": 72.8177216630483,
+    "title": "Rahul Dua Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-19T15:00:00.000Z",
+    "duration_min": 98,
+    "price_per_ticket": 950,
+    "tickets_left": 28,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "cheap-and-cheerful"
+    ]
+  },
+  {
+    "id": "90b6d5f3-7924-4bfd-af4e-34cf90a6e126",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Bandra West",
+    "lat": 19.058940833103282,
+    "lng": 72.82642931125872,
+    "title": "Piya Behrupiya",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-21T15:30:00.000Z",
+    "duration_min": 98,
+    "price_per_ticket": 1700,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "5243311d-bf5e-4f5d-a01e-d76cff7b19ad",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.140153307004457,
+    "lng": 72.82857542217933,
+    "title": "MI fan screening",
+    "category": "sports",
+    "genre_tags": [
+      "sports"
+    ],
+    "starts_at": "2026-09-27T15:30:00.000Z",
+    "duration_min": 108,
+    "price_per_ticket": 1650,
+    "tickets_left": 116,
+    "status": "available",
+    "vibe_tags": [
+      "big-group",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "5b9134df-1ecf-49d2-ab06-43988311369f",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Powai",
+    "lat": 19.115102370581962,
+    "lng": 72.90496567477473,
+    "title": "Peter Cat Recording Co. — Mumbai show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "techno"
+    ],
+    "starts_at": "2026-09-22T15:00:00.000Z",
+    "duration_min": 75,
+    "price_per_ticket": 1150,
+    "tickets_left": 78,
+    "status": "available",
+    "vibe_tags": [
+      "fancy",
+      "chill"
+    ]
+  },
+  {
+    "id": "75e00784-f681-4c6f-a3b9-ff555f88f7ed",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Colaba",
+    "lat": 18.901223878749462,
+    "lng": 72.8152122757703,
+    "title": "Parekh & Singh — Mumbai show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "indie"
+    ],
+    "starts_at": "2026-09-15T15:30:00.000Z",
+    "duration_min": 125,
+    "price_per_ticket": 1000,
+    "tickets_left": 111,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "loud"
+    ]
+  },
+  {
+    "id": "84843c70-89b5-41fa-a614-4c170d8e386a",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.13458634458724,
+    "lng": 72.8317085184086,
+    "title": "Urooj Ashfaq Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-16T13:30:00.000Z",
+    "duration_min": 99,
+    "price_per_ticket": 950,
+    "tickets_left": 76,
+    "status": "available",
+    "vibe_tags": [
+      "loud",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "f3a61285-318f-4e6b-a19f-2061dd4f9d17",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Lower Parel",
+    "lat": 19.00104922713898,
+    "lng": 72.82839796582422,
+    "title": "Sir Sir Sarla",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-18T13:00:00.000Z",
+    "duration_min": 107,
+    "price_per_ticket": 900,
+    "tickets_left": 100,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "ceaca080-ee7b-4d42-a4df-88e7bfd04c5d",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.138230948589367,
+    "lng": 72.82958925709352,
+    "title": "Hamlet: The Clown Prince",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-24T13:30:00.000Z",
+    "duration_min": 96,
+    "price_per_ticket": 1100,
+    "tickets_left": 114,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "30bdbd3a-eb51-4492-a66f-c0fe3d427351",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Powai",
+    "lat": 19.11183753403872,
+    "lng": 72.91068325569202,
+    "title": "Peter Cat Recording Co. — Mumbai show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "hip-hop"
+    ],
+    "starts_at": "2026-09-22T13:00:00.000Z",
+    "duration_min": 120,
+    "price_per_ticket": 1150,
+    "tickets_left": 56,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "loud"
+    ]
+  },
+  {
+    "id": "8cf7fe4a-ede3-4345-a6d2-404b92f6bc50",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Bandra West",
+    "lat": 19.063598029558918,
+    "lng": 72.82925361159816,
+    "title": "Peter Cat Recording Co. — Mumbai show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "hip-hop"
+    ],
+    "starts_at": "2026-09-19T13:30:00.000Z",
+    "duration_min": 142,
+    "price_per_ticket": 2100,
+    "tickets_left": 98,
+    "status": "available",
+    "vibe_tags": [
+      "date-ish",
+      "fancy"
+    ]
+  },
+  {
+    "id": "fd0d0c4d-f0cf-467d-ac36-5a3f0aa7f3e2",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Powai",
+    "lat": 19.117045288562217,
+    "lng": 72.90056545407884,
+    "title": "Prashasti Singh Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-22T14:30:00.000Z",
+    "duration_min": 129,
+    "price_per_ticket": 850,
+    "tickets_left": 51,
+    "status": "available",
+    "vibe_tags": [
+      "cheap-and-cheerful",
+      "chill"
+    ]
+  },
+  {
+    "id": "1dedbe81-73c6-4261-af5c-1779da5541e1",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.14213983605206,
+    "lng": 72.82581555205435,
+    "title": "Sunset sailing",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-27T16:00:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 950,
+    "tickets_left": 44,
+    "status": "available",
+    "vibe_tags": [
+      "date-ish",
+      "cheap-and-cheerful"
+    ]
+  },
+  {
+    "id": "934c7135-047a-4974-a499-a5e6438f8bb1",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Colaba",
+    "lat": 18.911105329689384,
+    "lng": 72.81112366377171,
+    "title": "Axe throwing",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-18T15:30:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1200,
+    "tickets_left": 42,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "loud"
+    ]
+  },
+  {
+    "id": "23b5950d-e6b3-4ba2-aab2-fcdbfd036919",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Colaba",
+    "lat": 18.9105496672716,
+    "lng": 72.81124723123834,
+    "title": "Parekh & Singh — Mumbai show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "techno"
+    ],
+    "starts_at": "2026-09-15T11:30:00.000Z",
+    "duration_min": 133,
+    "price_per_ticket": 1950,
+    "tickets_left": 30,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "326dc72b-8390-451a-af5e-e63e8bf45dc0",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Colaba",
+    "lat": 18.90961084340308,
+    "lng": 72.80921462323126,
+    "title": "Zakir Khan Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-14T12:30:00.000Z",
+    "duration_min": 135,
+    "price_per_ticket": 800,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "date-ish",
+      "chill"
+    ]
+  },
+  {
+    "id": "cdfa2863-1d45-4376-a1d3-5e83d7b799d8",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Bandra West",
+    "lat": 19.057820459659585,
+    "lng": 72.82484391338099,
+    "title": "Disco Deewane at Privee",
+    "category": "nightlife",
+    "genre_tags": [
+      "techno",
+      "bollywood"
+    ],
+    "starts_at": "2026-09-24T16:00:00.000Z",
+    "duration_min": 240,
+    "price_per_ticket": 1400,
+    "tickets_left": 94,
+    "status": "available",
+    "vibe_tags": [
+      "loud",
+      "big-group"
+    ]
+  },
+  {
+    "id": "80f05252-c5d1-430e-ab34-2c6ea6f8a2a9",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Lower Parel",
+    "lat": 18.991088276920838,
+    "lng": 72.83430101630091,
+    "title": "Prateek Kuhad — Mumbai show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "techno"
+    ],
+    "starts_at": "2026-09-17T13:30:00.000Z",
+    "duration_min": 89,
+    "price_per_ticket": 2700,
+    "tickets_left": 62,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "loud"
+    ]
+  },
+  {
+    "id": "91f700d5-e971-4688-a9ce-fca3db14ee57",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Lower Parel",
+    "lat": 18.993622214058412,
+    "lng": 72.8285190915335,
+    "title": "Biswa Kalyan Rath Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-20T13:30:00.000Z",
+    "duration_min": 133,
+    "price_per_ticket": 1800,
+    "tickets_left": 20,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "loud"
+    ]
+  },
+  {
+    "id": "d8fe09b8-a58a-4fad-ae54-3a7c6a397b36",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Lower Parel",
+    "lat": 18.999523255188947,
+    "lng": 72.8345161999641,
+    "title": "Seedhe Maut — Mumbai show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "techno"
+    ],
+    "starts_at": "2026-09-22T12:30:00.000Z",
+    "duration_min": 100,
+    "price_per_ticket": 2850,
+    "tickets_left": 14,
+    "status": "available",
+    "vibe_tags": [
+      "loud",
+      "chill"
+    ]
+  },
+  {
+    "id": "ab6d9207-87b4-4f9e-a369-a9d8e8dd5783",
+    "kind": "event",
+    "city": "Mumbai",
+    "area": "Bandra West",
+    "lat": 19.062730564162507,
+    "lng": 72.83422106182202,
+    "title": "MI fan screening",
+    "category": "sports",
+    "genre_tags": [
+      "sports"
+    ],
+    "starts_at": "2026-09-15T16:00:00.000Z",
+    "duration_min": 81,
+    "price_per_ticket": 1700,
+    "tickets_left": 79,
+    "status": "available",
+    "vibe_tags": [
+      "date-ish",
+      "cheap-and-cheerful"
+    ]
+  },
+  {
+    "id": "a757cce5-dfd9-4dce-a459-c43ffb7f5c50",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Saket",
+    "lat": 28.5244250900317,
+    "lng": 77.2081732284719,
+    "title": "Disco Deewane at Bonobo",
+    "category": "nightlife",
+    "genre_tags": [
+      "techno",
+      "bollywood"
+    ],
+    "starts_at": "2026-09-25T18:00:00.000Z",
+    "duration_min": 240,
+    "price_per_ticket": 1350,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "loud",
+      "big-group"
+    ]
+  },
+  {
+    "id": "41c6a335-56fd-4bbb-a0ac-4a876d713e80",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Saket",
+    "lat": 28.52984287126921,
+    "lng": 77.21255358030777,
+    "title": "Seedhe Maut — Delhi NCR show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "indie"
+    ],
+    "starts_at": "2026-09-22T13:00:00.000Z",
+    "duration_min": 75,
+    "price_per_ticket": 3350,
+    "tickets_left": 45,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "6c490f7a-320f-4df2-a99e-a48fa2c82042",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.474506790478156,
+    "lng": 77.05769293341133,
+    "title": "Pottery + wine",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-17T12:00:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1650,
+    "tickets_left": 47,
+    "status": "available",
+    "vibe_tags": [
+      "loud",
+      "chill"
+    ]
+  },
+  {
+    "id": "ea855ce0-8856-4f84-ab16-31c371fe8dff",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.47168447494544,
+    "lng": 77.06449958694074,
+    "title": "Bombay Talkies",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-21T13:30:00.000Z",
+    "duration_min": 122,
+    "price_per_ticket": 1350,
+    "tickets_left": 115,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "b3690a4e-e656-4000-a791-59fa6de214c6",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Connaught Place",
+    "lat": 28.630850580672732,
+    "lng": 77.22177054209803,
+    "title": "Biswa Kalyan Rath Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-16T14:00:00.000Z",
+    "duration_min": 94,
+    "price_per_ticket": 800,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "9f09a247-e9e7-4c42-a27c-1ea9e3e15feb",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Connaught Place",
+    "lat": 28.637028854421338,
+    "lng": 77.2162386292264,
+    "title": "Parekh & Singh — Delhi NCR show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "hip-hop"
+    ],
+    "starts_at": "2026-09-21T15:00:00.000Z",
+    "duration_min": 150,
+    "price_per_ticket": 800,
+    "tickets_left": 60,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "loud"
+    ]
+  },
+  {
+    "id": "19527e26-f19c-4c24-aecf-97bc80a89324",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.47252879585922,
+    "lng": 77.06352376154345,
+    "title": "Karaoke room",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-26T11:30:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1700,
+    "tickets_left": 64,
+    "status": "available",
+    "vibe_tags": [
+      "date-ish",
+      "cheap-and-cheerful"
+    ]
+  },
+  {
+    "id": "92017da8-dfa4-42f1-ac2e-ce159fb861fc",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Saket",
+    "lat": 28.528532519148662,
+    "lng": 77.20378849779571,
+    "title": "Bombay Talkies",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-18T15:30:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1550,
+    "tickets_left": 74,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "ade77961-db29-4567-a053-3b15315ec3d1",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Connaught Place",
+    "lat": 28.62959717758838,
+    "lng": 77.21867389810905,
+    "title": "Urooj Ashfaq Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-24T16:00:00.000Z",
+    "duration_min": 112,
+    "price_per_ticket": 1750,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "date-ish",
+      "fancy"
+    ]
+  },
+  {
+    "id": "c33f7de9-6409-4fae-ae75-1ef528325261",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Saket",
+    "lat": 28.521786014748738,
+    "lng": 77.20169048251249,
+    "title": "Piya Behrupiya",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-18T14:30:00.000Z",
+    "duration_min": 150,
+    "price_per_ticket": 700,
+    "tickets_left": 119,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "4355d67a-af01-47cb-a218-8ff6ad1b48f8",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.46545021870863,
+    "lng": 77.06662011117675,
+    "title": "Sir Sir Sarla",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-23T14:30:00.000Z",
+    "duration_min": 88,
+    "price_per_ticket": 850,
+    "tickets_left": 63,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "897e3b46-20e3-4923-a119-ad263196ed76",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.463265816980414,
+    "lng": 77.06108574444148,
+    "title": "Go-karting Grand Prix",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-20T13:30:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 750,
+    "tickets_left": 0,
+    "status": "sold_out",
+    "vibe_tags": [
+      "fancy",
+      "cheap-and-cheerful"
+    ]
+  },
+  {
+    "id": "16aaf0f7-5795-49c0-a652-ac696a659728",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Connaught Place",
+    "lat": 28.63431198169384,
+    "lng": 77.21556729164422,
+    "title": "Pottery + wine",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-19T15:00:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1750,
+    "tickets_left": 24,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "loud"
+    ]
+  },
+  {
+    "id": "0ad36bee-8aa9-45b6-a2dd-e0996b4c95c3",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Hauz Khas",
+    "lat": 28.55013568113055,
+    "lng": 77.197131154925,
+    "title": "Piya Behrupiya",
+    "category": "theatre",
+    "genre_tags": [
+      "theatre",
+      "drama"
+    ],
+    "starts_at": "2026-09-25T14:30:00.000Z",
+    "duration_min": 111,
+    "price_per_ticket": 900,
+    "tickets_left": 15,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "date-ish"
+    ]
+  },
+  {
+    "id": "01e8d759-de34-4647-a95d-61e0d258e995",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Hauz Khas",
+    "lat": 28.54996891441904,
+    "lng": 77.20327325017789,
+    "title": "RCB fan screening",
+    "category": "sports",
+    "genre_tags": [
+      "sports"
+    ],
+    "starts_at": "2026-09-25T15:00:00.000Z",
+    "duration_min": 130,
+    "price_per_ticket": 1300,
+    "tickets_left": 85,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "big-group"
+    ]
+  },
+  {
+    "id": "c84f172a-641c-4345-a7d8-13f54f08f4fc",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Hauz Khas",
+    "lat": 28.543866272616757,
+    "lng": 77.19551299207043,
+    "title": "Pottery + wine",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-20T15:00:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 550,
+    "tickets_left": 119,
+    "status": "available",
+    "vibe_tags": [
+      "chill",
+      "fancy"
+    ]
+  },
+  {
+    "id": "2e05c0f1-48e5-456c-a50c-7c92c88e5fc2",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Saket",
+    "lat": 28.52259348373674,
+    "lng": 77.21201113375686,
+    "title": "Kenny Sebastian Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-24T13:30:00.000Z",
+    "duration_min": 135,
+    "price_per_ticket": 1450,
+    "tickets_left": 10,
+    "status": "available",
+    "vibe_tags": [
+      "cheap-and-cheerful",
+      "chill"
+    ]
+  },
+  {
+    "id": "3b20deaf-4106-4cf8-a26a-6fc6e476c7e7",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Connaught Place",
+    "lat": 28.63248686465714,
+    "lng": 77.22187228570115,
+    "title": "Bollywood Night at Koko",
+    "category": "nightlife",
+    "genre_tags": [
+      "techno",
+      "bollywood"
+    ],
+    "starts_at": "2026-09-14T15:30:00.000Z",
+    "duration_min": 240,
+    "price_per_ticket": 1800,
+    "tickets_left": 79,
+    "status": "available",
+    "vibe_tags": [
+      "loud",
+      "big-group"
+    ]
+  },
+  {
+    "id": "534d4058-dfd7-471e-a6e8-3af60b0a8a11",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Connaught Place",
+    "lat": 28.62764287401922,
+    "lng": 77.22113469620123,
+    "title": "Bowling & arcade night",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-27T14:30:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1650,
+    "tickets_left": 64,
+    "status": "available",
+    "vibe_tags": [
+      "cheap-and-cheerful",
+      "fancy"
+    ]
+  },
+  {
+    "id": "72beb51c-64e6-4944-a9ac-afe56d18ac7d",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Connaught Place",
+    "lat": 28.632591917343436,
+    "lng": 77.21171528453361,
+    "title": "Kenny Sebastian Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-25T16:00:00.000Z",
+    "duration_min": 95,
+    "price_per_ticket": 1450,
+    "tickets_left": 108,
+    "status": "available",
+    "vibe_tags": [
+      "fancy",
+      "loud"
+    ]
+  },
+  {
+    "id": "b3435e81-d3b4-46fc-ab5b-118821a64879",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Connaught Place",
+    "lat": 28.628331822340375,
+    "lng": 77.21127919473388,
+    "title": "Thaikkudam Bridge — Delhi NCR show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "hip-hop"
+    ],
+    "starts_at": "2026-09-19T15:00:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 2800,
+    "tickets_left": 43,
+    "status": "available",
+    "vibe_tags": [
+      "date-ish",
+      "chill"
+    ]
+  },
+  {
+    "id": "68432fd6-aec0-4197-aa20-3fc928e1b7a6",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Saket",
+    "lat": 28.52322934549488,
+    "lng": 77.21177593574338,
+    "title": "Thaikkudam Bridge — Delhi NCR show",
+    "category": "live-music",
+    "genre_tags": [
+      "live-music",
+      "hip-hop"
+    ],
+    "starts_at": "2026-09-21T14:00:00.000Z",
+    "duration_min": 117,
+    "price_per_ticket": 2650,
+    "tickets_left": 9,
+    "status": "available",
+    "vibe_tags": [
+      "big-group",
+      "fancy"
+    ]
+  },
+  {
+    "id": "ac822fe0-4720-47bc-a79b-046ca12ebc28",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Hauz Khas",
+    "lat": 28.547000289226506,
+    "lng": 77.19755978371055,
+    "title": "Bowling & arcade night",
+    "category": "activity",
+    "genre_tags": [
+      "activity"
+    ],
+    "starts_at": "2026-09-18T15:00:00.000Z",
+    "duration_min": 90,
+    "price_per_ticket": 1400,
+    "tickets_left": 72,
+    "status": "available",
+    "vibe_tags": [
+      "cheap-and-cheerful",
+      "big-group"
+    ]
+  },
+  {
+    "id": "e03f038f-8509-4737-ab19-f169d7bc13e1",
+    "kind": "event",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.467627793396264,
+    "lng": 77.06461661156081,
+    "title": "Urooj Ashfaq Live",
+    "category": "comedy",
+    "genre_tags": [
+      "comedy"
+    ],
+    "starts_at": "2026-09-24T12:30:00.000Z",
+    "duration_min": 101,
+    "price_per_ticket": 1350,
+    "tickets_left": 42,
+    "status": "available",
+    "vibe_tags": [
+      "fancy",
+      "big-group"
+    ]
+  }
+]

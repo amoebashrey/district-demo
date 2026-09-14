@@ -1,26 +1,101 @@
 @import "tailwindcss";
 
+/* District theme — values mirror src/lib/theme/tokens.ts (keep in sync; tokens.ts is canonical). */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #131316;
+  --bg-2: #1e1e20;
+  --surface: #1e1e20;
+  --surface-2: #2c2c2e;
+  --surface-sel: rgba(255,255,255,0.08);
+  --line: rgba(255,255,255,0.08);
+  --line-2: rgba(255,255,255,0.16);
+  --line-3: rgba(255,255,255,0.24);
+  --text: #f7f7f7;
+  --text-2: #a5a5ac;
+  --text-3: #77777e;
+  --text-disabled: #545459;
+  --brand: #6444e4;
+  --brand-btn: #6d49fd;
+  --brand-pink: #e13ff3;
+  --offer-text: #bcaefe;
+  --offer-from: #401cce;
+  --offer-to: #6d49fd;
+  --success: #58e487;
+  --success-surface: #042f12;
+  --error: #f09275;
+  --error-surface: #57200f;
+  --warning: #ebdf6f;
+  --warning-surface: #322a01;
+  --v-movie: #45a4f7;
+  --v-event: #e8d954;
+  --v-dining: #fb4173;
+  --v-activity: #e96f49;
+  --overlay: rgba(0,0,0,0.64);
+  --r-sm: 8px; --r-md: 12px; --r-lg: 16px; --r-xl: 24px;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  color-scheme: dark;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-sel: var(--surface-sel);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-line-3: var(--line-3);
+  --color-fg: var(--text);
+  --color-fg-2: var(--text-2);
+  --color-fg-3: var(--text-3);
+  --color-fg-disabled: var(--text-disabled);
+  --color-brand: var(--brand);
+  --color-brand-btn: var(--brand-btn);
+  --color-brand-pink: var(--brand-pink);
+  --color-offer: var(--offer-text);
+  --color-success: var(--success);
+  --color-success-surface: var(--success-surface);
+  --color-error: var(--error);
+  --color-error-surface: var(--error-surface);
+  --color-warning: var(--warning);
+  --color-warning-surface: var(--warning-surface);
+  --color-v-movie: var(--v-movie);
+  --color-v-event: var(--v-event);
+  --color-v-dining: var(--v-dining);
+  --color-v-activity: var(--v-activity);
+  --font-sans: var(--font-be-vietnam), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --radius-sm: var(--r-sm);
+  --radius-md: var(--r-md);
+  --radius-lg: var(--r-lg);
+  --radius-xl: var(--r-xl);
+  --ease-district: var(--ease);
+  --ease-spring: var(--spring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+html { -webkit-tap-highlight-color: transparent; }
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
+
+/* District type scale (verified from production CSS) */
+.t-display3 { font-size: 32px; line-height: 42px; font-weight: 600; letter-spacing: -1.44px; }
+.t-heading1 { font-size: 32px; line-height: 40px; font-weight: 700; letter-spacing: -0.96px; }
+.t-heading2 { font-size: 28px; line-height: 34px; font-weight: 700; letter-spacing: -0.84px; }
+.t-heading3 { font-size: 24px; line-height: 30px; font-weight: 700; letter-spacing: -0.48px; }
+.t-heading4 { font-size: 18px; line-height: 24px; font-weight: 400; letter-spacing: -0.48px; }
+.t-title1   { font-size: 22px; line-height: 28px; font-weight: 600; letter-spacing: -0.44px; }
+.t-body1    { font-size: 16px; line-height: 24px; font-weight: 400; }
+.t-body2    { font-size: 14px; line-height: 22px; font-weight: 400; }
+.t-button1  { font-size: 16px; line-height: 20px; font-weight: 600; }
+.t-button2  { font-size: 14px; line-height: 20px; font-weight: 600; }
+.t-button3  { font-size: 12px; line-height: 18px; font-weight: 600; }
+.t-caption  { font-size: 12px; line-height: 16px; font-weight: 400; }
+
+/* Phone shell for the prototype */
+.phone-shell { max-width: 430px; margin: 0 auto; min-height: 100dvh; position: relative; }

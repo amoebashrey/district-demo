@@ -1,0 +1,1190 @@
+[
+  {
+    "id": "68a2f83d-ae74-4558-a17b-76b29fafa4ce",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.931867644150556,
+    "lng": 77.62228926319536,
+    "title": "Dhurandhar 2",
+    "genre_tags": [
+      "bollywood",
+      "thriller"
+    ],
+    "language": "Hindi",
+    "cinema": "Movietime Koramangala",
+    "starts_at": "2026-09-25T16:00:00.000Z",
+    "duration_min": 165,
+    "price_per_ticket": 450,
+    "seats_left": 80,
+    "status": "available"
+  },
+  {
+    "id": "3bb72a50-eeac-47a2-a47a-fb6c246fba48",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "HSR Layout",
+    "lat": 12.915039773730003,
+    "lng": 77.64082812745274,
+    "title": "Dhurandhar 2",
+    "genre_tags": [
+      "bollywood",
+      "thriller"
+    ],
+    "language": "Hindi",
+    "cinema": "Miraj HSR Layout",
+    "starts_at": "2026-09-26T10:45:00.000Z",
+    "duration_min": 165,
+    "price_per_ticket": 600,
+    "seats_left": 18,
+    "status": "available"
+  },
+  {
+    "id": "9d143f63-941f-47c4-a44d-731ca9814c08",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Indiranagar",
+    "lat": 12.980365887186117,
+    "lng": 77.63742093134317,
+    "title": "Love Hostel",
+    "genre_tags": [
+      "drama",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "PVR INOX Indiranagar",
+    "starts_at": "2026-09-16T11:00:00.000Z",
+    "duration_min": 130,
+    "price_per_ticket": 250,
+    "seats_left": 63,
+    "status": "available"
+  },
+  {
+    "id": "6d38175e-3f51-42f6-a3b0-b91c587c57b4",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.938401719507574,
+    "lng": 77.62566134786326,
+    "title": "Love Hostel",
+    "genre_tags": [
+      "drama",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "Movietime Koramangala",
+    "starts_at": "2026-09-14T17:00:00.000Z",
+    "duration_min": 130,
+    "price_per_ticket": 350,
+    "seats_left": 79,
+    "status": "available"
+  },
+  {
+    "id": "0b276a4d-f09e-490b-af67-823afefa1d95",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Indiranagar",
+    "lat": 12.982790697504395,
+    "lng": 77.63790291921254,
+    "title": "Avengers: Doomsday",
+    "genre_tags": [
+      "hollywood",
+      "action"
+    ],
+    "language": "English",
+    "cinema": "Movietime Indiranagar",
+    "starts_at": "2026-09-20T11:15:00.000Z",
+    "duration_min": 155,
+    "price_per_ticket": 250,
+    "seats_left": 14,
+    "status": "available"
+  },
+  {
+    "id": "6b74865f-b1da-4e0d-afb2-baa704aaca30",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "MG Road",
+    "lat": 12.98016534987688,
+    "lng": 77.60428125548307,
+    "title": "Avengers: Doomsday",
+    "genre_tags": [
+      "hollywood",
+      "action"
+    ],
+    "language": "English",
+    "cinema": "Movietime MG Road",
+    "starts_at": "2026-09-24T13:00:00.000Z",
+    "duration_min": 155,
+    "price_per_ticket": 600,
+    "seats_left": 32,
+    "status": "available"
+  },
+  {
+    "id": "8bc43c8b-3ef1-48c6-a92a-ff0224c9874b",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "HSR Layout",
+    "lat": 12.91179726909697,
+    "lng": 77.63617908304334,
+    "title": "The Pale Season",
+    "genre_tags": [
+      "drama",
+      "indie"
+    ],
+    "language": "English",
+    "cinema": "Cinepolis HSR Layout",
+    "starts_at": "2026-09-17T11:15:00.000Z",
+    "duration_min": 118,
+    "price_per_ticket": 300,
+    "seats_left": 61,
+    "status": "available"
+  },
+  {
+    "id": "96099bb0-f90b-4778-ac8b-7dd3b3aaf23d",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Indiranagar",
+    "lat": 12.977944018748216,
+    "lng": 77.63488221612405,
+    "title": "The Pale Season",
+    "genre_tags": [
+      "drama",
+      "indie"
+    ],
+    "language": "English",
+    "cinema": "Miraj Indiranagar",
+    "starts_at": "2026-09-26T13:30:00.000Z",
+    "duration_min": 118,
+    "price_per_ticket": 600,
+    "seats_left": 37,
+    "status": "available"
+  },
+  {
+    "id": "05581d3f-d769-4df3-a1b0-6cfb3d443924",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "HSR Layout",
+    "lat": 12.91566982457172,
+    "lng": 77.63453300258946,
+    "title": "Kantara: Chapter 2",
+    "genre_tags": [
+      "drama",
+      "thriller"
+    ],
+    "language": "Kannada",
+    "cinema": "PVR INOX HSR Layout",
+    "starts_at": "2026-09-18T14:15:00.000Z",
+    "duration_min": 150,
+    "price_per_ticket": 600,
+    "seats_left": 21,
+    "status": "available"
+  },
+  {
+    "id": "30dcd7b4-f834-430c-ad31-2f6452ad1494",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Whitefield",
+    "lat": 12.974326122692972,
+    "lng": 77.74449710209761,
+    "title": "Kantara: Chapter 2",
+    "genre_tags": [
+      "drama",
+      "thriller"
+    ],
+    "language": "Kannada",
+    "cinema": "Miraj Whitefield",
+    "starts_at": "2026-09-15T12:30:00.000Z",
+    "duration_min": 150,
+    "price_per_ticket": 300,
+    "seats_left": 43,
+    "status": "available"
+  },
+  {
+    "id": "f89ba812-475b-4122-a3f5-d2987fa67d60",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "MG Road",
+    "lat": 12.977426517314651,
+    "lng": 77.60879980553445,
+    "title": "Toy Story 5",
+    "genre_tags": [
+      "animation"
+    ],
+    "language": "English",
+    "cinema": "Miraj MG Road",
+    "starts_at": "2026-09-16T16:30:00.000Z",
+    "duration_min": 105,
+    "price_per_ticket": 450,
+    "seats_left": 60,
+    "status": "available"
+  },
+  {
+    "id": "de486172-4809-4b39-a910-2dd206170720",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Whitefield",
+    "lat": 12.974994919753819,
+    "lng": 77.75505997666717,
+    "title": "Toy Story 5",
+    "genre_tags": [
+      "animation"
+    ],
+    "language": "English",
+    "cinema": "Movietime Whitefield",
+    "starts_at": "2026-09-23T10:30:00.000Z",
+    "duration_min": 105,
+    "price_per_ticket": 300,
+    "seats_left": 19,
+    "status": "available"
+  },
+  {
+    "id": "0223de83-ac0f-47b0-afff-28ce24bf7788",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Whitefield",
+    "lat": 12.969864807863905,
+    "lng": 77.74614936570543,
+    "title": "Meri Patni Ka Remake",
+    "genre_tags": [
+      "rom-com",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "Movietime Whitefield",
+    "starts_at": "2026-09-25T15:30:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 350,
+    "seats_left": 88,
+    "status": "available"
+  },
+  {
+    "id": "294d9d46-414f-42ef-aad9-640dd3600530",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.93010394998528,
+    "lng": 77.62450657816231,
+    "title": "Meri Patni Ka Remake",
+    "genre_tags": [
+      "rom-com",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "PVR INOX Koramangala",
+    "starts_at": "2026-09-23T17:00:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 450,
+    "seats_left": 52,
+    "status": "available"
+  },
+  {
+    "id": "88088e5a-ee6c-41ac-a01b-ec5b084c57f0",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.929400295056217,
+    "lng": 77.62225148020778,
+    "title": "Coolie 2",
+    "genre_tags": [
+      "action",
+      "thriller"
+    ],
+    "language": "Tamil",
+    "cinema": "Cinepolis Koramangala",
+    "starts_at": "2026-09-18T16:00:00.000Z",
+    "duration_min": 160,
+    "price_per_ticket": 350,
+    "seats_left": 8,
+    "status": "available"
+  },
+  {
+    "id": "b05cae81-b63e-4447-aa61-7305b1e2b047",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "HSR Layout",
+    "lat": 12.913557662614062,
+    "lng": 77.6388798988048,
+    "title": "Coolie 2",
+    "genre_tags": [
+      "action",
+      "thriller"
+    ],
+    "language": "Tamil",
+    "cinema": "Movietime HSR Layout",
+    "starts_at": "2026-09-21T15:30:00.000Z",
+    "duration_min": 160,
+    "price_per_ticket": 250,
+    "seats_left": 40,
+    "status": "available"
+  },
+  {
+    "id": "2b1388dc-49e7-43d9-a569-f1eae0a74590",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Indiranagar",
+    "lat": 12.98307593699973,
+    "lng": 77.63918618458156,
+    "title": "Tumbbad Returns",
+    "genre_tags": [
+      "horror"
+    ],
+    "language": "Hindi",
+    "cinema": "Cinepolis Indiranagar",
+    "starts_at": "2026-09-24T11:15:00.000Z",
+    "duration_min": 125,
+    "price_per_ticket": 250,
+    "seats_left": 40,
+    "status": "available"
+  },
+  {
+    "id": "6a867ef9-0bc7-4958-a1da-6c5cc63e2b80",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Whitefield",
+    "lat": 12.965124622690677,
+    "lng": 77.75159605626389,
+    "title": "Tumbbad Returns",
+    "genre_tags": [
+      "horror"
+    ],
+    "language": "Hindi",
+    "cinema": "Miraj Whitefield",
+    "starts_at": "2026-09-18T10:30:00.000Z",
+    "duration_min": 125,
+    "price_per_ticket": 350,
+    "seats_left": 25,
+    "status": "available"
+  },
+  {
+    "id": "6823dfe3-78d1-4271-a026-bc40edd3ea2c",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.93309699397795,
+    "lng": 77.62761955190356,
+    "title": "Wake Up Dead Man",
+    "genre_tags": [
+      "thriller",
+      "hollywood"
+    ],
+    "language": "English",
+    "cinema": "Miraj Koramangala",
+    "starts_at": "2026-09-27T10:30:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 450,
+    "seats_left": 60,
+    "status": "available"
+  },
+  {
+    "id": "2149ed5f-a053-49dd-a94f-4f268d04c822",
+    "kind": "movie",
+    "city": "Bengaluru",
+    "area": "Koramangala",
+    "lat": 12.934204818821327,
+    "lng": 77.6221009517433,
+    "title": "Wake Up Dead Man",
+    "genre_tags": [
+      "thriller",
+      "hollywood"
+    ],
+    "language": "English",
+    "cinema": "PVR INOX Koramangala",
+    "starts_at": "2026-09-16T10:30:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 250,
+    "seats_left": 27,
+    "status": "available"
+  },
+  {
+    "id": "f4fd497b-2c7d-4f34-a651-256f28087166",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Bandra West",
+    "lat": 19.055282940239085,
+    "lng": 72.83319436307251,
+    "title": "Dhurandhar 2",
+    "genre_tags": [
+      "bollywood",
+      "thriller"
+    ],
+    "language": "Hindi",
+    "cinema": "Movietime Bandra West",
+    "starts_at": "2026-09-15T12:30:00.000Z",
+    "duration_min": 165,
+    "price_per_ticket": 250,
+    "seats_left": 74,
+    "status": "available"
+  },
+  {
+    "id": "be028b5d-5004-412a-a634-3701975a8848",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Colaba",
+    "lat": 18.906732343246976,
+    "lng": 72.81400245982297,
+    "title": "Dhurandhar 2",
+    "genre_tags": [
+      "bollywood",
+      "thriller"
+    ],
+    "language": "Hindi",
+    "cinema": "Cinepolis Colaba",
+    "starts_at": "2026-09-27T17:00:00.000Z",
+    "duration_min": 165,
+    "price_per_ticket": 250,
+    "seats_left": 0,
+    "status": "sold_out"
+  },
+  {
+    "id": "2e535fa1-3b7c-40e6-a136-190325cfc779",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Lower Parel",
+    "lat": 18.995559890700502,
+    "lng": 72.83387530488149,
+    "title": "Love Hostel",
+    "genre_tags": [
+      "drama",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "Miraj Lower Parel",
+    "starts_at": "2026-09-20T13:30:00.000Z",
+    "duration_min": 130,
+    "price_per_ticket": 350,
+    "seats_left": 48,
+    "status": "available"
+  },
+  {
+    "id": "c3a3c925-1c7b-42d7-a08e-30d3f321dc7b",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.13602111191731,
+    "lng": 72.83238635387123,
+    "title": "Love Hostel",
+    "genre_tags": [
+      "drama",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "PVR INOX Andheri West",
+    "starts_at": "2026-09-26T16:30:00.000Z",
+    "duration_min": 130,
+    "price_per_ticket": 300,
+    "seats_left": 70,
+    "status": "available"
+  },
+  {
+    "id": "f6588d60-c933-4916-a89f-1eef8bf006b5",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Powai",
+    "lat": 19.11539123801086,
+    "lng": 72.90459323599656,
+    "title": "Avengers: Doomsday",
+    "genre_tags": [
+      "hollywood",
+      "action"
+    ],
+    "language": "English",
+    "cinema": "Cinepolis Powai",
+    "starts_at": "2026-09-15T16:30:00.000Z",
+    "duration_min": 155,
+    "price_per_ticket": 450,
+    "seats_left": 49,
+    "status": "available"
+  },
+  {
+    "id": "5e9d5b05-ada7-401d-adfa-14d9934d2b92",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Bandra West",
+    "lat": 19.056186387380027,
+    "lng": 72.8278021556139,
+    "title": "Avengers: Doomsday",
+    "genre_tags": [
+      "hollywood",
+      "action"
+    ],
+    "language": "English",
+    "cinema": "Movietime Bandra West",
+    "starts_at": "2026-09-26T10:30:00.000Z",
+    "duration_min": 155,
+    "price_per_ticket": 350,
+    "seats_left": 43,
+    "status": "available"
+  },
+  {
+    "id": "a8aac365-3185-41fc-a44a-73a09f0c2a8d",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Lower Parel",
+    "lat": 18.995001106945796,
+    "lng": 72.83118393369764,
+    "title": "The Pale Season",
+    "genre_tags": [
+      "drama",
+      "indie"
+    ],
+    "language": "English",
+    "cinema": "PVR INOX Lower Parel",
+    "starts_at": "2026-09-18T17:15:00.000Z",
+    "duration_min": 118,
+    "price_per_ticket": 250,
+    "seats_left": 39,
+    "status": "available"
+  },
+  {
+    "id": "75529de2-7fd3-42eb-a8d3-c3a10d4887f6",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.142292029430717,
+    "lng": 72.8270499935722,
+    "title": "The Pale Season",
+    "genre_tags": [
+      "drama",
+      "indie"
+    ],
+    "language": "English",
+    "cinema": "Cinepolis Andheri West",
+    "starts_at": "2026-09-22T13:15:00.000Z",
+    "duration_min": 118,
+    "price_per_ticket": 300,
+    "seats_left": 69,
+    "status": "available"
+  },
+  {
+    "id": "88068ec9-aa07-4c4d-a032-a0dbeb5b9b7f",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Lower Parel",
+    "lat": 18.99092003297433,
+    "lng": 72.83560265866295,
+    "title": "Kantara: Chapter 2",
+    "genre_tags": [
+      "drama",
+      "thriller"
+    ],
+    "language": "Kannada",
+    "cinema": "Movietime Lower Parel",
+    "starts_at": "2026-09-17T14:15:00.000Z",
+    "duration_min": 150,
+    "price_per_ticket": 600,
+    "seats_left": 76,
+    "status": "available"
+  },
+  {
+    "id": "4f1489ce-417b-4e13-a25f-94ea384bd6ce",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.138270272774246,
+    "lng": 72.83056869639587,
+    "title": "Kantara: Chapter 2",
+    "genre_tags": [
+      "drama",
+      "thriller"
+    ],
+    "language": "Kannada",
+    "cinema": "Cinepolis Andheri West",
+    "starts_at": "2026-09-22T15:30:00.000Z",
+    "duration_min": 150,
+    "price_per_ticket": 450,
+    "seats_left": 25,
+    "status": "available"
+  },
+  {
+    "id": "c2858b69-9218-4179-a712-3f2444255f22",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Powai",
+    "lat": 19.11806406603884,
+    "lng": 72.90448687876761,
+    "title": "Toy Story 5",
+    "genre_tags": [
+      "animation"
+    ],
+    "language": "English",
+    "cinema": "Cinepolis Powai",
+    "starts_at": "2026-09-18T13:15:00.000Z",
+    "duration_min": 105,
+    "price_per_ticket": 600,
+    "seats_left": 67,
+    "status": "available"
+  },
+  {
+    "id": "f8ddd614-7607-4e72-aacc-73815d6e886f",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Lower Parel",
+    "lat": 18.990984401827678,
+    "lng": 72.83411736292672,
+    "title": "Toy Story 5",
+    "genre_tags": [
+      "animation"
+    ],
+    "language": "English",
+    "cinema": "Cinepolis Lower Parel",
+    "starts_at": "2026-09-22T13:15:00.000Z",
+    "duration_min": 105,
+    "price_per_ticket": 450,
+    "seats_left": 35,
+    "status": "available"
+  },
+  {
+    "id": "f980e581-a939-47b8-ab06-e946a4b87dc9",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.131908361132815,
+    "lng": 72.82789179360624,
+    "title": "Meri Patni Ka Remake",
+    "genre_tags": [
+      "rom-com",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "PVR INOX Andheri West",
+    "starts_at": "2026-09-27T13:30:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 350,
+    "seats_left": 18,
+    "status": "available"
+  },
+  {
+    "id": "35edb6dd-ae71-4e7f-a5ce-4907d3e8f290",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Powai",
+    "lat": 19.11593447470702,
+    "lng": 72.90466257723794,
+    "title": "Meri Patni Ka Remake",
+    "genre_tags": [
+      "rom-com",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "Miraj Powai",
+    "starts_at": "2026-09-18T13:30:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 450,
+    "seats_left": 10,
+    "status": "available"
+  },
+  {
+    "id": "9d9deaa3-1480-4e93-acb7-cb5aeddc595c",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Lower Parel",
+    "lat": 18.99342568828538,
+    "lng": 72.83487594532501,
+    "title": "Coolie 2",
+    "genre_tags": [
+      "action",
+      "thriller"
+    ],
+    "language": "Tamil",
+    "cinema": "PVR INOX Lower Parel",
+    "starts_at": "2026-09-24T14:00:00.000Z",
+    "duration_min": 160,
+    "price_per_ticket": 600,
+    "seats_left": 82,
+    "status": "available"
+  },
+  {
+    "id": "a6a9c551-e79f-45ed-ac54-14b11e809b37",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Colaba",
+    "lat": 18.90269805598613,
+    "lng": 72.81615520140417,
+    "title": "Coolie 2",
+    "genre_tags": [
+      "action",
+      "thriller"
+    ],
+    "language": "Tamil",
+    "cinema": "PVR INOX Colaba",
+    "starts_at": "2026-09-23T14:15:00.000Z",
+    "duration_min": 160,
+    "price_per_ticket": 350,
+    "seats_left": 11,
+    "status": "available"
+  },
+  {
+    "id": "1911c5c7-6713-4686-ae7e-c6987dd727b6",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Bandra West",
+    "lat": 19.05995119456798,
+    "lng": 72.83052504435182,
+    "title": "Tumbbad Returns",
+    "genre_tags": [
+      "horror"
+    ],
+    "language": "Hindi",
+    "cinema": "PVR INOX Bandra West",
+    "starts_at": "2026-09-26T10:30:00.000Z",
+    "duration_min": 125,
+    "price_per_ticket": 300,
+    "seats_left": 79,
+    "status": "available"
+  },
+  {
+    "id": "2445e4fd-9d68-44c0-a148-8c4170f09500",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Bandra West",
+    "lat": 19.06030088303089,
+    "lng": 72.83376948383822,
+    "title": "Tumbbad Returns",
+    "genre_tags": [
+      "horror"
+    ],
+    "language": "Hindi",
+    "cinema": "Movietime Bandra West",
+    "starts_at": "2026-09-17T10:45:00.000Z",
+    "duration_min": 125,
+    "price_per_ticket": 450,
+    "seats_left": 70,
+    "status": "available"
+  },
+  {
+    "id": "8b985eb3-0ca5-4174-ab68-c73f85b03de1",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.140119323329625,
+    "lng": 72.83274340684748,
+    "title": "Wake Up Dead Man",
+    "genre_tags": [
+      "thriller",
+      "hollywood"
+    ],
+    "language": "English",
+    "cinema": "Movietime Andheri West",
+    "starts_at": "2026-09-19T13:30:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 350,
+    "seats_left": 68,
+    "status": "available"
+  },
+  {
+    "id": "521a2772-794e-4c41-af7d-68e639922b14",
+    "kind": "movie",
+    "city": "Mumbai",
+    "area": "Andheri West",
+    "lat": 19.142209340558946,
+    "lng": 72.82670761224013,
+    "title": "Wake Up Dead Man",
+    "genre_tags": [
+      "thriller",
+      "hollywood"
+    ],
+    "language": "English",
+    "cinema": "Movietime Andheri West",
+    "starts_at": "2026-09-15T10:45:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 450,
+    "seats_left": 0,
+    "status": "sold_out"
+  },
+  {
+    "id": "215bbce5-93b0-4d0f-af2a-9122cf1adccc",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Cyber Hub",
+    "lat": 28.50036761410814,
+    "lng": 77.08999760370516,
+    "title": "Dhurandhar 2",
+    "genre_tags": [
+      "bollywood",
+      "thriller"
+    ],
+    "language": "Hindi",
+    "cinema": "Movietime Cyber Hub",
+    "starts_at": "2026-09-25T16:30:00.000Z",
+    "duration_min": 165,
+    "price_per_ticket": 250,
+    "seats_left": 18,
+    "status": "available"
+  },
+  {
+    "id": "160c4818-8228-483d-a0b6-6f09cab2e0b0",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Hauz Khas",
+    "lat": 28.552220309910922,
+    "lng": 77.1991269890083,
+    "title": "Dhurandhar 2",
+    "genre_tags": [
+      "bollywood",
+      "thriller"
+    ],
+    "language": "Hindi",
+    "cinema": "Movietime Hauz Khas",
+    "starts_at": "2026-09-25T13:15:00.000Z",
+    "duration_min": 165,
+    "price_per_ticket": 300,
+    "seats_left": 87,
+    "status": "available"
+  },
+  {
+    "id": "ea9d450d-329e-4383-ad54-af63fac18026",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Cyber Hub",
+    "lat": 28.493866249508226,
+    "lng": 77.08341312904004,
+    "title": "Love Hostel",
+    "genre_tags": [
+      "drama",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "Movietime Cyber Hub",
+    "starts_at": "2026-09-21T11:15:00.000Z",
+    "duration_min": 130,
+    "price_per_ticket": 450,
+    "seats_left": 84,
+    "status": "available"
+  },
+  {
+    "id": "f09d564b-df0d-497d-aa80-c578cf72fec8",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Hauz Khas",
+    "lat": 28.545217053657023,
+    "lng": 77.20088845345882,
+    "title": "Love Hostel",
+    "genre_tags": [
+      "drama",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "PVR INOX Hauz Khas",
+    "starts_at": "2026-09-25T16:30:00.000Z",
+    "duration_min": 130,
+    "price_per_ticket": 600,
+    "seats_left": 17,
+    "status": "available"
+  },
+  {
+    "id": "99ca50a2-f7cb-4241-af97-f433777689c6",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.474345699401947,
+    "lng": 77.0599751598984,
+    "title": "Avengers: Doomsday",
+    "genre_tags": [
+      "hollywood",
+      "action"
+    ],
+    "language": "English",
+    "cinema": "Movietime Sector 29 Gurugram",
+    "starts_at": "2026-09-26T15:45:00.000Z",
+    "duration_min": 155,
+    "price_per_ticket": 300,
+    "seats_left": 50,
+    "status": "available"
+  },
+  {
+    "id": "3e4d3e4c-bebc-4a0d-a826-2cbef0e77050",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Saket",
+    "lat": 28.522752349845135,
+    "lng": 77.20868656375669,
+    "title": "Avengers: Doomsday",
+    "genre_tags": [
+      "hollywood",
+      "action"
+    ],
+    "language": "English",
+    "cinema": "Cinepolis Saket",
+    "starts_at": "2026-09-14T17:00:00.000Z",
+    "duration_min": 155,
+    "price_per_ticket": 450,
+    "seats_left": 78,
+    "status": "available"
+  },
+  {
+    "id": "a4b78daf-726f-4f57-aec1-75036554bde7",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Cyber Hub",
+    "lat": 28.49029672396742,
+    "lng": 77.09114754093717,
+    "title": "The Pale Season",
+    "genre_tags": [
+      "drama",
+      "indie"
+    ],
+    "language": "English",
+    "cinema": "PVR INOX Cyber Hub",
+    "starts_at": "2026-09-17T16:15:00.000Z",
+    "duration_min": 118,
+    "price_per_ticket": 450,
+    "seats_left": 0,
+    "status": "sold_out"
+  },
+  {
+    "id": "3ed90db2-57fb-42af-a2bf-3e8a9aaa53c3",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.467193302425,
+    "lng": 77.06836299181357,
+    "title": "The Pale Season",
+    "genre_tags": [
+      "drama",
+      "indie"
+    ],
+    "language": "English",
+    "cinema": "Movietime Sector 29 Gurugram",
+    "starts_at": "2026-09-27T11:15:00.000Z",
+    "duration_min": 118,
+    "price_per_ticket": 450,
+    "seats_left": 28,
+    "status": "available"
+  },
+  {
+    "id": "12757a4d-1e8c-49af-a00c-be011adfcd51",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Saket",
+    "lat": 28.521532106525264,
+    "lng": 77.21231599939186,
+    "title": "Kantara: Chapter 2",
+    "genre_tags": [
+      "drama",
+      "thriller"
+    ],
+    "language": "Kannada",
+    "cinema": "PVR INOX Saket",
+    "starts_at": "2026-09-15T10:30:00.000Z",
+    "duration_min": 150,
+    "price_per_ticket": 250,
+    "seats_left": 54,
+    "status": "available"
+  },
+  {
+    "id": "826de121-914d-411d-adbe-9bfa989f23a7",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Saket",
+    "lat": 28.520673292401245,
+    "lng": 77.20656296004019,
+    "title": "Kantara: Chapter 2",
+    "genre_tags": [
+      "drama",
+      "thriller"
+    ],
+    "language": "Kannada",
+    "cinema": "Movietime Saket",
+    "starts_at": "2026-09-24T16:00:00.000Z",
+    "duration_min": 150,
+    "price_per_ticket": 600,
+    "seats_left": 55,
+    "status": "available"
+  },
+  {
+    "id": "9c07debe-0a5e-4c7d-a146-449fa90a80d1",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.47132929428518,
+    "lng": 77.06503400417324,
+    "title": "Toy Story 5",
+    "genre_tags": [
+      "animation"
+    ],
+    "language": "English",
+    "cinema": "Cinepolis Sector 29 Gurugram",
+    "starts_at": "2026-09-27T10:30:00.000Z",
+    "duration_min": 105,
+    "price_per_ticket": 450,
+    "seats_left": 87,
+    "status": "available"
+  },
+  {
+    "id": "cb9b0ec8-01c5-4f0d-ae16-05ecb6fd2eac",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Cyber Hub",
+    "lat": 28.494718039862814,
+    "lng": 77.08622836607508,
+    "title": "Toy Story 5",
+    "genre_tags": [
+      "animation"
+    ],
+    "language": "English",
+    "cinema": "PVR INOX Cyber Hub",
+    "starts_at": "2026-09-16T15:45:00.000Z",
+    "duration_min": 105,
+    "price_per_ticket": 300,
+    "seats_left": 48,
+    "status": "available"
+  },
+  {
+    "id": "21017063-e157-49c8-a842-03a7ca3913cf",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Cyber Hub",
+    "lat": 28.491399498686196,
+    "lng": 77.08654541275557,
+    "title": "Meri Patni Ka Remake",
+    "genre_tags": [
+      "rom-com",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "Cinepolis Cyber Hub",
+    "starts_at": "2026-09-22T11:00:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 450,
+    "seats_left": 24,
+    "status": "available"
+  },
+  {
+    "id": "57cb07b9-82a0-4b00-abd6-656a8d344ef6",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Connaught Place",
+    "lat": 28.63292237191461,
+    "lng": 77.21650244490411,
+    "title": "Meri Patni Ka Remake",
+    "genre_tags": [
+      "rom-com",
+      "bollywood"
+    ],
+    "language": "Hindi",
+    "cinema": "Movietime Connaught Place",
+    "starts_at": "2026-09-20T16:45:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 350,
+    "seats_left": 33,
+    "status": "available"
+  },
+  {
+    "id": "bc818d2f-cf82-4ff5-af91-6f25ec2f36de",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.472119965726883,
+    "lng": 77.0675983445635,
+    "title": "Coolie 2",
+    "genre_tags": [
+      "action",
+      "thriller"
+    ],
+    "language": "Tamil",
+    "cinema": "PVR INOX Sector 29 Gurugram",
+    "starts_at": "2026-09-15T13:00:00.000Z",
+    "duration_min": 160,
+    "price_per_ticket": 600,
+    "seats_left": 25,
+    "status": "available"
+  },
+  {
+    "id": "bd8a5391-c145-4b32-a239-5b2a1a24a11a",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Cyber Hub",
+    "lat": 28.500913998868317,
+    "lng": 77.08498460771143,
+    "title": "Coolie 2",
+    "genre_tags": [
+      "action",
+      "thriller"
+    ],
+    "language": "Tamil",
+    "cinema": "Movietime Cyber Hub",
+    "starts_at": "2026-09-18T17:00:00.000Z",
+    "duration_min": 160,
+    "price_per_ticket": 300,
+    "seats_left": 39,
+    "status": "available"
+  },
+  {
+    "id": "20af73c4-4b61-4c8c-a5cb-22d5a1e226b2",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Cyber Hub",
+    "lat": 28.49786138007697,
+    "lng": 77.0908373000212,
+    "title": "Tumbbad Returns",
+    "genre_tags": [
+      "horror"
+    ],
+    "language": "Hindi",
+    "cinema": "Movietime Cyber Hub",
+    "starts_at": "2026-09-23T16:15:00.000Z",
+    "duration_min": 125,
+    "price_per_ticket": 600,
+    "seats_left": 30,
+    "status": "available"
+  },
+  {
+    "id": "cb38434c-1f54-41c1-ac04-48394ffe7849",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Connaught Place",
+    "lat": 28.625891615326516,
+    "lng": 77.21789389589131,
+    "title": "Tumbbad Returns",
+    "genre_tags": [
+      "horror"
+    ],
+    "language": "Hindi",
+    "cinema": "Miraj Connaught Place",
+    "starts_at": "2026-09-25T17:00:00.000Z",
+    "duration_min": 125,
+    "price_per_ticket": 600,
+    "seats_left": 88,
+    "status": "available"
+  },
+  {
+    "id": "55a38ee2-6d8e-4f88-a393-9e7697c46a9c",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Sector 29 Gurugram",
+    "lat": 28.468207541081497,
+    "lng": 77.05885165862739,
+    "title": "Wake Up Dead Man",
+    "genre_tags": [
+      "thriller",
+      "hollywood"
+    ],
+    "language": "English",
+    "cinema": "Cinepolis Sector 29 Gurugram",
+    "starts_at": "2026-09-24T16:30:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 450,
+    "seats_left": 84,
+    "status": "available"
+  },
+  {
+    "id": "0cc6a86a-d0bf-4a6f-a335-3743fd57ca14",
+    "kind": "movie",
+    "city": "Delhi NCR",
+    "area": "Cyber Hub",
+    "lat": 28.490516662525014,
+    "lng": 77.09122407886106,
+    "title": "Wake Up Dead Man",
+    "genre_tags": [
+      "thriller",
+      "hollywood"
+    ],
+    "language": "English",
+    "cinema": "Movietime Cyber Hub",
+    "starts_at": "2026-09-16T17:00:00.000Z",
+    "duration_min": 140,
+    "price_per_ticket": 600,
+    "seats_left": 87,
+    "status": "available"
+  }
+]
