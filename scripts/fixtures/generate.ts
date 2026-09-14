@@ -163,6 +163,7 @@ for (const city of CITIES) {
 // ---------- write ----------
 const bundle: FixtureBundle = {
   generated_at: new Date().toISOString(),
+  anchor_date: NOW.toISOString().slice(0, 10), // the "today" all inventory dates are relative to; the store re-bases to real today
   seed: SEED,
   note: "SYNTHETIC. All people, phones, venues, events and prices are invented for the District Plans prototype. Production reads District/Zomato stores (PRD §6.4).",
   areas: AREAS, users, taste_profiles: tastes, social_edges: edges, dining, events, movies,

@@ -1,6 +1,6 @@
 # Fixtures (SYNTHETIC)
 
-Generated 2026-09-14T17:51:17.173Z with seed 2026 by `scripts/fixtures/generate.ts`.
+Generated 2026-09-14T18:22:19.475Z with seed 2026 by `scripts/fixtures/generate.ts`.
 
 | file | rows |
 |---|--:|

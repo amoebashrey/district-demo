@@ -108,6 +108,7 @@ export interface MovieShowtime {
 
 export interface FixtureBundle {
   generated_at: string;
+  anchor_date: string; // YYYY-MM-DD
   seed: number;
   note: string;
   areas: Area[];
