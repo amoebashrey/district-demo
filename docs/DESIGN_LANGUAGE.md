@@ -29,3 +29,18 @@ For you · Dining · Movies · Events · Comedy (+ Sports, Concerts, Nightlife, 
 
 ## Still provisional (confirm from app screenshots)
 Motion timing/easing, bottom tab bar iconography, exact card shadow on dark, the "Ask AI" sheet styling.
+
+## Design pass (2026-09-15) — decisions vs the provisional brief
+| Brief proposed | Shipped in tokens.ts | Why |
+|---|---|---|
+| primary `#7C3AED`, accent `#A855F7` | `#6444e4` brand / `#6d49fd` button / `#8972fe` accent | District's verified purples (web CSS + App Store screenshots' banner/toggle). |
+| bg `#130D1F`, surface `#1C1330`, surface-2 `#261A3D`, line `#352748` | `#120e1b` / `#1a1526` / `#241d33` / white-alpha hairlines | Screenshots read near-black with a faint violet cast and alpha hairlines, not solid violet lines. |
+| text `#F4EEFB`, muted `#B3A6C7` | `#f5f2fa` / `#b3a7c7` / `#7f748f` | Kept, plus a tertiary. |
+| success `#33D4A0` | `#58e487` | District's green-400. |
+| Hanken Grotesk / General Sans | **Be Vietnam Pro** | Verified from production CSS; screenshots' geometric grotesk matches. Serif dropped — the app uses none. |
+| radius 16–18 | 18 cards / 14 buttons / pills | |
+| purple CTA glow | `--cta-glow` token | Screenshots frame each phone in a coloured halo → `.ambient` top glow + CTA glow. |
+
+Motion system: `src/components/motion.tsx`. Enter = fade + 12px rise, 220ms ease-out `[0.16,1,0.3,1]`; press = spring (520/32);
+state swaps = blur cross-fade 150ms; lock = glow burst + check draw, once per plan. `MotionConfig reducedMotion="user"` +
+a CSS `prefers-reduced-motion` guard disable everything for users who ask.

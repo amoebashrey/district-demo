@@ -1,6 +1,6 @@
 import { store } from "@/lib/store/store";
 import { currentUser } from "@/lib/session";
-import { Screen, Kicker } from "@/components/ui";
+import { Screen, Kicker, Headline } from "@/components/ui";
 import { UserPicker } from "./picker";
 
 export const dynamic = "force-dynamic";
@@ -12,8 +12,8 @@ export default async function SwitchPage() {
   return (
     <Screen title="Who are you?" back={me ? "/" : undefined}>
       <div>
-        <Kicker>Demo identity</Kicker>
-        <h2 className="font-serif text-[32px] leading-[36px] mt-1">Pick a person to <span className="italic text-fg-2">play as.</span></h2>
+        <Kicker tone="brand">Demo identity</Kicker>
+        <Headline className="mt-2" tail="to play as.">Pick a person</Headline>
         <p className="t-body2 text-fg-2 mt-2">Synthetic users grouped by city. Friends in the same crew can see each other&apos;s plans. Switch any time to vote as someone else.</p>
       </div>
       <UserPicker users={[...users, ...guests]} currentId={me?.id} />

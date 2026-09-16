@@ -27,7 +27,7 @@ export default async function PlanPage({ params }: { params: Promise<{ id: strin
     <Screen title="Plan" back="/" right={<Pill tone={tone}>{statusLabel[view.plan.status]}</Pill>}>
       <LiveRefresh every={3000} active={live} />
       {!view.is_member ? (
-        <div className="rounded-2xl border border-dashed border-line-2 p-6 text-center flex flex-col gap-3 items-center">
+        <div className="rounded-[18px] border border-dashed border-line-3 p-6 text-center flex flex-col gap-3 items-center">
           <p className="t-title1">You&apos;re not in this plan</p>
           <p className="t-body2 text-fg-2">Ask the organiser for the link, or <Link className="text-offer underline" href={`/join/${view.plan.share_token}`}>join with this one</Link>.</p>
         </div>

@@ -13,7 +13,7 @@ export function JoinForm({ token, planId, meName, already }: { token: string; pl
   const [pending, start] = useTransition();
   const go = (body: unknown) => start(async () => { setErr(null); try { await api(`/api/join/${token}`, body); router.push(`/plans/${planId}`); router.refresh(); } catch (e) { setErr((e as ApiError).message); } });
 
-  if (already) return <Link href={`/plans/${planId}`} className="flex items-center justify-center h-12 rounded-xl bg-brand-btn text-fg t-button1">You&apos;re in — open the plan</Link>;
+  if (already) return <Link href={`/plans/${planId}`} className="flex items-center justify-center h-12 rounded-[14px] bg-brand-btn text-fg t-button1 glow-cta active:scale-[0.97] transition-transform">You&apos;re in — open the plan</Link>;
   return (
     <div className="flex flex-col gap-3">
       {!guest && meName ? (
@@ -23,7 +23,7 @@ export function JoinForm({ token, planId, meName, already }: { token: string; pl
         </>
       ) : (
         <form className="flex flex-col gap-3" onSubmit={(e) => { e.preventDefault(); go({ as_guest: true, guest_name: name }); }}>
-          <input autoFocus value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="h-12 rounded-xl bg-surface border border-line-2 px-4 t-body1 text-fg placeholder:text-fg-3 focus:border-brand outline-none" />
+          <input autoFocus value={name} onChange={(e) => setName(e.target.value)} placeholder="Your name" className="h-12 rounded-[14px] bg-surface border border-line-2 px-4 t-body1 text-fg placeholder:text-fg-3 focus:border-brand outline-none transition-colors" />
           <Button type="submit" full disabled={pending || name.trim().length < 2}>Join the plan</Button>
           {meName && <button type="button" className="t-button2 text-fg-3" onClick={() => setGuest(false)}>Back</button>}
         </form>
