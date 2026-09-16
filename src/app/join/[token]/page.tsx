@@ -2,9 +2,12 @@ import { notFound } from "next/navigation";
 import { currentUser } from "@/lib/session";
 import { planForToken } from "@/lib/services/invite";
 import { membersOf, joinedMembers, getUser } from "@/lib/store/store";
-import { Screen, Kicker, AvatarStack, Card, Pill, Headline } from "@/components/ui";
-import { Reveal } from "@/components/motion";
-import { bandLabel, dateRange, firstName, statusLabel, vibeLabel } from "@/lib/format";
+import { Screen, Initials } from "@/components/screen";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardAction } from "@/components/ui/card";
+import { StatusBadge } from "@/components/status-badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Alert, AlertTitle } from "@/components/ui/alert";
+import { bandLabel, dateRange, firstName, vibeLabel } from "@/lib/format";
 import { JoinForm } from "./form";
 
 export const dynamic = "force-dynamic";
@@ -20,19 +23,22 @@ export default async function JoinPage({ params }: { params: Promise<{ token: st
   return (
     <Screen>
       <div className="pt-6">
-        <Kicker tone="brand">You&apos;re invited</Kicker>
-        <Headline className="mt-2" tail={`${(vibeLabel[plan.vibe] ?? plan.vibe).toLowerCase()} night.`}>{firstName(host?.name ?? "A friend")} is planning a</Headline>
+        <p className="text-xs font-medium uppercase tracking-wide text-primary">You&apos;re invited</p>
+        <h1 className="mt-1 text-2xl font-semibold tracking-tight">{firstName(host?.name ?? "A friend")} is planning a {(vibeLabel[plan.vibe] ?? plan.vibe).toLowerCase()} night</h1>
       </div>
-      <Reveal delay={0.08}><Card>
-        <div className="flex items-center justify-between"><p className="t-title1">{plan.city}</p><Pill tone={plan.status === "voting" ? "brand" : "neutral"}>{statusLabel[plan.status]}</Pill></div>
-        <p className="t-body2 text-fg-2 mt-1">{dateRange(plan.date_start, plan.date_end)} · {bandLabel[plan.budget_band]} a head</p>
-        <div className="flex items-center gap-3 mt-4">
-          <AvatarStack names={all.map((m) => m.display_name)} size={32} />
-          <p className="t-body2 text-fg-2">{joined.length === 1 ? `${firstName(joined[0].display_name)} is in` : `${joined.length} people are in`}{all.length > joined.length ? `, ${all.length - joined.length} deciding` : ""}</p>
-        </div>
-      </Card></Reveal>
-      {open ? <Reveal delay={0.16}><JoinForm token={token} planId={plan.id} meName={me?.name} already={already} /></Reveal> : <Card tone="warning"><p className="t-button1 text-warning">This plan is {plan.status}</p></Card>}
-      <p className="t-caption text-fg-3 text-center">Vote in one tap once you&apos;re in. No account needed — just a name.</p>
+      <Card>
+        <CardHeader>
+          <CardTitle>{plan.city}</CardTitle>
+          <CardDescription>{dateRange(plan.date_start, plan.date_end)} · {bandLabel[plan.budget_band]} a head</CardDescription>
+          <CardAction><StatusBadge status={plan.status} /></CardAction>
+        </CardHeader>
+        <CardContent className="flex items-center gap-3">
+          <div className="flex -space-x-2">{all.slice(0, 5).map((m) => <Avatar key={m.id} className="ring-2 ring-card"><AvatarFallback><Initials name={m.display_name} /></AvatarFallback></Avatar>)}</div>
+          <p className="text-sm text-muted-foreground">{joined.length === 1 ? `${firstName(joined[0].display_name)} is in` : `${joined.length} people are in`}{all.length > joined.length ? `, ${all.length - joined.length} deciding` : ""}</p>
+        </CardContent>
+      </Card>
+      {open ? <JoinForm token={token} planId={plan.id} meName={me?.name} already={already} /> : <Alert variant="destructive"><AlertTitle>This plan is {plan.status}</AlertTitle></Alert>}
+      <p className="text-center text-xs text-muted-foreground">Vote in one tap once you&apos;re in. No account needed — just a name.</p>
     </Screen>
   );
 }

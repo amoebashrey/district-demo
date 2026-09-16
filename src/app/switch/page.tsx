@@ -1,22 +1,21 @@
 import { store } from "@/lib/store/store";
 import { currentUser } from "@/lib/session";
-import { Screen, Kicker, Headline } from "@/components/ui";
+import { Screen } from "@/components/screen";
 import { UserPicker } from "./picker";
 
 export const dynamic = "force-dynamic";
 
 export default async function SwitchPage() {
   const me = await currentUser();
-  const users = [...store.users.values()].filter((u) => !u.is_guest).map((u) => ({ id: u.id, name: u.name, city: u.city, home_area: u.home_area ?? "", persona: u.persona ?? "" }));
-  const guests = [...store.users.values()].filter((u) => u.is_guest).map((u) => ({ id: u.id, name: u.name, city: u.city, home_area: "guest", persona: "guest" }));
+  const users = [...store.users.values()].map((u) => ({ id: u.id, name: u.name, city: u.city, home_area: u.is_guest ? "" : (u.home_area ?? ""), persona: u.is_guest ? "guest" : (u.persona ?? "") }));
   return (
     <Screen title="Who are you?" back={me ? "/" : undefined}>
       <div>
-        <Kicker tone="brand">Demo identity</Kicker>
-        <Headline className="mt-2" tail="to play as.">Pick a person</Headline>
-        <p className="t-body2 text-fg-2 mt-2">Synthetic users grouped by city. Friends in the same crew can see each other&apos;s plans. Switch any time to vote as someone else.</p>
+        <p className="text-xs font-medium uppercase tracking-wide text-primary">Demo identity</p>
+        <h2 className="mt-1 text-2xl font-semibold tracking-tight">Pick a person to play as</h2>
+        <p className="mt-1 text-sm text-muted-foreground">Synthetic users grouped by city. Friends in the same crew see each other&apos;s plans. Switch any time to vote as someone else.</p>
       </div>
-      <UserPicker users={[...users, ...guests]} currentId={me?.id} />
+      <UserPicker users={users} currentId={me?.id} />
     </Screen>
   );
 }

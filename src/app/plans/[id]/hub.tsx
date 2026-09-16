@@ -1,193 +1,287 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Check, Share2, UserPlus, Lock, MoreHorizontal, Clock, Crown, Copy, RefreshCw, Flag, LogOut, XCircle } from "lucide-react";
+import { toast } from "sonner";
 import type { PlanView } from "@/lib/services/plan";
-import { Avatar, Button, Card, Empty, Kicker, Pill, Headline } from "@/components/ui";
-import { ActionButton, api, ApiError, useToast } from "@/components/client";
-import { LockReveal, ProgressBar, Reveal, Stagger, StaggerItem, Swap, TallyAvatar, TallyAvatars, Pressable } from "@/components/motion";
+import { Initials } from "@/components/screen";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, CardAction } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Progress } from "@/components/ui/progress";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
+import { Drawer, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger, DrawerClose } from "@/components/ui/drawer";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { ActionButton, api, ApiError } from "@/components/client";
 import { bandLabel, countdown, dateRange, day, inr, time, vibeLabel } from "@/lib/format";
+import { cn } from "@/lib/utils";
 
 type Props = { view: PlanView; meId: string; shareUrl: string; friends: { id: string; name: string; area: string }[]; names: Record<string, string> };
-const kindTone: Record<string, string> = { event: "text-v-event", dining: "text-v-dining", movie: "text-v-movie", ride: "text-v-activity" };
 const kindLabel: Record<string, string> = { event: "Event", dining: "Table", movie: "Movie", ride: "Ride" };
 
 export function PlanHub({ view, meId, shareUrl, friends, names }: Props) {
   const { plan, members, suggestions, joined_count, votes_needed, my_vote, my_role, locked } = view;
   const router = useRouter();
-  const toast = useToast();
   const isOrganiser = my_role === "organiser";
   const me = members.find((m) => m.user_id === meId);
   const invited = members.filter((m) => m.rsvp_status === "invited");
   const joined = members.filter((m) => m.rsvp_status === "joined");
-  const [inviteOpen, setInviteOpen] = useState(false);
-  const err = (e: ApiError) => toast.show(e.message);
+  const canInvite = ["draft", "voting"].includes(plan.status);
+  const leader = suggestions.reduce((a, s) => (s.votes.length > (a?.votes.length ?? 0) ? s : a), suggestions[0]);
+  const totalVotes = suggestions.reduce((n, s) => n + s.votes.length, 0);
 
   return (
     <>
-      {toast.node}
-      <LockReveal planId={plan.id} active={plan.status === "locked" && !!locked} title={locked?.title ?? ""} subtitle={locked ? `${joined.length} going · ${inr(locked.est_cost_per_head)} a head` : undefined} />
+      <LockDialog planId={plan.id} active={plan.status === "locked" && !!locked} title={locked?.title ?? ""} subtitle={locked ? `${joined.length} going · ${inr(locked.est_cost_per_head)} a head` : ""} />
 
-      <div>
-        <Kicker tone="brand">{plan.city} · {dateRange(plan.date_start, plan.date_end)}</Kicker>
-        <Headline className="mt-2" tail="night.">{vibeLabel[plan.vibe] ?? plan.vibe}</Headline>
-        <p className="t-body2 text-fg-2 mt-1.5">{bandLabel[plan.budget_band]} · lock at {votes_needed} of {Math.max(joined_count, plan.quorum)}{plan.status === "voting" && ` · closes in ${countdown(plan.expires_at)}`}</p>
+      {/* header */}
+      <div className="space-y-2">
+        <p className="text-xs font-medium uppercase tracking-wide text-primary">{plan.city}</p>
+        <h2 className="text-2xl font-semibold tracking-tight">{vibeLabel[plan.vibe] ?? plan.vibe} night</h2>
+        <div className="flex flex-wrap gap-1.5">
+          <Badge variant="secondary">{dateRange(plan.date_start, plan.date_end)}</Badge>
+          <Badge variant="secondary">{bandLabel[plan.budget_band]}</Badge>
+          {plan.status === "voting" && <Badge variant="outline" className="gap-1"><Clock className="size-3" /> closes in {countdown(plan.expires_at)}</Badge>}
+        </div>
       </div>
 
+      {/* state banners */}
       {plan.status === "locked" && locked && (
-        <Reveal>
-          <Card tone="brand">
-            <p className="t-button3 uppercase tracking-[0.12em] text-white/70">Locked · {joined.length} going</p>
-            <p className="t-heading3 text-white mt-1 capitalize">{locked.title}</p>
-            <ul className="mt-3 flex flex-col gap-1.5">{locked.components.map((c) => <li key={c.ref} className="t-body2 text-white/90"><span className="text-white/60">{kindLabel[c.kind]} · {time(c.starts_at)}</span> — {c.title}</li>)}</ul>
-            <p className="t-caption text-white/70 mt-3">{inr(locked.est_cost_per_head)} a head. Booking and bill split arrive in Phase 4.</p>
-          </Card>
-        </Reveal>
-      )}
-      {plan.status === "expired" && (
-        <Card tone="warning">
-          <p className="t-button1 text-warning">No majority before the window closed</p>
-          <p className="t-body2 text-fg-2 mt-1">Happens. Re-open for another 24 hours and nudge the crew.</p>
-          {isOrganiser && <ActionButton url={`/api/plans/${plan.id}/reopen`} onError={err} className="mt-3 h-10 px-4 rounded-[14px] bg-warning text-bg t-button2">Re-open voting</ActionButton>}
+        <Card className="border-primary/40 bg-primary/5">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 capitalize"><Lock className="size-4 text-primary" /> {locked.title}</CardTitle>
+            <CardDescription>Locked · {joined.length} going · {inr(locked.est_cost_per_head)} a head</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-1.5 text-sm">{locked.components.map((c) => <li key={c.ref} className="flex gap-3"><span className="w-14 shrink-0 text-muted-foreground tabular-nums">{time(c.starts_at)}</span><span><span className="text-muted-foreground">{kindLabel[c.kind]} · </span>{c.title}</span></li>)}</ul>
+            <p className="mt-3 text-xs text-muted-foreground">Booking and bill split arrive in Phase 4.</p>
+          </CardContent>
         </Card>
       )}
-      {plan.status === "cancelled" && <Card tone="error"><p className="t-button1 text-error">Plan cancelled</p></Card>}
+      {plan.status === "expired" && (
+        <Card className="border-warning/40">
+          <CardHeader><CardTitle>No majority before the window closed</CardTitle><CardDescription>Happens. Re-open for 24 hours and nudge the crew.</CardDescription></CardHeader>
+          {isOrganiser && <CardFooter><ActionButton url={`/api/plans/${plan.id}/reopen`} size="sm"><RefreshCw /> Re-open voting</ActionButton></CardFooter>}
+        </Card>
+      )}
+      {plan.status === "cancelled" && <Card className="border-destructive/40"><CardHeader><CardTitle>Plan cancelled</CardTitle></CardHeader></Card>}
+
+      {/* pending invite for me — highest priority action, so it sits above the crew */}
+      {me?.rsvp_status === "invited" && plan.status !== "cancelled" && (
+        <Card className="border-primary/40 bg-primary/5">
+          <CardHeader><CardTitle>{names[plan.creator_id]?.split(" ")[0] ?? "Your friend"} invited you</CardTitle><CardDescription>Say yes and you&apos;re in. Voting below counts as yes too.</CardDescription></CardHeader>
+          <CardFooter className="gap-2">
+            <ActionButton url={`/api/plans/${plan.id}/respond`} body={{ answer: "accept" }} size="sm">I&apos;m in</ActionButton>
+            <ActionButton url={`/api/plans/${plan.id}/respond`} body={{ answer: "decline" }} size="sm" variant="ghost">Can&apos;t make it</ActionButton>
+          </CardFooter>
+        </Card>
+      )}
 
       {/* crew */}
       <Card>
-        <div className="flex items-center justify-between">
-          <Kicker>Crew · {joined.length} in{invited.length ? `, ${invited.length} invited` : ""}</Kicker>
-          {["draft", "voting"].includes(plan.status) && <Pressable onClick={() => setInviteOpen((o) => !o)} className="t-button2 text-offer"><Swap id={inviteOpen ? "done" : "invite"}>{inviteOpen ? "Done" : "+ Invite"}</Swap></Pressable>}
-        </div>
-        <Stagger as="ul" className="mt-3 grid grid-cols-4 gap-3">
-          {members.map((m) => (
-            <StaggerItem as="li" key={m.id} className="flex flex-col items-center gap-1 text-center">
-              <Avatar name={m.display_name} size={44} dim={m.rsvp_status !== "joined"} />
-              <span className="t-caption text-fg-2 truncate w-full">{m.user_id === meId ? "You" : m.display_name.split(" ")[0]}</span>
-              {m.role === "organiser" && <span className="t-caption text-fg-3 -mt-1">host</span>}
-              {m.rsvp_status === "invited" && <span className="t-caption text-fg-3 -mt-1">invited</span>}
-            </StaggerItem>
-          ))}
-        </Stagger>
-        {inviteOpen && (
-          <Reveal className="mt-4 pt-4 border-t border-line flex flex-col gap-3">
-            <div>
-              <p className="t-button2">Share link</p>
-              <p className="t-caption text-fg-3 mt-0.5">Anyone with it can join and vote — no account needed.</p>
-              <div className="mt-2 flex gap-2">
-                <input readOnly value={shareUrl} className="flex-1 min-w-0 h-10 rounded-[12px] bg-bg border border-line-2 px-3 t-caption text-fg-2" onFocus={(e) => e.currentTarget.select()} />
-                <Button small variant="secondary" onClick={async () => {
-                  if (navigator.share) { try { await navigator.share({ title: "Join my plan on District", url: shareUrl }); return; } catch { /* dismissed */ } }
-                  await navigator.clipboard.writeText(shareUrl); toast.show("Link copied");
-                }}>Share</Button>
-              </div>
-            </div>
-            <InviteFriends planId={plan.id} friends={friends} onDone={(n) => { toast.show(n ? `Invited ${n}` : "No one new to invite"); router.refresh(); }} onError={err} />
-            <p className="t-caption text-fg-3">We only reach people you pick. Anyone can opt out of invites, and we stop instantly.</p>
-          </Reveal>
-        )}
+        <CardHeader>
+          <CardTitle>Crew</CardTitle>
+          <CardDescription>{joined.length} in{invited.length ? ` · ${invited.length} invited` : ""}{plan.quorum > joined.length ? ` · need ${plan.quorum - joined.length} more to lock` : ""}</CardDescription>
+          {canInvite && <CardAction><InviteDrawer planId={plan.id} shareUrl={shareUrl} friends={friends} onInvited={() => router.refresh()} /></CardAction>}
+        </CardHeader>
+        <CardContent>
+          <ul className="grid grid-cols-4 gap-x-2 gap-y-3">
+            {members.map((m) => (
+              <li key={m.id} className="flex flex-col items-center gap-1 text-center">
+                <span className="relative">
+                  <Avatar size="lg" className={cn(m.rsvp_status !== "joined" && "opacity-50 ring-1 ring-dashed ring-border")}><AvatarFallback><Initials name={m.display_name} /></AvatarFallback></Avatar>
+                  {m.role === "organiser" && <span className="absolute -right-1 -bottom-1 grid size-5 place-items-center rounded-full bg-card text-primary ring-1 ring-border"><Crown className="size-3" /></span>}
+                </span>
+                <span className="w-full truncate text-xs">{m.user_id === meId ? "You" : m.display_name.split(" ")[0]}</span>
+                {m.rsvp_status === "invited" && <span className="-mt-1 text-[11px] text-muted-foreground">invited</span>}
+              </li>
+            ))}
+            {canInvite && (
+              <li className="flex flex-col items-center gap-1 text-center">
+                <InviteDrawer planId={plan.id} shareUrl={shareUrl} friends={friends} onInvited={() => router.refresh()} trigger={<button aria-label="Invite" className="grid size-10 place-items-center rounded-full border border-dashed text-muted-foreground transition-colors hover:border-primary hover:text-primary"><UserPlus className="size-4" /></button>} />
+                <span className="text-xs text-muted-foreground">Invite</span>
+              </li>
+            )}
+          </ul>
+        </CardContent>
       </Card>
 
-      {me?.rsvp_status === "invited" && plan.status !== "cancelled" && (
-        <Reveal>
-          <Card tone="brand">
-            <p className="t-button1 text-white">{names[plan.creator_id]?.split(" ")[0] ?? "Your friend"} invited you</p>
-            <p className="t-body2 text-white/80 mt-1">Say yes and you&apos;re in. Or vote below — that counts as yes.</p>
-            <div className="flex gap-2 mt-3">
-              <ActionButton url={`/api/plans/${plan.id}/respond`} body={{ answer: "accept" }} onError={err} className="h-10 px-4 rounded-[14px] bg-white text-bg t-button2">I&apos;m in</ActionButton>
-              <ActionButton url={`/api/plans/${plan.id}/respond`} body={{ answer: "decline" }} onError={err} className="h-10 px-4 rounded-[14px] bg-white/15 text-white t-button2">Can&apos;t make it</ActionButton>
-            </div>
-          </Card>
-        </Reveal>
-      )}
-
       {/* options */}
-      <div className="flex flex-col gap-3">
-        <div className="flex items-center justify-between">
-          <Kicker>{plan.status === "draft" ? "Options" : `Vote · ${votes_needed} needed to lock`}</Kicker>
-          {suggestions.length > 0 && <span className="t-caption text-fg-3">{suggestions[0]?.rationale_source === "llm" ? "curated by District AI" : "rules-based · AI curation next"}</span>}
-        </div>
-        {plan.status === "draft" && (
-          <Empty title={isOrganiser ? "Ready when you are" : "Waiting for the host"} body={isOrganiser ? "Invite a few people first, then open voting. District will propose 2–3 nights that fit the window and budget." : "Options appear once voting opens."}>
-            {isOrganiser && <ActionButton url={`/api/plans/${plan.id}/open`} onError={err} className="mt-2 h-11 px-5 rounded-[14px] bg-brand-btn text-fg t-button1 glow-cta">Open voting</ActionButton>}
-          </Empty>
-        )}
-        <Stagger className="flex flex-col gap-3">
-          {suggestions.map((s) => {
-            const mine = my_vote === s.id; const isLocked = plan.locked_suggestion_id === s.id; const pct = Math.round((s.votes.length / Math.max(votes_needed, 1)) * 100);
-            return (
-              <StaggerItem key={s.id}>
-                <Card className={`relative overflow-hidden transition-[border-color,opacity] duration-200 ${mine ? "border-brand" : ""} ${isLocked ? "border-success" : ""} ${!s.is_available ? "opacity-60" : ""}`}>
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="min-w-0"><p className="t-title1 capitalize truncate">{s.title}</p><p className="t-caption text-fg-3 mt-0.5">{day(s.components[0].starts_at)}</p></div>
-                    <div className="text-right shrink-0"><p className="t-button1 tabular">{inr(s.est_cost_per_head)}</p><p className="t-caption text-fg-3">a head</p></div>
-                  </div>
-                  <ul className="mt-3 flex flex-col gap-2">
-                    {s.components.map((c) => (
-                      <li key={c.ref} className="flex gap-3">
-                        <span className={`t-button3 w-12 shrink-0 pt-0.5 ${kindTone[c.kind]}`}>{time(c.starts_at)}</span>
-                        <span className="min-w-0"><span className="t-body2 block truncate">{c.title}</span>{c.subtitle && <span className="t-caption text-fg-3 block truncate">{c.subtitle}</span>}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="t-body2 text-fg-2 mt-3">“{s.rationale}”</p>
-                  <div className="mt-3 flex items-center justify-between gap-3">
-                    <div className="flex items-center gap-2 min-w-0 h-7">
-                      <TallyAvatars>
-                        {s.votes.length === 0 && <TallyAvatar id="none"><span className="t-caption text-fg-3">No votes yet</span></TallyAvatar>}
-                        {s.votes.map((u, i) => <TallyAvatar key={u} id={u} first={i === 0}><Avatar name={names[u] ?? "?"} size={24} ring /></TallyAvatar>)}
-                      </TallyAvatars>
-                      {s.votes.length > 0 && <span className="t-caption text-fg-3 tabular">{s.votes.length}/{votes_needed}</span>}
+      <section className="space-y-3">
+        {plan.status === "draft" ? (
+          <Card>
+            <CardHeader><CardTitle>{isOrganiser ? "Two steps to go" : "Waiting for the host"}</CardTitle><CardDescription>{isOrganiser ? "District proposes 2–3 nights that fit the window and budget once you open voting." : "Options appear once voting opens."}</CardDescription></CardHeader>
+            <CardContent className="space-y-2">
+              <Step done={members.length > 1} label="Invite the crew" hint={members.length > 1 ? `${members.length - 1} invited` : "Share the link or pick from contacts"} />
+              <Step done={false} label="Open voting" hint="Everyone picks a night in one tap" />
+            </CardContent>
+            {isOrganiser && <CardFooter><ActionButton url={`/api/plans/${plan.id}/open`} className="w-full">Open voting</ActionButton></CardFooter>}
+          </Card>
+        ) : (
+          <>
+            <div className="flex items-end justify-between">
+              <div>
+                <h3 className="text-sm font-medium">{plan.status === "voting" ? "Pick a night" : "Options"}</h3>
+                {plan.status === "voting" && <p className="text-xs text-muted-foreground">{leader && leader.votes.length > 0 ? `${leader.votes.length} of ${votes_needed} needed on the leader` : `${votes_needed} votes on one option locks it`}{totalVotes > 0 ? ` · ${totalVotes} of ${Math.max(joined_count, 1)} voted` : ""}</p>}
+              </div>
+              {suggestions.length > 0 && <span className="text-xs text-muted-foreground">{suggestions[0]?.rationale_source === "llm" ? "curated by AI" : "rules-based"}</span>}
+            </div>
+            {suggestions.map((s) => {
+              const mine = my_vote === s.id; const isLocked = plan.locked_suggestion_id === s.id; const isLeader = plan.status === "voting" && leader?.id === s.id && s.votes.length > 0;
+              const pct = Math.min(100, Math.round((s.votes.length / Math.max(votes_needed, 1)) * 100));
+              return (
+                <Card key={s.id} className={cn("transition-colors", isLocked && "border-primary/50 bg-primary/5", mine && !isLocked && "border-primary/40", !s.is_available && "opacity-60")}>
+                  <CardHeader>
+                    <CardTitle className="capitalize">{s.title}</CardTitle>
+                    <CardDescription className="flex items-center gap-2">{day(s.components[0].starts_at)}{isLeader && <Badge variant="secondary" className="text-primary">Leading</Badge>}</CardDescription>
+                    <CardAction className="text-right"><p className="font-semibold tabular-nums">{inr(s.est_cost_per_head)}</p><p className="text-xs text-muted-foreground">a head</p></CardAction>
+                  </CardHeader>
+                  <CardContent className="space-y-3">
+                    <ul className="space-y-2">
+                      {s.components.map((c) => (
+                        <li key={c.ref} className="flex gap-3 text-sm">
+                          <span className="w-14 shrink-0 text-muted-foreground tabular-nums">{time(c.starts_at)}</span>
+                          <span className="min-w-0"><span className="block truncate font-medium">{c.title}</span>{c.subtitle && <span className="block truncate text-xs text-muted-foreground">{c.subtitle}</span>}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <p className="border-l-2 border-primary/40 pl-3 text-sm text-muted-foreground">{s.rationale}</p>
+                    {plan.status === "voting" && <Progress value={pct} className="h-1" />}
+                  </CardContent>
+                  <CardFooter className="justify-between gap-3">
+                    <div className="flex items-center gap-2">
+                      {s.votes.length > 0 ? <div className="flex -space-x-2">{s.votes.map((u) => <Avatar key={u} size="sm" className="ring-2 ring-card"><AvatarFallback className="text-[10px]"><Initials name={names[u] ?? "?"} /></AvatarFallback></Avatar>)}</div> : <span className="text-xs text-muted-foreground">No votes yet</span>}
+                      {s.votes.length > 0 && <span className="text-xs text-muted-foreground tabular-nums">{s.votes.length}/{votes_needed}</span>}
                     </div>
                     {plan.status === "voting" ? (
-                      !s.is_available ? <Pill tone="error">Sold out</Pill> :
-                      <ActionButton url={`/api/plans/${plan.id}/vote`} body={{ suggestion_id: s.id }} onError={err} onDone={(r) => { if ((r as { just_locked?: boolean }).just_locked) toast.show("Locked in"); }}
-                        className={`h-10 px-4 rounded-[14px] t-button2 transition-colors duration-200 ${mine ? "bg-brand/20 text-offer" : "bg-brand-btn text-fg glow-cta"}`}>
-                        <Swap id={mine ? "voted" : "vote"}>{mine ? <><CheckIcon /> Voted</> : "I'm in"}</Swap>
+                      !s.is_available ? <Badge variant="destructive">Sold out</Badge> :
+                      <ActionButton url={`/api/plans/${plan.id}/vote`} body={{ suggestion_id: s.id }} size="sm" variant={mine ? "secondary" : "default"} onDone={(r) => { if ((r as { just_locked?: boolean }).just_locked) toast.success("Locked in"); }}>
+                        {mine ? <><Check /> Voted</> : "I'm in"}
                       </ActionButton>
-                    ) : isLocked ? <Pill tone="success">Locked</Pill> : null}
-                  </div>
-                  {plan.status === "voting" && <ProgressBar pct={pct} className="absolute left-0 right-0 bottom-0 !rounded-none !h-0.5 !bg-transparent" />}
+                    ) : isLocked ? <Badge className="gap-1"><Lock className="size-3" /> Locked</Badge> : null}
+                  </CardFooter>
                 </Card>
-              </StaggerItem>
-            );
-          })}
-        </Stagger>
-        {plan.status === "voting" && (
-          <Pressable onClick={() => toast.show("Browse lands with curation in Phase 3")} className="h-11 rounded-[14px] bg-surface-2 text-fg-2 t-button2">None of these — browse instead</Pressable>
+              );
+            })}
+            {plan.status === "voting" && <Button variant="ghost" size="sm" className="w-full text-muted-foreground" onClick={() => toast("Browse lands with curation in Phase 3")}>None of these — browse instead</Button>}
+          </>
         )}
-      </div>
-
-      {!["cancelled", "completed"].includes(plan.status) && (
-        <div className="flex justify-center gap-5 pt-2">
-          {isOrganiser
-            ? <ActionButton url={`/api/plans/${plan.id}/cancel`} onError={err} onDone={() => router.push("/")} className="t-button2 text-fg-3">Cancel plan</ActionButton>
-            : <ActionButton url={`/api/plans/${plan.id}/leave`} onError={err} onDone={() => router.push("/")} className="t-button2 text-fg-3">Leave plan</ActionButton>}
-          {!isOrganiser && <ActionButton url="/api/optout" body={{ reason: "spam_report", plan_id: plan.id }} onError={err} onDone={() => { toast.show("You won't get invites again"); router.push("/"); }} className="t-button2 text-fg-3">Report as spam</ActionButton>}
-        </div>
-      )}
+      </section>
     </>
   );
 }
 
-function CheckIcon() { return <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6L9 17l-5-5" /></svg>; }
+function Step({ done, label, hint }: { done: boolean; label: string; hint: string }) {
+  return (
+    <div className="flex items-center gap-3">
+      <span className={cn("grid size-6 shrink-0 place-items-center rounded-full border text-xs", done ? "border-primary bg-primary text-primary-foreground" : "text-muted-foreground")}>{done ? <Check className="size-3.5" /> : ""}</span>
+      <div className="min-w-0"><p className={cn("text-sm font-medium", done && "text-muted-foreground line-through")}>{label}</p><p className="truncate text-xs text-muted-foreground">{hint}</p></div>
+    </div>
+  );
+}
 
-function InviteFriends({ planId, friends, onDone, onError }: { planId: string; friends: { id: string; name: string; area: string }[]; onDone: (n: number) => void; onError: (e: ApiError) => void }) {
+/** Destructive / rare actions live in an overflow menu so they can't be tapped by accident. */
+export function PlanMenu({ planId, status, isOrganiser }: { planId: string; status: string; isOrganiser: boolean }) {
+  const router = useRouter();
+  if (["cancelled", "completed"].includes(status)) return null;
+  const run = async (url: string, body?: unknown, msg?: string) => { try { await api(url, body); if (msg) toast(msg); router.push("/"); router.refresh(); } catch (e) { toast.error((e as ApiError).message); } };
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild><Button variant="ghost" size="icon" aria-label="More"><MoreHorizontal /></Button></DropdownMenuTrigger>
+      <DropdownMenuContent align="end">
+        {isOrganiser ? (
+          <DropdownMenuItem variant="destructive" onClick={() => run(`/api/plans/${planId}/cancel`, undefined, "Plan cancelled")}><XCircle /> Cancel plan</DropdownMenuItem>
+        ) : (
+          <>
+            <DropdownMenuItem onClick={() => run(`/api/plans/${planId}/leave`, undefined, "You left the plan")}><LogOut /> Leave plan</DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem variant="destructive" onClick={() => run("/api/optout", { reason: "spam_report", plan_id: planId }, "You won't get invites again")}><Flag /> Report as spam</DropdownMenuItem>
+          </>
+        )}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
+/** Shown once per plan per browser when the plan flips to locked. */
+function LockDialog({ planId, active, title, subtitle }: { planId: string; active: boolean; title: string; subtitle: string }) {
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    if (!active) return;
+    const k = `lock-seen:${planId}`;
+    try { if (sessionStorage.getItem(k)) return; sessionStorage.setItem(k, "1"); } catch { /* private mode */ }
+    const t = setTimeout(() => setOpen(true), 0);
+    return () => clearTimeout(t);
+  }, [active, planId]);
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogContent className="max-w-sm text-center">
+        <DialogHeader className="items-center">
+          <div className="mb-2 grid size-12 place-items-center rounded-full bg-primary text-primary-foreground"><Lock className="size-5" /></div>
+          <DialogTitle className="capitalize">Locked in</DialogTitle>
+          <DialogDescription className="capitalize">{title}</DialogDescription>
+          <DialogDescription>{subtitle}</DialogDescription>
+        </DialogHeader>
+        <Button onClick={() => setOpen(false)}>Nice</Button>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+function InviteDrawer({ planId, shareUrl, friends, onInvited, trigger }: { planId: string; shareUrl: string; friends: { id: string; name: string; area: string }[]; onInvited: () => void; trigger?: React.ReactNode }) {
   const [sel, setSel] = useState<string[]>([]);
   const [busy, setBusy] = useState(false);
-  if (friends.length === 0) return <p className="t-caption text-fg-3">Everyone in your contacts is already here. Use the link for others.</p>;
+  const share = async () => {
+    if (navigator.share) { try { await navigator.share({ title: "Join my plan on District", url: shareUrl }); return; } catch { /* dismissed */ } }
+    await navigator.clipboard.writeText(shareUrl); toast.success("Link copied");
+  };
   return (
-    <div>
-      <p className="t-button2">From your contacts</p>
-      <ul className="mt-2 flex flex-col gap-1">
-        {friends.map((f) => { const on = sel.includes(f.id); return (
-          <li key={f.id}><Pressable scale={0.985} onClick={() => setSel((s) => (on ? s.filter((x) => x !== f.id) : [...s, f.id]))} className={`w-full flex items-center gap-3 rounded-[12px] px-2 py-2 text-left transition-colors duration-150 ${on ? "bg-brand/15" : ""}`}>
-            <Avatar name={f.name} size={32} /><span className="flex-1 min-w-0"><span className="t-body2 block truncate">{f.name}</span><span className="t-caption text-fg-3">{f.area}</span></span>
-            <span className={`w-5 h-5 rounded-full border grid place-items-center transition-colors duration-150 ${on ? "bg-brand border-brand" : "border-line-3"}`}>{on && <CheckIcon />}</span>
-          </Pressable></li>); })}
-      </ul>
-      <Button small full className="mt-3" disabled={sel.length === 0 || busy} onClick={async () => { setBusy(true); try { const r = await api<{ invited: unknown[] }>(`/api/plans/${planId}/invite`, { friend_ids: sel }); setSel([]); onDone(r.invited.length); } catch (e) { onError(e as ApiError); } finally { setBusy(false); } }}>
-        Invite {sel.length || ""}
-      </Button>
-    </div>
+    <Drawer>
+      <DrawerTrigger asChild>{trigger ?? <Button size="sm" variant="outline"><UserPlus /> Invite</Button>}</DrawerTrigger>
+      <DrawerContent>
+        <div className="mx-auto w-full max-w-md">
+          <DrawerHeader className="text-left">
+            <DrawerTitle>Invite the crew</DrawerTitle>
+            <DrawerDescription>Anyone with the link can join and vote — no account needed.</DrawerDescription>
+          </DrawerHeader>
+          <div className="space-y-5 px-4">
+            <div className="space-y-2">
+              <Label>Share link</Label>
+              <div className="flex gap-2">
+                <Input readOnly value={shareUrl} onFocus={(e) => e.currentTarget.select()} className="font-mono text-xs" />
+                <Button variant="outline" size="icon" aria-label="Copy" onClick={async () => { await navigator.clipboard.writeText(shareUrl); toast.success("Link copied"); }}><Copy /></Button>
+                <Button onClick={share}><Share2 /> Share</Button>
+              </div>
+            </div>
+            <div className="space-y-2">
+              <div className="flex items-baseline justify-between"><Label>From your contacts</Label>{sel.length > 0 && <button className="text-xs text-muted-foreground" onClick={() => setSel([])}>Clear</button>}</div>
+              {friends.length === 0 ? <p className="rounded-md border border-dashed p-3 text-center text-xs text-muted-foreground">Everyone in your contacts is already here. Use the link for others.</p> : (
+                <ul className="max-h-56 divide-y overflow-y-auto rounded-md border">
+                  {friends.map((f) => { const on = sel.includes(f.id); return (
+                    <li key={f.id}>
+                      <label className={cn("flex cursor-pointer items-center gap-3 px-3 py-2.5 transition-colors hover:bg-accent/50", on && "bg-primary/5")}>
+                        <Avatar size="sm"><AvatarFallback className="text-[10px]"><Initials name={f.name} /></AvatarFallback></Avatar>
+                        <span className="min-w-0 flex-1"><span className="block truncate text-sm">{f.name}</span><span className="text-xs text-muted-foreground">{f.area}</span></span>
+                        <Checkbox checked={on} onCheckedChange={(v) => setSel((s) => (v ? [...s, f.id] : s.filter((x) => x !== f.id)))} />
+                      </label>
+                    </li>); })}
+                </ul>
+              )}
+              <p className="text-xs text-muted-foreground">We only reach people you pick. Anyone can opt out and we stop instantly.</p>
+            </div>
+          </div>
+          <DrawerFooter className="flex-row gap-2">
+            <DrawerClose asChild><Button variant="outline" className="flex-1">Done</Button></DrawerClose>
+            <Button className="flex-1" disabled={sel.length === 0 || busy} onClick={async () => { setBusy(true); try { const r = await api<{ invited: unknown[] }>(`/api/plans/${planId}/invite`, { friend_ids: sel }); setSel([]); toast.success(r.invited.length ? `Invited ${r.invited.length}` : "No one new to invite"); onInvited(); } catch (e) { toast.error((e as ApiError).message); } finally { setBusy(false); } }}>
+              Invite{sel.length ? ` ${sel.length}` : ""}
+            </Button>
+          </DrawerFooter>
+        </div>
+      </DrawerContent>
+    </Drawer>
   );
 }

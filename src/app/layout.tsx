@@ -1,19 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Be_Vietnam_Pro } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./globals.css";
-import { MotionProvider } from "@/components/motion";
+import { cn } from "@/lib/utils";
+import { Toaster } from "@/components/ui/sonner";
 
-// Be Vietnam Pro — District's verified UI face (see docs/DESIGN_LANGUAGE.md).
-const beVietnam = Be_Vietnam_Pro({ variable: "--font-be-vietnam", subsets: ["latin"], weight: ["400", "500", "600", "700"], display: "swap" });
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = { title: "District Plans", description: "The plan, not just the ticket." };
-export const viewport: Viewport = { themeColor: "#120e1b", width: "device-width", initialScale: 1, viewportFit: "cover" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${beVietnam.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-ground text-fg">
-        <MotionProvider>{children}</MotionProvider>
+    <html lang="en" className={cn("dark h-full antialiased font-sans", geist.variable)}>
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        {children}
+        <Toaster position="top-center" richColors />
       </body>
     </html>
   );

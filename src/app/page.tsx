@@ -1,62 +1,70 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import { Plus, ChevronRight, CalendarDays } from "lucide-react";
 import { currentUser } from "@/lib/session";
-import { plansFor, joinedMembers, membersOf } from "@/lib/store/store";
+import { plansFor, joinedMembers, membersOf, store, voteKey } from "@/lib/store/store";
 import { getPlan } from "@/lib/services/plan";
-import { Screen, Card, Pill, AvatarStack, Empty, Kicker, Avatar, Headline, buttonClass } from "@/components/ui";
-import { dateRange, firstName, statusLabel, vibeLabel } from "@/lib/format";
+import { Screen, Initials } from "@/components/screen";
+import { StatusBadge } from "@/components/status-badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { dateRange, firstName, vibeLabel } from "@/lib/format";
 import { LiveRefresh } from "@/components/client";
-import { Stagger, StaggerItem } from "@/components/motion";
 
 export const dynamic = "force-dynamic";
-type Tone = "neutral" | "brand" | "success" | "warning" | "error";
-const tone = (s: string): Tone => (s === "locked" || s === "booked" ? "success" : s === "voting" ? "brand" : s === "expired" ? "warning" : s === "cancelled" ? "error" : "neutral");
 
 export default async function Home() {
   const me = await currentUser();
   if (!me) redirect("/switch");
   const plans = plansFor(me.id).map((p) => getPlan(p.id)).filter((p) => !["cancelled", "completed"].includes(p.status));
+  const needsMe = (planId: string, status: string) => status === "voting" && !store.votes.has(voteKey(planId, me.id));
   return (
-    <Screen bottom={<Link href="/plans/new" className={`${buttonClass("primary", false, true)} active:scale-[0.97] transition-transform`}>Start a plan</Link>}>
+    <Screen bottom={<Button asChild size="lg" className="w-full"><Link href="/plans/new"><Plus /> Start a plan</Link></Button>}>
       <LiveRefresh every={5000} />
-      <div className="flex items-start justify-between pt-3">
+      <div className="flex items-start justify-between gap-3 pt-2">
         <div>
-          <Kicker tone="brand">District · Plans</Kicker>
-          <Headline className="mt-2" tail="who's free?">Hey {firstName(me.name)},</Headline>
+          <p className="text-xs font-medium uppercase tracking-wide text-primary">District Plans</p>
+          <h1 className="mt-1 text-2xl font-semibold tracking-tight">Hey {firstName(me.name)}, who&apos;s free?</h1>
         </div>
-        <Link href="/switch" className="flex flex-col items-center gap-1 -mt-1 active:scale-95 transition-transform" title="Switch demo user"><Avatar name={me.name} size={40} ring /><span className="t-caption text-fg-3">switch</span></Link>
+        <Button variant="outline" size="sm" asChild><Link href="/switch"><Avatar size="sm"><AvatarFallback className="text-[10px]"><Initials name={me.name} /></AvatarFallback></Avatar>Switch</Link></Button>
       </div>
 
-      <div className="flex flex-col gap-3">
-        <Kicker>Your plans</Kicker>
+      <section className="space-y-3">
+        <div className="flex items-center justify-between"><h2 className="text-sm font-medium text-muted-foreground">Your plans</h2>{plans.length > 0 && <span className="text-xs text-muted-foreground">{plans.length}</span>}</div>
         {plans.length === 0 ? (
-          <Empty title="Nothing on yet" body="Start a plan, share the link, and let the crew vote. It locks itself." />
-        ) : (
-          <Stagger as="ul" className="flex flex-col gap-3">
-            {plans.map((p) => {
-              const joined = joinedMembers(p.id); const all = membersOf(p.id).filter((m) => m.rsvp_status !== "left");
-              return (
-                <StaggerItem as="li" key={p.id}>
-                  <Link href={`/plans/${p.id}`} className="block active:scale-[0.985] transition-transform duration-150">
-                    <Card>
-                      <div className="flex items-center justify-between gap-3">
-                        <p className="t-title1 truncate">{vibeLabel[p.vibe] ?? p.vibe} night</p>
-                        <Pill tone={tone(p.status)}>{statusLabel[p.status]}</Pill>
-                      </div>
-                      <p className="t-body2 text-fg-2 mt-0.5">{p.city} · {dateRange(p.date_start, p.date_end)} · {p.budget_band}</p>
-                      <div className="flex items-center justify-between mt-3">
-                        <AvatarStack names={all.map((m) => m.display_name)} />
-                        <span className="t-caption text-fg-3">{joined.length} in{all.length > joined.length ? ` · ${all.length - joined.length} invited` : ""}</span>
-                      </div>
-                    </Card>
-                  </Link>
-                </StaggerItem>
-              );
-            })}
-          </Stagger>
-        )}
-      </div>
-      <p className="t-caption text-fg-3 text-center mt-2">Prototype · in-memory demo data · everyone here is synthetic</p>
+          <Card className="border-dashed">
+            <CardContent className="flex flex-col items-center py-10 text-center">
+              <div className="mb-3 grid size-11 place-items-center rounded-full bg-primary/10 text-primary"><CalendarDays className="size-5" /></div>
+              <p className="font-medium">Nothing on yet</p>
+              <p className="mt-1 max-w-[26ch] text-sm text-muted-foreground">Start a plan, share the link, and let the crew vote. It locks itself.</p>
+            </CardContent>
+          </Card>
+        ) : plans.map((p) => {
+          const joined = joinedMembers(p.id); const all = membersOf(p.id).filter((m) => m.rsvp_status !== "left");
+          const yourMove = needsMe(p.id, p.status);
+          return (
+            <Link key={p.id} href={`/plans/${p.id}`} className="block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring">
+              <Card className={yourMove ? "border-primary/40" : ""}>
+                <CardContent className="flex items-center gap-3">
+                  <div className="min-w-0 flex-1 space-y-2">
+                    <div className="flex items-center gap-2"><p className="truncate font-medium">{vibeLabel[p.vibe] ?? p.vibe} night</p><StatusBadge status={p.status} /></div>
+                    <p className="text-sm text-muted-foreground">{p.city} · {dateRange(p.date_start, p.date_end)} · {p.budget_band}</p>
+                    <div className="flex items-center gap-2">
+                      <div className="flex -space-x-2">{all.slice(0, 5).map((m) => <Avatar key={m.id} size="sm" className="ring-2 ring-card"><AvatarFallback className="text-[10px]"><Initials name={m.display_name} /></AvatarFallback></Avatar>)}</div>
+                      <span className="text-xs text-muted-foreground">{joined.length} in{all.length > joined.length ? ` · ${all.length - joined.length} invited` : ""}</span>
+                      {yourMove && <Badge variant="secondary" className="ml-auto text-primary">Your vote</Badge>}
+                    </div>
+                  </div>
+                  <ChevronRight className="size-4 shrink-0 text-muted-foreground" />
+                </CardContent>
+              </Card>
+            </Link>
+          );
+        })}
+      </section>
+      <p className="text-center text-xs text-muted-foreground">Prototype · in-memory demo data · everyone here is synthetic</p>
     </Screen>
   );
 }

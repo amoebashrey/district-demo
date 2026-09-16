@@ -32,11 +32,12 @@ src/app/                    screens: / (your plans) · /switch · /plans/new · 
 src/app/api/                route handlers — the backend surface (plans, vote, invite, respond, join, session, optout, health)
 src/lib/services/           plan.ts (state machine + atomic lock) · invite.ts (links, caps, opt-out) · candidates.ts (rules-based options) · analytics.ts
 src/lib/store/              in-memory store + domain types mirroring docs/data-model
-src/lib/theme/tokens.ts     District brand tokens (verified from district.in production CSS)
-src/components/             UI kit (Screen, Button, Chip, Card, Pill, Avatar…) + client helpers (api, LiveRefresh, toast)
+src/components/ui/          shadcn/ui (radix-nova preset, neutral, dark) — button, card, badge, avatar, tabs, toggle-group, drawer, dialog, alert, progress, sonner…
+src/components/screen.tsx   phone-width page shell · client.tsx: api(), LiveRefresh, ActionButton
 scripts/fixtures/           deterministic synthetic-data generator → fixtures/out/ (SYNTHETIC)
 scripts/test/               node:test suites
-docs/DESIGN_LANGUAGE.md     what District actually ships vs the PRD's provisional tokens
+docs/DESIGN_LANGUAGE.md     District's real brand values (for later); UI currently uses shadcn defaults, minimal branding
+docs/reference/             district-tokens.reference.ts — brand tokens parked until branding is revisited
 docs/data-model/            production Postgres schema + RLS (design doc, not executed)
 ```
 
@@ -45,6 +46,10 @@ docs/data-model/            production Postgres schema + RLS (design doc, not ex
 `expired → voting` (re-open) and `locked → voting` (quorum broken when a member leaves).
 Lock rule: leading option has a strict majority of joined members' votes **and** joined ≥ quorum.
 Votes are one per member, re-castable until lock, rejected after. Expiry is evaluated lazily on read.
+
+## UI
+shadcn/ui components only (`npx shadcn add …` to extend), default neutral palette in dark mode, Geist. Branding is
+intentionally minimal for now; District's verified brand values are parked in `docs/`.
 
 ## Deploy
 `vercel` (or import the repo in the Vercel dashboard). No env vars required. State is per server
