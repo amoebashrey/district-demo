@@ -22,10 +22,10 @@ export default async function ConfirmationPage({ params }: { params: Promise<{ i
 
   return (
     <div className="flex flex-col min-h-full">
-      <main className="mx-auto w-full max-w-md flex-1 px-4 pt-8 pb-28 space-y-5">
+      <main className="mx-auto w-full max-w-md flex-1 px-4 pt-8 shell-nav-pad space-y-5">
         {/* Confirmation hero */}
         <div className="text-center space-y-3">
-          <div className="mx-auto grid size-16 place-items-center rounded-full bg-primary text-primary-foreground">
+          <div className="mx-auto grid size-16 place-items-center rounded-full bg-[#22c55e] text-black">
             <CheckCircle2 className="size-8" />
           </div>
           <h1 className="text-2xl font-semibold tracking-tight">You&apos;re booked</h1>
@@ -51,7 +51,7 @@ export default async function ConfirmationPage({ params }: { params: Promise<{ i
 
         {/* EP4 — "Bring your friends" post-booking */}
         <EntryPoint n={4} block>
-          <Card className="border-primary/30 bg-primary/5 w-full">
+          <Card className="border-brand/30 bg-brand/5 w-full">
             <CardContent className="py-5 space-y-3">
               <div className="space-y-1">
                 <p className="font-semibold text-sm">Bring your friends →</p>

@@ -50,7 +50,7 @@ export function NewPlanForm({ city }: { city: string }) {
       </div>
     }>
       <div>
-        <p className="text-xs font-medium uppercase tracking-wide text-primary">{city}</p>
+        <p className="text-xs font-medium uppercase tracking-wide text-brand-soft">{city}</p>
         <h2 className="mt-1 text-2xl font-semibold tracking-tight">When, and what kind of night?</h2>
         <p className="mt-1 text-sm text-muted-foreground">District builds 2–3 options around this. Your crew votes. It locks itself.</p>
       </div>

@@ -96,11 +96,11 @@ export function DetailShell({ item, startWithPlan }: { item: Item; meCity?: stri
 
           {/* EP3 — "Split & invite" toggle */}
           <EntryPoint n={3} block>
-            <Card className={withCrew ? "border-primary/40 bg-primary/5 w-full" : "w-full"}>
+            <Card className={withCrew ? "border-brand/40 bg-brand/5 w-full" : "w-full"}>
               <CardContent className="flex items-center justify-between gap-3 py-4">
                 <div className="flex items-center gap-3">
-                  <div className="grid size-9 place-items-center rounded-full bg-primary/10">
-                    <Users className="size-4 text-primary" />
+                  <div className="grid size-9 place-items-center rounded-full bg-brand/10">
+                    <Users className="size-4 text-brand-soft" />
                   </div>
                   <div>
                     <p className="text-sm font-medium">Split & invite</p>

@@ -31,14 +31,14 @@ export function StarterCard({ options, crew, city, weekend }: { options: Opt[]; 
       </header>
       <div className="flex-1 space-y-5 px-4 pt-4">
         <div>
-          <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-primary"><Sparkles className="size-3.5" /> Picked for your crew</p>
+          <p className="flex items-center gap-1.5 text-xs font-medium uppercase tracking-wide text-brand-soft"><Sparkles className="size-3.5" /> Picked for your crew</p>
           <h2 className="mt-1 text-2xl font-semibold tracking-tight">Free {weekend}? Here&apos;s one night that fits.</h2>
           <p className="mt-1 text-sm text-muted-foreground">One suggestion, not a poll. Say yes and we&apos;ll set it up; your friends join and pay their share from the link.</p>
         </div>
         {!o ? (
-          <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">Nothing fits {weekend} in {city}. <Link href="/plans/new" className="text-primary underline">Build a plan by hand</Link>.</CardContent></Card>
+          <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">Nothing fits {weekend} in {city}. <Link href="/plans/new" className="text-brand-soft underline">Build a plan by hand</Link>.</CardContent></Card>
         ) : (
-          <Card className="border-primary/40">
+          <Card className="border-brand/40">
             <CardHeader>
               <CardTitle className="capitalize">{o.title}</CardTitle>
               <CardDescription>{day(o.components[0].starts_at)} · {inr(o.est)} a head</CardDescription>
@@ -52,7 +52,7 @@ export function StarterCard({ options, crew, city, weekend }: { options: Opt[]; 
                   </li>
                 ))}
               </ul>
-              <p className="border-l-2 border-primary/40 pl-3 text-sm text-muted-foreground">{o.rationale}</p>
+              <p className="border-l-2 border-brand/40 pl-3 text-sm text-muted-foreground">{o.rationale}</p>
               {crew.length > 0 && (
                 <div className="flex items-center gap-2 pt-1">
                   <div className="flex -space-x-2">{crew.map((n) => <Avatar key={n} size="sm" className="ring-2 ring-card"><AvatarFallback className="text-[10px]"><Initials name={n} /></AvatarFallback></Avatar>)}</div>

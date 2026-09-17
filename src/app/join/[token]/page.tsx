@@ -28,7 +28,7 @@ export default async function JoinPage({ params }: { params: Promise<{ token: st
     <div className="flex flex-col min-h-full">
       <main className="mx-auto w-full max-w-md flex-1 space-y-5 px-4 pt-6 pb-28">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-primary">You&apos;re invited</p>
+          <p className="text-xs font-medium uppercase tracking-wide text-brand-soft">You&apos;re invited</p>
           <h1 className="mt-1 text-2xl font-semibold tracking-tight">
             {locked ? <>{firstName(host?.name ?? "A friend")} is going to <span className="capitalize">{locked.title}</span></> : <>{firstName(host?.name ?? "A friend")} is planning a {(vibeLabel[plan.vibe] ?? plan.vibe).toLowerCase()} night</>}
           </h1>

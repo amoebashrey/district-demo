@@ -19,7 +19,7 @@ export default async function SwitchPage() {
       </header>
       <main className="mx-auto w-full max-w-md flex-1 space-y-5 px-4 pt-4 pb-28">
         <div>
-          <p className="text-xs font-medium uppercase tracking-wide text-primary">Demo identity</p>
+          <p className="text-xs font-medium uppercase tracking-wide text-brand-soft">Demo identity</p>
           <h2 className="mt-1 text-2xl font-semibold tracking-tight">Pick a person to play as</h2>
           <p className="mt-1 text-sm text-muted-foreground">
             Synthetic users grouped by city. Friends in the same crew see each other&apos;s plans.

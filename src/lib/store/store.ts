@@ -16,6 +16,7 @@ import type {
 
 export interface Store {
   seeded_at: string;
+  flags: Record<string, boolean>;
   anchor_shift_days: number;
   users: Map<string, User>;
   taste: Map<string, TasteProfile>;
@@ -59,7 +60,7 @@ function seed(): Store {
   const shift = Math.round((today.getTime() - anchor.getTime()) / 86_400_000);
 
   const s: Store = {
-    seeded_at: nowIso(), anchor_shift_days: shift,
+    seeded_at: nowIso(), anchor_shift_days: shift, flags: {},
     users: new Map(), taste: new Map(), edges: [], plans: new Map(), members: new Map(), invites: new Map(),
     suggestions: new Map(), votes: new Map(), bookings: new Map(), splits: new Map(), events: [], optouts: new Map(),
     inventory: { dining: new Map(), slots: new Map(), slotsByVenue: new Map(), events: new Map(), movies: new Map() },

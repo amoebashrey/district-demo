@@ -50,7 +50,7 @@ export function PlanHub({ view, meId, shareUrl, friends, names, openInvite }: Pr
 
       {/* header */}
       <div className="space-y-2">
-        <p className="text-xs font-medium uppercase tracking-wide text-primary">{plan.city}{anchored ? " · Going together" : ""}</p>
+        <p className="text-xs font-medium uppercase tracking-wide text-brand-soft">{plan.city}{anchored ? " · Going together" : ""}</p>
         <h2 className="text-2xl font-semibold tracking-tight capitalize">{title}</h2>
         <div className="flex flex-wrap gap-1.5">
           <Badge variant="secondary">{when ? `${day(when)} · ${time(when)}` : dateRange(plan.date_start, plan.date_end)}</Badge>
@@ -61,9 +61,9 @@ export function PlanHub({ view, meId, shareUrl, friends, names, openInvite }: Pr
 
       {/* ---------- BOOKED: the shared plan card everyone gets ---------- */}
       {plan.status === "booked" && locked && (
-        <Card className="border-primary/50 bg-primary/5">
+        <Card className="border-brand/50 bg-brand/5">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2"><Ticket className="size-4 text-primary" /> You&apos;re all set</CardTitle>
+            <CardTitle className="flex items-center gap-2"><Ticket className="size-4 text-brand-soft" /> You&apos;re all set</CardTitle>
             <CardDescription>{paid_count} paid · {joined.length} in the plan</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3 text-sm">
@@ -80,9 +80,9 @@ export function PlanHub({ view, meId, shareUrl, friends, names, openInvite }: Pr
 
       {/* ---------- LOCKED (open mode) banner ---------- */}
       {plan.status === "locked" && locked && !anchored && (
-        <Card className="border-primary/40 bg-primary/5">
+        <Card className="border-brand/40 bg-brand/5">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 capitalize"><Lock className="size-4 text-primary" /> {locked.title}</CardTitle>
+            <CardTitle className="flex items-center gap-2 capitalize"><Lock className="size-4 text-brand-soft" /> {locked.title}</CardTitle>
             <CardDescription>Locked · {joined.length} going · pay your share to book</CardDescription>
           </CardHeader>
           <CardContent><ul className="space-y-1.5 text-sm">{locked.components.map((c) => <li key={c.ref} className="flex gap-3"><span className="w-14 shrink-0 text-muted-foreground tabular-nums">{time(c.starts_at)}</span><span><span className="text-muted-foreground">{kindLabel[c.kind]} · </span>{c.title}</span></li>)}</ul></CardContent>
@@ -107,9 +107,9 @@ export function PlanHub({ view, meId, shareUrl, friends, names, openInvite }: Pr
 
       {/* ---------- SPLITPAY: your share + who's paid ---------- */}
       {money && locked && (
-        <Card className={cn(my_split?.status !== "captured" && "border-primary/40")}>
+        <Card className={cn(my_split?.status !== "captured" && "border-brand/40")}>
           <CardHeader>
-            <CardTitle className="flex items-center gap-2"><IndianRupee className="size-4 text-primary" /> Splitpay</CardTitle>
+            <CardTitle className="flex items-center gap-2"><IndianRupee className="size-4 text-brand-soft" /> Splitpay</CardTitle>
             <CardDescription>{paid_count} of {joined.length} paid · {inr(locked.est_cost_per_head)} each{plan.status === "locked" ? " · books when everyone has paid" : ""}</CardDescription>
             <CardAction className="text-right"><p className="font-semibold tabular-nums">{inr(my_split?.amount ?? locked.est_cost_per_head)}</p><p className="text-xs text-muted-foreground">your share</p></CardAction>
           </CardHeader>
@@ -142,9 +142,9 @@ export function PlanHub({ view, meId, shareUrl, friends, names, openInvite }: Pr
       {/* ---------- EP5: after Splitpay, plan the next one ---------- */}
       {plan.status === "booked" && (
         <EntryPoint n={5} block>
-          <Card className="w-full border-primary/20 bg-primary/5">
+          <Card className="w-full border-brand/20 bg-brand/5">
             <CardContent className="flex items-center gap-3 py-4">
-              <div className="grid size-10 shrink-0 place-items-center rounded-full bg-primary/20"><Repeat className="size-5 text-primary" /></div>
+              <div className="grid size-10 shrink-0 place-items-center rounded-full bg-brand/20"><Repeat className="size-5 text-brand-soft" /></div>
               <div className="min-w-0 flex-1"><p className="text-sm font-semibold">Loved it? Plan the next one</p><p className="mt-0.5 text-xs text-muted-foreground">Same crew, next weekend, one tap.</p></div>
               <ReplanButton planId={plan.id} />
             </CardContent>
@@ -154,7 +154,7 @@ export function PlanHub({ view, meId, shareUrl, friends, names, openInvite }: Pr
 
       {/* pending invite for me */}
       {me?.rsvp_status === "invited" && plan.status !== "cancelled" && (
-        <Card className="border-primary/40 bg-primary/5">
+        <Card className="border-brand/40 bg-brand/5">
           <CardHeader><CardTitle>{names[plan.creator_id]?.split(" ")[0] ?? "Your friend"} invited you</CardTitle><CardDescription>{money ? "Say yes, then pay your share via Splitpay." : "Say yes and you're in. Voting below counts as yes too."}</CardDescription></CardHeader>
           <CardFooter className="gap-2">
             <ActionButton url={`/api/plans/${plan.id}/respond`} body={{ answer: "accept" }} size="sm">I&apos;m in</ActionButton>
@@ -176,7 +176,7 @@ export function PlanHub({ view, meId, shareUrl, friends, names, openInvite }: Pr
               <li key={m.id} className="flex flex-col items-center gap-1 text-center">
                 <span className="relative">
                   <Avatar size="lg" className={cn(m.rsvp_status !== "joined" && "opacity-50 ring-1 ring-dashed ring-border")}><AvatarFallback><Initials name={m.display_name} /></AvatarFallback></Avatar>
-                  {m.role === "organiser" && <span className="absolute -right-1 -bottom-1 grid size-5 place-items-center rounded-full bg-card text-primary ring-1 ring-border"><Crown className="size-3" /></span>}
+                  {m.role === "organiser" && <span className="absolute -right-1 -bottom-1 grid size-5 place-items-center rounded-full bg-card text-brand-soft ring-1 ring-border"><Crown className="size-3" /></span>}
                   {money && paidBy(m.user_id) === "captured" && m.role !== "organiser" && <span className="absolute -right-1 -bottom-1 grid size-5 place-items-center rounded-full bg-primary text-primary-foreground ring-2 ring-card"><Check className="size-3" /></span>}
                 </span>
                 <span className="w-full truncate text-xs">{m.user_id === meId ? "You" : m.display_name.split(" ")[0]}</span>
@@ -185,7 +185,7 @@ export function PlanHub({ view, meId, shareUrl, friends, names, openInvite }: Pr
             ))}
             {canInvite && (
               <li className="flex flex-col items-center gap-1 text-center">
-                <InviteDrawer planId={plan.id} shareUrl={shareUrl} friends={friends} onInvited={() => router.refresh()} perHead={locked?.est_cost_per_head} title={title} trigger={<button aria-label="Invite" className="grid size-10 place-items-center rounded-full border border-dashed text-muted-foreground transition-colors hover:border-primary hover:text-primary"><UserPlus className="size-4" /></button>} />
+                <InviteDrawer planId={plan.id} shareUrl={shareUrl} friends={friends} onInvited={() => router.refresh()} perHead={locked?.est_cost_per_head} title={title} trigger={<button aria-label="Invite" className="grid size-10 place-items-center rounded-full border border-dashed text-muted-foreground transition-colors hover:border-brand hover:text-brand-soft"><UserPlus className="size-4" /></button>} />
                 <span className="text-xs text-muted-foreground">Invite</span>
               </li>
             )}
@@ -218,15 +218,15 @@ export function PlanHub({ view, meId, shareUrl, friends, names, openInvite }: Pr
                 const mine = my_vote === s.id; const isLeader = plan.status === "voting" && leader?.id === s.id && s.votes.length > 0;
                 const pct = Math.min(100, Math.round((s.votes.length / Math.max(votes_needed, 1)) * 100));
                 return (
-                  <Card key={s.id} className={cn("transition-colors", mine && "border-primary/40", !s.is_available && "opacity-60")}>
+                  <Card key={s.id} className={cn("transition-colors", mine && "border-brand/40", !s.is_available && "opacity-60")}>
                     <CardHeader>
                       <CardTitle className="capitalize">{s.title}</CardTitle>
-                      <CardDescription className="flex items-center gap-2">{day(s.components[0].starts_at)}{isLeader && <Badge variant="secondary" className="text-primary">Leading</Badge>}</CardDescription>
+                      <CardDescription className="flex items-center gap-2">{day(s.components[0].starts_at)}{isLeader && <Badge variant="secondary" className="text-brand-soft">Leading</Badge>}</CardDescription>
                       <CardAction className="text-right"><p className="font-semibold tabular-nums">{inr(s.est_cost_per_head)}</p><p className="text-xs text-muted-foreground">a head</p></CardAction>
                     </CardHeader>
                     <CardContent className="space-y-3">
                       <ul className="space-y-2">{s.components.map((c) => <li key={c.ref} className="flex gap-3 text-sm"><span className="w-14 shrink-0 text-muted-foreground tabular-nums">{time(c.starts_at)}</span><span className="min-w-0"><span className="block truncate font-medium">{c.title}</span>{c.subtitle && <span className="block truncate text-xs text-muted-foreground">{c.subtitle}</span>}</span></li>)}</ul>
-                      <p className="border-l-2 border-primary/40 pl-3 text-sm text-muted-foreground">{s.rationale}</p>
+                      <p className="border-l-2 border-brand/40 pl-3 text-sm text-muted-foreground">{s.rationale}</p>
                       {plan.status === "voting" && <Progress value={pct} className="h-1" />}
                     </CardContent>
                     <CardFooter className="justify-between gap-3">
@@ -345,7 +345,7 @@ function InviteDrawer({ planId, shareUrl, friends, onInvited, trigger, perHead, 
                 <ul className="max-h-48 divide-y overflow-y-auto rounded-md border">
                   {friends.map((f) => { const on = sel.includes(f.id); return (
                     <li key={f.id}>
-                      <label className={cn("flex cursor-pointer items-center gap-3 px-3 py-2.5 transition-colors hover:bg-accent/50", on && "bg-primary/5")}>
+                      <label className={cn("flex cursor-pointer items-center gap-3 px-3 py-2.5 transition-colors hover:bg-accent/50", on && "bg-brand/5")}>
                         <Avatar size="sm"><AvatarFallback className="text-[10px]"><Initials name={f.name} /></AvatarFallback></Avatar>
                         <span className="min-w-0 flex-1"><span className="block truncate text-sm">{f.name}</span><span className="text-xs text-muted-foreground">{f.area}</span></span>
                         <Checkbox checked={on} onCheckedChange={(v) => setSel((s) => (v ? [...s, f.id] : s.filter((x) => x !== f.id)))} />

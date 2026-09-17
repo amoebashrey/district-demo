@@ -52,7 +52,7 @@ export default async function PlanPage({ params, searchParams }: { params: Promi
               <p className="font-medium">You&apos;re not in this plan</p>
               <p className="mt-1 text-sm text-muted-foreground">
                 Ask the organiser for the link, or{" "}
-                <Link className="text-primary underline" href={`/join/${view.plan.share_token}`}>join with this one</Link>.
+                <Link className="text-brand-soft underline" href={`/join/${view.plan.share_token}`}>join with this one</Link>.
               </p>
             </CardContent>
           </Card>

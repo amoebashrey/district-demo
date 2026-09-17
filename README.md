@@ -18,6 +18,13 @@ npm run fixtures       # regenerate synthetic seed data → fixtures/out/
 ```
 Optional `.env.local`: `ANTHROPIC_API_KEY` for the LLM rationale (Phase 3). Everything else is mocked.
 
+## Movie flow (visual parity pass, Sept 18)
+Home → Explore grid → **In the spotlight** posters → movie detail (hype row, offers strip, cast, critics, white **Book tickets** pill
++ EP2 **Go together**) → showtimes (date tabs, cinema cards, ₹-onwards chips) → **Review your booking** (countdown, EP3 **Split & invite**,
+payment summary, District Money, white **Pay now**) → confirmation (EP4). First visit shows an intro card with **Take the tour** (6 steps).
+Reference screenshots: `public/brand/reference/`. Theme: `#0a0b0d` ground, `#141416` cards, white pill CTAs; purple only for offers, accents
+and the highlighted entry points (dim ring + sweeping lavender hotspot; static outline under reduced motion).
+
 ## Demo flow (in-flow integration map)
 The plan layer now lives inside a recreated District shell. Toggle **Highlight my additions** (top bar) to mark the
 six proposed entry points with a rotating purple border and number.

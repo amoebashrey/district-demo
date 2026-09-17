@@ -1,45 +1,28 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Home, UtensilsCrossed, Clapperboard, Ticket, User } from "lucide-react";
+import { Home, Clapperboard, User } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const TABS = [
-  { href: "/", label: "For You", icon: Home },
-  { href: "/dining", label: "Dining", icon: UtensilsCrossed },
+  { href: "/", label: "Home", icon: Home },
   { href: "/movies", label: "Movies", icon: Clapperboard },
-  { href: "/events", label: "Events", icon: Ticket },
   { href: "/profile", label: "Profile", icon: User },
 ];
 
-/** District's bottom nav (recreated). Profile lights up for /plans and /confirmation too. */
+/** District's floating pill nav (recreated). Profile lights up for /plans and /confirmation too. */
 export function BottomNav() {
   const path = usePathname();
-  const active = (href: string) =>
-    href === "/"
-      ? path === "/"
-      : path.startsWith(href) ||
-        (href === "/profile" && (path.startsWith("/plans") || path.startsWith("/confirmation")));
+  const active = (href: string) => (href === "/" ? path === "/" : path.startsWith(href) || (href === "/profile" && (path.startsWith("/plans") || path.startsWith("/confirmation"))));
   return (
     <>
-      {/* Set --nav-h so fixed-bottom content bars know how tall the nav is */}
-      <style>{`:root { --nav-h: 64px; }`}</style>
-      <nav className="fixed inset-x-0 bottom-0 z-30 border-t bg-background/95 backdrop-blur">
-        <ul
-          className="mx-auto grid w-full max-w-md grid-cols-5"
-          style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
-        >
+      <style>{`:root { --nav-h: 88px; }`}</style>
+      <nav className="pointer-events-none fixed inset-x-0 bottom-0 z-30 flex justify-center pb-[max(12px,env(safe-area-inset-bottom))]">
+        <ul className="pointer-events-auto flex items-center gap-1 rounded-full border border-white/10 bg-[#18181b]/95 p-1.5 shadow-[0_12px_40px_-12px_rgba(0,0,0,.9)] backdrop-blur-xl">
           {TABS.map((t) => (
             <li key={t.href}>
-              <Link
-                href={t.href}
-                className={cn(
-                  "flex h-16 flex-col items-center justify-center gap-1 text-[11px] font-medium transition-colors",
-                  active(t.href) ? "text-primary" : "text-muted-foreground hover:text-foreground"
-                )}
-              >
-                <t.icon className="size-5" />
-                {t.label}
+              <Link href={t.href} className={cn("flex h-14 w-24 flex-col items-center justify-center gap-0.5 rounded-full text-[11px] font-medium transition-colors", active(t.href) ? "bg-white/10 text-foreground" : "text-muted-foreground hover:text-foreground")}>
+                <t.icon className="size-5" />{t.label}
               </Link>
             </li>
           ))}

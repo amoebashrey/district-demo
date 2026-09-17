@@ -46,10 +46,10 @@ export default async function ProfilePage() {
         {/* EP5 — post-Splitpay "Loved it? Plan the next one" */}
         {lastCompleted && (
           <EntryPoint n={5} block>
-            <Card className="border-primary/20 bg-primary/5 w-full">
+            <Card className="border-brand/20 bg-brand/5 w-full">
               <CardContent className="flex items-center gap-3 py-4">
-                <div className="grid size-10 shrink-0 place-items-center rounded-full bg-primary/20">
-                  <RepeatIcon className="size-5 text-primary" />
+                <div className="grid size-10 shrink-0 place-items-center rounded-full bg-brand/20">
+                  <RepeatIcon className="size-5 text-brand-soft" />
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="font-semibold text-sm">Loved it? Plan the next one</p>
@@ -68,7 +68,7 @@ export default async function ProfilePage() {
           <section className="w-full space-y-3">
             <div className="flex items-center justify-between">
               <h2 className="text-sm font-semibold flex items-center gap-1.5">
-                <CalendarDays className="size-4 text-primary" /> Your Plans
+                <CalendarDays className="size-4 text-brand-soft" /> Your Plans
               </h2>
               {active.length > 0 && (
                 <Badge variant="secondary">{active.length} active</Badge>
@@ -93,7 +93,7 @@ export default async function ProfilePage() {
                   const yourMove = p.status === "voting" && !myVote;
                   return (
                     <Link key={p.id} href={`/plans/${p.id}`} className="block rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                      <Card className={yourMove ? "border-primary/40" : ""}>
+                      <Card className={yourMove ? "border-brand/40" : ""}>
                         <CardContent className="flex items-center gap-3">
                           <div className="min-w-0 flex-1 space-y-2">
                             <div className="flex items-center gap-2">
@@ -110,7 +110,7 @@ export default async function ProfilePage() {
                                 ))}
                               </div>
                               <span className="text-xs text-muted-foreground">{joined.length} in</span>
-                              {yourMove && <Badge variant="secondary" className="ml-auto text-primary text-xs">Your vote</Badge>}
+                              {yourMove && <Badge variant="secondary" className="ml-auto text-brand-soft text-xs">Your vote</Badge>}
                             </div>
                           </div>
                           <ChevronRight className="size-4 shrink-0 text-muted-foreground" />
