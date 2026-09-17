@@ -10,6 +10,11 @@ import { Separator } from "@/components/ui/separator";
 import { EntryPoint } from "@/components/highlight";
 import { Poster } from "@/components/shell/poster";
 import { api, ApiError } from "@/components/client";
+import { useMe } from "@/components/session";
+import { createAnchoredPlan } from "@/lib/services/plan";
+import { getItem, toComponent } from "@/lib/services/inventory";
+import { mutate } from "@/lib/client/plans-store";
+import type { Plan } from "@/lib/store/types";
 import { inr } from "@/lib/format";
 
 const TZ = "Asia/Kolkata";
@@ -25,6 +30,7 @@ export function Review(p: Props) {
   const [split, setSplit] = useState(p.withPlan);
   const [secs, setSecs] = useState(8 * 60);
   const [pending, start] = useTransition();
+  const me = useMe();
   useEffect(() => { const t = setInterval(() => setSecs((s) => Math.max(0, s - 1)), 1000); return () => clearInterval(t); }, []);
   useEffect(() => { if (qty !== p.qty) { const u = new URL(window.location.href); u.searchParams.set("qty", String(qty)); window.history.replaceState(null, "", u); } }, [qty, p.qty]);
   const sub = p.price * qty; const fee = Math.round(sub * 0.05); const gst = Math.round(fee * 0.18); const total = sub + fee + gst;
@@ -32,9 +38,10 @@ export function Review(p: Props) {
   const pay = () => start(async () => {
     try {
       if (split) {
-        const today = new Date().toISOString().slice(0, 10);
-        const r = await api<{ plan: { id: string } }>("/api/plans", { date_start: today, date_end: today, vibe: "movie", budget_band: "₹₹", quorum: Math.max(2, qty), anchor_kind: "movie", anchor_ref: p.showId });
-        router.push(`/plans/${r.plan.id}/invite`);
+        if (!me) { router.push("/switch"); return; }
+        const item = getItem("movie", p.showId); if (!item) throw new Error("That show isn't available");
+        const plan = mutate((r: Plan) => r.id, () => createAnchoredPlan({ creator_id: me.id, components: [toComponent(item)], title: item.title, quorum: Math.max(2, qty), anchor: { kind: "movie", ref: p.showId }, source: "ep3" }));
+        router.push(`/plans/${plan.id}/crew`);
       } else {
         const r = await api<{ booking: { id: string } }>("/api/checkout", { kind: "movie", id: p.showId, qty });
         router.push(`/confirmation/${r.booking.id}`);

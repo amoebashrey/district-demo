@@ -1,6 +1,6 @@
 "use client";
-import { useRouter } from "next/navigation";
 import { useTransition } from "react";
+import { useRouter } from "next/navigation";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
@@ -23,7 +23,7 @@ export function UserPicker({ users, currentId }: { users: U[]; currentId?: strin
           <ul className="divide-y rounded-xl border bg-card">
             {users.filter((u) => u.city === c).map((u) => (
               <li key={u.id}>
-                <button disabled={pending} onClick={() => start(async () => { await api("/api/session", { user_id: u.id }); router.push("/"); router.refresh(); })}
+                <button disabled={pending} onClick={() => start(async () => { await api("/api/session", { user_id: u.id }); try { localStorage.removeItem("district:guest_id"); } catch { /* ignore */ } router.push("/"); router.refresh(); })}
                   className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-accent/50 disabled:opacity-50">
                   <Avatar><AvatarFallback><Initials name={u.name} /></AvatarFallback></Avatar>
                   <span className="min-w-0 flex-1"><span className="block truncate text-sm font-medium">{u.name}</span><span className="text-xs text-muted-foreground">{personaLabel[u.persona] ?? u.persona}{u.home_area ? ` · ${u.home_area}` : ""}</span></span>

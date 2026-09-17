@@ -2,14 +2,14 @@
  * Invite service — share links (tokenised), contact invites with a hard cap, opt-out honoured instantly.
  * Feeds the primary guardrail metric (invite opt-out / spam-report rate).
  */
-import { createHash } from "node:crypto";
 import { store, newId, nowIso, getUser, planByToken, memberOf, invitesOf, joinedMembers } from "../store/store.ts";
 import type { Invite, Plan, User } from "../store/types.ts";
 import { ServiceError, conflict, forbidden, notFound } from "./errors.ts";
 import { track } from "./analytics.ts";
 import { addMember, getPlan, evaluateLock, evaluateCommit, requireMember } from "./plan.ts";
 
-export const hashContact = (phoneOrId: string) => createHash("sha256").update(phoneOrId.trim()).digest("hex").slice(0, 32);
+/** Browser-safe FNV-1a (demo). Prod: sha256 server-side. */
+export const hashContact = (phoneOrId: string) => { let h = 2166136261; for (const c of phoneOrId.trim()) { h ^= c.charCodeAt(0); h = Math.imul(h, 16777619); } return (h >>> 0).toString(16).padStart(8, "0"); };
 
 export function planForToken(token: string): Plan {
   const p = planByToken(token); if (!p) throw notFound("invite link");

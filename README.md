@@ -18,6 +18,16 @@ npm run fixtures       # regenerate synthetic seed data → fixtures/out/
 ```
 Optional `.env.local`: `ANTHROPIC_API_KEY` for the LLM rationale (Phase 3). Everything else is mocked.
 
+## Plans flow (spec: docs/PLANS_FLOW_SPEC.md)
+**State lives in the browser.** Plan + member state is persisted to localStorage per plan id (`src/lib/client/plans-store.ts`); the same
+pure services run client-side, and share links carry a snapshot in the URL hash (`/join/<token>#s=…`) so another device resolves them
+with no backend. A demo plan (`/plans/demo-plan`, `/join/demo`) is seeded on first load. `/plans/*` and `/join/*` have error boundaries and
+an unknown id shows a friendly recovery screen — nothing redirects to Home.
+Spine: Compose (`/plans/starter` suggestion · `/plans/new` vote · "Go together" from an item) → `/plans/[id]/crew` (Who's coming) →
+`/plans/[id]` (fills live, lock progress, seats-held timer, app-sent nudge, share) → auto-lock → Splitpay settles → `/plans/[id]/confirmed`
+(You're out) → live plan card + re-plan. Invitee: `/join/[token]` — free one-tap "I'm in", pay share after lock.
+Acceptance: `BASE_URL=<url> node scripts/e2e/acceptance.mjs` runs the six spec paths in Chromium (Playwright in PW_DIR).
+
 ## Plans spine (Sept 18 rework)
 Every entry (Yes, plan it · Let the crew vote instead · Go together · Split & invite) lands on **Who's coming?** →
 pick friends / add by name / share a WhatsApp link (usual crew shown only as a labelled suggestion) → **Send invite** →

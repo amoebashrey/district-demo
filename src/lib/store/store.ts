@@ -44,7 +44,9 @@ export const nowIso = () => new Date().toISOString();
 export const newId = () => crypto.randomUUID();
 export const newToken = (bytes = 9) => {
   const a = new Uint8Array(bytes); crypto.getRandomValues(a);
-  return Buffer.from(a).toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+  let bin = ""; for (const b of a) bin += String.fromCharCode(b);
+  const b64 = typeof btoa === "function" ? btoa(bin) : Buffer.from(bin, "binary").toString("base64");
+  return b64.replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 };
 
 /** Shift fixture timestamps so the fixture's anchor day lands on real today; keeps inventory "live" on Vercel. */

@@ -59,7 +59,7 @@ export default async function ConfirmationPage({ params }: { params: Promise<{ i
                   Share via WhatsApp. Friends tap the link, join the booking, and pay their share. No download needed to RSVP or pay.
                 </p>
               </div>
-              <InviteToBookingButton bookingId={booking.id} planId={booking.plan_id} />
+              <InviteToBookingButton bookingId={booking.id} category={booking.category} inventoryRef={booking.inventory_ref} providerRef={booking.provider_ref} />
             </CardContent>
           </Card>
         </EntryPoint>

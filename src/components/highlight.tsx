@@ -89,7 +89,7 @@ const STEPS: { n: 1 | 2 | 3 | 4 | 5 | 6; title: string; tip: string; where: (r: 
   { n: 2, title: "Go together", tip: "Beside Book on every movie — the high-intent moment. Starts a plan around this film.", where: (r) => (r.movie_id ? `/movies/${r.movie_id}` : "/movies") },
   { n: 3, title: "Split & invite", tip: "One toggle at checkout turns a solo booking into a group one. Friends pay their share via Splitpay.", where: (r) => (r.show_id && r.movie_id ? `/movies/${r.movie_id}/review?show=${r.show_id}` : "/movies") },
   { n: 4, title: "Invite friends to this booking", tip: "On the confirmation screen, after you've paid. Share to WhatsApp; friends join and pay, no download.", where: () => null, note: "Appears on any confirmation screen after a solo booking. Pay for a ticket to see it live." },
-  { n: 5, title: "Plan the next one", tip: "After Splitpay settles, one tap re-plans with the same crew — the frequency loop.", where: (r) => (r.booked_plan_id ? `/plans/${r.booked_plan_id}` : null), note: "Shows on a booked plan's card once everyone has paid." },
+  { n: 5, title: "Plan the next one", tip: "After Splitpay settles, one tap re-plans with the same crew — the frequency loop.", where: (r) => (r.booked_plan_id ? `/plans/${r.booked_plan_id}` : "/plans"), note: "Shows on a booked plan's card once everyone has paid." },
   { n: 6, title: "Your Plans", tip: "The only new surface: a light list in Profile where the crew graph lives.", where: () => "/profile" },
 ];
 type Routes = { movie_id: string | null; show_id: string | null; booked_plan_id: string | null };

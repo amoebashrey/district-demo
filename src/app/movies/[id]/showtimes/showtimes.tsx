@@ -3,7 +3,11 @@ import { useState, useTransition } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { api, ApiError } from "@/components/client";
+import { useMe } from "@/components/session";
+import { createAnchoredPlan } from "@/lib/services/plan";
+import { getItem, toComponent } from "@/lib/services/inventory";
+import { mutate } from "@/lib/client/plans-store";
+import type { Plan } from "@/lib/store/types";
 import { ArrowLeft, Search, Flame, Share2, SlidersHorizontal, ChevronDown, Bookmark, Star, Ban, ShieldCheck, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -20,13 +24,16 @@ const BRAND_COLOR: Record<string, string> = { "PVR INOX": "#f5c400", "City Pride
 export function Showtimes({ id, title, meta, days, initialDay, withPlan }: { id: string; title: string; meta: string; days: { day: string; cinemas: Cinema[] }[]; initialDay?: string; withPlan?: boolean }) {
   const [day, setDay] = useState(initialDay && days.some((d) => d.day === initialDay) ? initialDay : days[0]?.day);
   const router = useRouter();
+  const me = useMe();
   const [pending, start] = useTransition();
+  // Screen 1c — from an item: the show is chosen, skip compose, go straight to Who's coming.
   const goTogether = (showId: string) => start(async () => {
     try {
-      const today = new Date().toISOString().slice(0, 10);
-      const { plan } = await api<{ plan: { id: string } }>("/api/plans", { date_start: today, date_end: today, vibe: "movie", budget_band: "₹₹", quorum: 2, anchor_kind: "movie", anchor_ref: showId });
-      router.push(`/plans/${plan.id}/invite`);
-    } catch (e) { toast.error((e as ApiError).message); }
+      if (!me) { router.push("/switch"); return; }
+      const item = getItem("movie", showId); if (!item) throw new Error("That show isn't available");
+      const p = mutate((r: Plan) => r.id, () => createAnchoredPlan({ creator_id: me.id, components: [toComponent(item)], title: item.title, quorum: 2, anchor: { kind: "movie", ref: showId }, source: "ep2" }));
+      router.push(`/plans/${p.id}/crew`);
+    } catch (e) { toast.error((e as Error).message); }
   });
   const [filter, setFilter] = useState<"all" | "morning" | "evening">("all");
   const cinemas = days.find((d) => d.day === day)?.cinemas ?? [];

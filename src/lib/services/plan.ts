@@ -242,6 +242,11 @@ export function openVoting(planId: string, actorId: string): { plan: Plan; sugge
   let suggestions = suggestionsOf(plan.id);
   if (suggestions.length === 0) {
     suggestions = generateCandidates(plan, party, 3);
+    if (suggestions.length < 2) { // widen: two weeks from the start date, so a thin weekend never dead-ends
+      const widened = { ...plan, date_end: new Date(new Date(`${plan.date_start}T12:00:00+05:30`).getTime() + 13 * 86_400_000).toISOString().slice(0, 10) };
+      suggestions = generateCandidates(widened, party, 3);
+      if (suggestions.length >= 2) { plan.date_end = widened.date_end; track("plan.window_widened", { user_id: actorId, plan_id: plan.id }); }
+    }
     if (suggestions.length < 2) throw conflict("no_options", "Not enough available nights in that window and budget. Widen the dates or budget.");
     for (const s of suggestions) store.suggestions.set(s.id, s);
   }
