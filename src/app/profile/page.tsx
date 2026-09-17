@@ -123,7 +123,7 @@ export default async function ProfilePage() {
             )}
 
             <Button variant="outline" className="w-full" asChild>
-              <Link href="/plans/new">+ Start a new plan</Link>
+              <Link href="/plans/starter">+ Start a new plan</Link>
             </Button>
           </section>
         </EntryPoint>

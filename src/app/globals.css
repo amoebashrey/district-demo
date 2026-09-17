@@ -180,3 +180,11 @@
 .poster { position: relative; overflow: hidden; background: var(--poster-bg, linear-gradient(160deg,#3a2a1a,#0a0b0d)); }
 .poster::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,0.10), transparent 60%), linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 45%, transparent 70%); }
 .poster > * { position: relative; z-index: 1; }
+
+/* Celebration (booked). Honours reduced motion. */
+@keyframes celebrate-pop { 0% { transform: translate(-50%,-50%) scale(0); opacity: 1; } 100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1); opacity: 0; } }
+@keyframes celebrate-ring { 0% { transform: scale(0.4); opacity: .9; } 100% { transform: scale(2.6); opacity: 0; } }
+.celebrate { position: fixed; inset: 0; pointer-events: none; z-index: 45; }
+.celebrate .ring { position: absolute; left: 50%; top: 40%; width: 160px; height: 160px; margin: -80px 0 0 -80px; border-radius: 9999px; border: 2px solid #e9deff; animation: celebrate-ring 900ms ease-out forwards; }
+.celebrate .dot { position: absolute; left: 50%; top: 40%; width: 10px; height: 10px; border-radius: 9999px; animation: celebrate-pop 1000ms cubic-bezier(.2,.8,.2,1) forwards; }
+@media (prefers-reduced-motion: reduce) { .celebrate { display: none; } }

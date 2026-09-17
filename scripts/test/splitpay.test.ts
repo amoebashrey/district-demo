@@ -2,7 +2,7 @@
 import { test, before } from "node:test";
 import assert from "node:assert/strict";
 import { resetStore, store, friendsOf, joinedMembers } from "../../src/lib/store/store.ts";
-import { createPlan, getPlan, payShare, confirmBooking, convertBookingToPlan, replan, leavePlan, planView } from "../../src/lib/services/plan.ts";
+import { createPlan, getPlan, payShare, confirmBooking, convertBookingToPlan, replan, leavePlan, planView, simulateStep, addGuestInvitee } from "../../src/lib/services/plan.ts";
 import { joinViaToken } from "../../src/lib/services/invite.ts";
 import { listItems, getItem } from "../../src/lib/services/inventory.ts";
 import { bookSolo } from "../../src/lib/services/booking.ts";
@@ -13,20 +13,32 @@ before(() => { resetStore(); const u = [...store.users.values()].find((x) => x.c
 const d = (n: number) => { const x = new Date(); x.setDate(x.getDate() + n); return x.toISOString().slice(0, 10); };
 const anyEvent = () => listItems("event", "Bengaluru").find((e) => e.left >= 5)!;
 
-test("EP2: anchored plan is created locked with the item as the only option and a share per member", () => {
+test("EP2: anchored plan gathers first (free I'm in), confirms at majority, then shares appear", () => {
   const ev = anyEvent();
   const p = createPlan({ creator_id: organiser, date_start: d(0), date_end: d(0), vibe: "loud", budget_band: "₹₹", anchor: { kind: "event", ref: ev.id } });
-  assert.equal(p.mode, "anchored"); assert.equal(p.status, "locked"); assert.ok(p.locked_suggestion_id);
-  const v = planView(p.id, organiser);
-  assert.equal(v.locked?.components[0].ref, ev.id); assert.equal(v.my_split?.amount, ev.price); assert.equal(v.my_split?.status, "pending");
+  assert.equal(p.mode, "anchored"); assert.equal(p.status, "draft"); assert.ok(p.locked_suggestion_id);
+  let v = planView(p.id, organiser); assert.equal(v.locked?.components[0].ref, ev.id); assert.equal(v.my_split, undefined);
+  addGuestInvitee(p.id, organiser, "Rohan"); addGuestInvitee(p.id, organiser, "Priya"); addGuestInvitee(p.id, organiser, "Kabir");
+  assert.equal(planView(p.id, organiser).pending_count, 3);
+  assert.equal(simulateStep(p.id).action, "joined"); // 2 of 4 asked → not yet a majority
+  assert.equal(getPlan(p.id).status, "draft");
+  const r = simulateStep(p.id); assert.equal(r.action, "joined"); assert.equal(r.confirmed, true); // 3 of 4 → confirmed
+  assert.equal(getPlan(p.id).status, "locked");
+  v = planView(p.id, organiser); assert.equal(v.my_split?.amount, ev.price); assert.equal(v.my_split?.status, "pending");
+  assert.equal(simulateStep(p.id).action, "paid"); assert.equal(simulateStep(p.id).action, "paid"); // friends pay
+  assert.equal(getPlan(p.id).status, "locked"); // organiser still owes
+  assert.equal(payShare(p.id, organiser).booked, true); // everyone who's IN has paid → booked (the pending invitee can still join and add a seat)
+  assert.equal(getPlan(p.id).status, "booked");
+  assert.equal(simulateStep(p.id).action, "idle");
 });
 
 test("friends join from the link, pay their share; plan auto-books when everyone has paid; price charged == price quoted", () => {
   const ev = anyEvent(); const before = ev.left;
   const p = createPlan({ creator_id: organiser, date_start: d(0), date_end: d(0), vibe: "loud", budget_band: "₹₹", anchor: { kind: "event", ref: ev.id } });
+  assert.throws(() => payShare(p.id, organiser), /once the plan is locked/); // nothing to pay while gathering
   joinViaToken(p.share_token, { user_id: friends[0] });
   const { user: guest } = joinViaToken(p.share_token, { guest_name: "Guest Meera" });
-  assert.equal(joinedMembers(p.id).length, 3);
+  assert.equal(joinedMembers(p.id).length, 3); assert.equal(getPlan(p.id).status, "locked");
   assert.equal(payShare(p.id, organiser).booked, false);
   assert.equal(payShare(p.id, friends[0]).booked, false);
   assert.equal(getPlan(p.id).status, "locked");
@@ -82,8 +94,10 @@ test("member leaves a locked plan → their pending share is dropped; a paid sha
   const p = createPlan({ creator_id: organiser, date_start: d(0), date_end: d(0), vibe: "loud", budget_band: "₹₹", anchor: { kind: "event", ref: ev.id } });
   joinViaToken(p.share_token, { user_id: friends[0] }); joinViaToken(p.share_token, { user_id: friends[1] });
   payShare(p.id, friends[1]);
-  leavePlan(p.id, friends[0]); leavePlan(p.id, friends[1]);
-  assert.equal(getPlan(p.id).status, "locked"); // anchored plans never fall back to voting
+  leavePlan(p.id, friends[0]);
+  assert.equal(getPlan(p.id).status, "locked"); // one drop after confirm → still on, shares re-computed
+  leavePlan(p.id, friends[1]);
+  assert.equal(getPlan(p.id).status, "draft"); // everyone dropped → back to gathering
   const s = [...store.splits.values()].filter((x) => x.plan_id === p.id);
   assert.ok(s.some((x) => x.user_id === friends[1] && x.status === "refunded"));
   assert.ok(!s.some((x) => x.user_id === friends[0]));

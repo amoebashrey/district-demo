@@ -1,6 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { api, ApiError } from "@/components/client";
 import { ArrowLeft, Search, Flame, Share2, SlidersHorizontal, ChevronDown, Bookmark, Star, Ban, ShieldCheck, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,6 +19,15 @@ const BRAND_COLOR: Record<string, string> = { "PVR INOX": "#f5c400", "City Pride
 
 export function Showtimes({ id, title, meta, days, initialDay, withPlan }: { id: string; title: string; meta: string; days: { day: string; cinemas: Cinema[] }[]; initialDay?: string; withPlan?: boolean }) {
   const [day, setDay] = useState(initialDay && days.some((d) => d.day === initialDay) ? initialDay : days[0]?.day);
+  const router = useRouter();
+  const [pending, start] = useTransition();
+  const goTogether = (showId: string) => start(async () => {
+    try {
+      const today = new Date().toISOString().slice(0, 10);
+      const { plan } = await api<{ plan: { id: string } }>("/api/plans", { date_start: today, date_end: today, vibe: "movie", budget_band: "₹₹", quorum: 2, anchor_kind: "movie", anchor_ref: showId });
+      router.push(`/plans/${plan.id}/invite`);
+    } catch (e) { toast.error((e as ApiError).message); }
+  });
   const [filter, setFilter] = useState<"all" | "morning" | "evening">("all");
   const cinemas = days.find((d) => d.day === day)?.cinemas ?? [];
   const hour = (iso: string) => new Date(new Date(iso).getTime() + 5.5 * 3_600_000).getUTCHours();
@@ -38,7 +50,7 @@ export function Showtimes({ id, title, meta, days, initialDay, withPlan }: { id:
         <Chip on={filter === "morning"} onClick={() => setFilter((f) => (f === "morning" ? "all" : "morning"))}>Morning</Chip>
         <Chip on={filter === "evening"} onClick={() => setFilter((f) => (f === "evening" ? "all" : "evening"))}>After 5 PM</Chip>
       </div>
-      {withPlan && <p className="mx-4 mb-2 rounded-xl border border-brand/40 bg-brand/10 px-3 py-2 text-xs text-brand-hot">Going together — pick a show and you&apos;ll invite the crew at checkout.</p>}
+      {withPlan && <p className="mx-4 mb-2 rounded-xl border border-brand/40 bg-brand/10 px-3 py-2 text-xs text-brand-hot">Going together — pick a show, then choose who&apos;s coming. Nobody pays until the plan is confirmed.</p>}
       <div className="space-y-2">
         {cinemas.map((c, i) => (
           <section key={c.cinema} className="px-4 py-4">
@@ -53,13 +65,13 @@ export function Showtimes({ id, title, meta, days, initialDay, withPlan }: { id:
             </div>
             {i === 0 && <div className="mt-3 flex items-center gap-2 rounded-full bg-offer px-3 py-2 text-sm text-white"><span className="size-2 rounded-full bg-white/40" /><span className="flex-1">Get Flat ₹50 OFF on your booking</span><ChevronRight className="size-4 text-white/70" /></div>}
             <div className="mt-3 grid grid-cols-3 gap-2">
-              {c.shows.filter(keep).map((s) => (
-                <Link key={s.id} href={s.status === "sold_out" ? "#" : `/movies/${id}/review?show=${s.id}${withPlan ? "&plan=1" : ""}`} aria-disabled={s.status === "sold_out"} className={cn("overflow-hidden rounded-xl border border-white/12 text-center", s.status === "sold_out" && "pointer-events-none opacity-40")}>
-                  <p className="bg-offer py-1 text-[11px] font-medium text-brand-hot">{inr(s.price)} onwards</p>
-                  <p className="pt-2 text-base font-semibold">{clock(s.starts_at)}</p>
-                  <p className="truncate px-2 pb-2 text-[11px] text-muted-foreground">QSC 7.1 REC…</p>
-                </Link>
-              ))}
+              {c.shows.filter(keep).map((s) => {
+                const inner = <><p className="bg-offer py-1 text-[11px] font-medium text-brand-hot">{inr(s.price)} onwards</p><p className="pt-2 text-base font-semibold">{clock(s.starts_at)}</p><p className="truncate px-2 pb-2 text-[11px] text-muted-foreground">QSC 7.1 REC…</p></>;
+                const cls = cn("overflow-hidden rounded-xl border border-white/12 text-center", s.status === "sold_out" && "pointer-events-none opacity-40", withPlan && "border-brand/50");
+                return withPlan
+                  ? <button key={s.id} disabled={pending || s.status === "sold_out"} onClick={() => goTogether(s.id)} className={cls}>{inner}</button>
+                  : <Link key={s.id} href={s.status === "sold_out" ? "/movies" : `/movies/${id}/review?show=${s.id}`} className={cls}>{inner}</Link>;
+              })}
             </div>
           </section>
         ))}

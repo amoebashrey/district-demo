@@ -18,6 +18,14 @@ npm run fixtures       # regenerate synthetic seed data → fixtures/out/
 ```
 Optional `.env.local`: `ANTHROPIC_API_KEY` for the LLM rationale (Phase 3). Everything else is mocked.
 
+## Plans spine (Sept 18 rework)
+Every entry (Yes, plan it · Let the crew vote instead · Go together · Split & invite) lands on **Who's coming?** →
+pick friends / add by name / share a WhatsApp link (usual crew shown only as a labelled suggestion) → **Send invite** →
+plan-status page: the night (or vote options + live tally), In vs Pending with each share, a "Seats held m:ss" hold timer,
+WhatsApp share. Friends commit with a free one-tap **I'm in**; a demo simulator has them respond every ~3s so a solo viewer
+watches it fill and confirm at majority. Payment (Splitpay) only after confirm → booked → payoff card + celebration.
+"Demo: someone drops out" (⋯ menu) re-splits after confirm. `/plans` and unknown routes redirect home.
+
 ## Movie flow (visual parity pass, Sept 18)
 Home → Explore grid → **In the spotlight** posters → movie detail (hype row, offers strip, cast, critics, white **Book tickets** pill
 + EP2 **Go together**) → showtimes (date tabs, cinema cards, ₹-onwards chips) → **Review your booking** (countdown, EP3 **Split & invite**,

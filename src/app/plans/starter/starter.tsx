@@ -20,8 +20,17 @@ export function StarterCard({ options, crew, city, weekend }: { options: Opt[]; 
   const [pending, start] = useTransition();
   const o = options[i];
   const accept = () => start(async () => {
-    try { const { plan } = await api<{ plan: { id: string } }>("/api/starter", { title: o.title, rationale: o.rationale, components: o.components }); router.push(`/plans/${plan.id}?from=ep1`); }
+    try { const { plan } = await api<{ plan: { id: string } }>("/api/starter", { title: o.title, rationale: o.rationale, components: o.components }); router.push(`/plans/${plan.id}/invite`); }
     catch (e) { toast.error((e as ApiError).message); }
+  });
+  // "Let the crew vote instead" → open plan for the same window → Who's coming → vote opens on Send
+  const vote = () => start(async () => {
+    try {
+      const t = new Date(); const dow = t.getDay(); const sat = new Date(t); sat.setDate(t.getDate() + ((6 - dow + 7) % 7)); const sun = new Date(sat); sun.setDate(sat.getDate() + 1);
+      const iso = (d: Date) => d.toISOString().slice(0, 10);
+      const { plan } = await api<{ plan: { id: string } }>("/api/plans", { date_start: iso(dow === 0 ? t : sat), date_end: iso(dow === 0 ? t : sun), vibe: "chill", budget_band: "₹₹₹", quorum: 3 });
+      router.push(`/plans/${plan.id}/invite`);
+    } catch (e) { toast.error((e as ApiError).message); }
   });
   return (
     <main className="mx-auto w-full max-w-md flex-1 flex flex-col pb-28">
@@ -38,7 +47,7 @@ export function StarterCard({ options, crew, city, weekend }: { options: Opt[]; 
         {!o ? (
           <Card><CardContent className="py-8 text-center text-sm text-muted-foreground">Nothing fits {weekend} in {city}. <Link href="/plans/new" className="text-brand-soft underline">Build a plan by hand</Link>.</CardContent></Card>
         ) : (
-          <Card className="border-brand/40">
+          <Card className="border-brand/40 bg-[#141416]">
             <CardHeader>
               <CardTitle className="capitalize">{o.title}</CardTitle>
               <CardDescription>{day(o.components[0].starts_at)} · {inr(o.est)} a head</CardDescription>
@@ -66,7 +75,8 @@ export function StarterCard({ options, crew, city, weekend }: { options: Opt[]; 
             </CardFooter>
           </Card>
         )}
-        <Button variant="ghost" size="sm" className="w-full text-muted-foreground" asChild><Link href="/plans/new">Let the crew vote instead</Link></Button>
+        <Button variant="outline" size="lg" className="h-12 w-full rounded-full border-white/20" disabled={pending} onClick={vote}>Let the crew vote instead</Button>
+        <p className="text-center text-xs text-muted-foreground">Prefer to set the dates yourself? <Link href="/plans/new" className="underline">Build a plan by hand</Link></p>
       </div>
     </main>
   );

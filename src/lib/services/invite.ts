@@ -7,7 +7,7 @@ import { store, newId, nowIso, getUser, planByToken, memberOf, invitesOf, joined
 import type { Invite, Plan, User } from "../store/types.ts";
 import { ServiceError, conflict, forbidden, notFound } from "./errors.ts";
 import { track } from "./analytics.ts";
-import { addMember, getPlan, evaluateLock, requireMember } from "./plan.ts";
+import { addMember, getPlan, evaluateLock, evaluateCommit, requireMember } from "./plan.ts";
 
 export const hashContact = (phoneOrId: string) => createHash("sha256").update(phoneOrId.trim()).digest("hex").slice(0, 32);
 
@@ -35,6 +35,7 @@ export function joinViaToken(token: string, who: { user_id?: string; guest_name?
     const inv: Invite = { id: newId(), plan_id: plan.id, inviter_id: plan.creator_id, channel: "link", token, invitee_user_id: user.id, status: "accepted", created_at: nowIso(), responded_at: nowIso() };
     store.invites.set(inv.id, inv);
     track("invite.accepted", { user_id: user.id, plan_id: plan.id, props: { channel: "link" } });
+    evaluateCommit(plan, user.id);
     // graph edge from co-attendance intent (PRD §6.3 social_edges.source = invite)
     for (const other of joinedMembers(plan.id)) if (other.user_id !== user.id) {
       if (!store.edges.some((e) => e.user_id === user!.id && e.friend_id === other.user_id)) store.edges.push({ user_id: user.id, friend_id: other.user_id, source: "invite", status: "active" });
@@ -70,7 +71,7 @@ export function respondToInvite(planId: string, userId: string, answer: "accept"
   const plan = getPlan(planId);
   const m = memberOf(planId, userId); if (!m) throw forbidden("You weren't invited to this plan");
   const inv = invitesOf(planId).find((i) => i.invitee_user_id === userId && i.status === "pending");
-  if (answer === "accept") { m.rsvp_status = "joined"; m.joined_at = nowIso(); if (inv) inv.status = "accepted"; track("invite.accepted", { user_id: userId, plan_id: planId, props: { channel: "contact" } }); evaluateLock(plan, userId); }
+  if (answer === "accept") { m.rsvp_status = "joined"; m.joined_at = nowIso(); if (inv) inv.status = "accepted"; track("invite.accepted", { user_id: userId, plan_id: planId, props: { channel: "contact" } }); evaluateLock(plan, userId); evaluateCommit(plan, userId); }
   else { m.rsvp_status = "declined"; if (inv) inv.status = "declined"; track("invite.declined", { user_id: userId, plan_id: planId }); }
   if (inv) inv.responded_at = nowIso();
   return plan;

@@ -14,8 +14,9 @@ import { bookPlan, maybeAutoBook, planBookings } from "./booking.ts";
 import { getItem, release, reserve, toComponent } from "./inventory.ts";
 
 const EXPIRY_HOURS = 48;
+const HOLD_MINUTES = 10;
 const TRANSITIONS: Record<PlanStatus, PlanStatus[]> = {
-  draft: ["voting", "cancelled", "expired"],
+  draft: ["voting", "locked", "cancelled", "expired"],
   voting: ["locked", "cancelled", "expired"],
   locked: ["booked", "cancelled", "voting"], // back to voting if quorum breaks after lock
   booked: ["completed", "cancelled"],
@@ -71,20 +72,19 @@ export function createAnchoredPlan(input: AnchoredInput): Plan {
   const date = first.starts_at ? istDate(first.starts_at) : new Date().toISOString().slice(0, 10);
   const plan: Plan = {
     id: newId(), creator_id: creator.id, city: creator.city, date_start: date, date_end: date,
-    vibe: first.tags[0] ?? "together", budget_band: bandFor(cost), status: "locked", quorum: Math.max(2, input.quorum ?? 2), lock_rule: "majority",
+    vibe: first.tags[0] ?? "together", budget_band: bandFor(cost), status: "draft", quorum: Math.max(2, input.quorum ?? 2), lock_rule: "majority",
     mode: "anchored", anchor: input.anchor, share_token: newToken(), invite_cap: 12,
-    expires_at: first.starts_at || new Date(Date.now() + EXPIRY_HOURS * 3_600_000).toISOString(),
-    locked_at: nowIso(), created_at: nowIso(), updated_at: nowIso(),
+    expires_at: new Date(Date.now() + HOLD_MINUTES * 60_000).toISOString(), // seats held while the crew commits
+    created_at: nowIso(), updated_at: nowIso(),
   };
   const s: Suggestion = { id: newId(), plan_id: plan.id, kind: "night_bundle", title: input.title, components: input.components, est_cost_per_head: cost, score: 1, rationale: input.rationale ?? `${input.title} — ${inrShort(cost)} a head, split with the crew.`, rationale_source: "rules", availability_checked_at: nowIso(), is_available: true, created_at: nowIso() };
   store.suggestions.set(s.id, s);
-  plan.locked_suggestion_id = s.id;
-  if (input.status === "booked") plan.status = "booked";
+  plan.locked_suggestion_id = s.id; // the night is fixed from the start; "locked" status = the crew has confirmed
+  if (input.status === "booked") { plan.status = "booked"; plan.locked_at = nowIso(); }
   store.plans.set(plan.id, plan);
   addMember(plan, creator, "organiser", "joined");
-  ensureSplits(plan);
+  if (plan.status === "booked") ensureSplits(plan);
   track("plan.created", { user_id: creator.id, plan_id: plan.id, props: { mode: "anchored", source: input.source, city: plan.city } });
-  track("plan.locked", { user_id: creator.id, plan_id: plan.id, props: { from: "draft", anchored: true, source: input.source } });
   return plan;
 }
 const inrShort = (n: number) => `₹${n.toLocaleString("en-IN")}`;
@@ -113,6 +113,73 @@ export function replan(planId: string, actorId: string): Plan {
   for (const m of crew) { const u = getUser(m.user_id); if (u) addMember(plan, u, "member", "invited"); }
   track("plan.replanned", { user_id: actorId, plan_id: plan.id, props: { from_plan: prev.id, crew: crew.length } });
   return plan;
+}
+
+/**
+ * Anchored plans confirm when a majority of everyone asked has tapped "I'm in" (and at least `quorum` are in).
+ * Free to commit; money is only asked for once confirmed. Returns true when it just confirmed.
+ */
+export function evaluateCommit(plan: Plan, actorId?: string): boolean {
+  if (plan.mode !== "anchored" || plan.status !== "draft") return false;
+  const joined = joinedMembers(plan.id).length;
+  const asked = membersOf(plan.id).filter((m) => m.rsvp_status === "joined" || m.rsvp_status === "invited").length;
+  if (joined < plan.quorum || joined * 2 <= asked) return false;
+  plan.locked_at = nowIso();
+  transition(plan, "locked", actorId, { anchored: true, joined, asked, seconds_to_confirm: Math.round((Date.now() - new Date(plan.created_at).getTime()) / 1000) });
+  ensureSplits(plan);
+  return true;
+}
+
+/** "Add someone by name" on Who's coming → light guest account, invited (not joined) until they tap I'm in. */
+export function addGuestInvitee(planId: string, actorId: string, name: string): PlanMember {
+  const plan = getPlan(planId); requireMember(plan, actorId);
+  const clean = name.trim(); if (clean.length < 2) throw new ServiceError("name_required", "Type a name");
+  const user: User = { id: newId(), name: clean, city: plan.city, is_guest: true, created_at: nowIso() };
+  store.users.set(user.id, user);
+  store.edges.push({ user_id: actorId, friend_id: user.id, source: "invite", status: "active" });
+  const m = addMember(plan, user, "member", "invited");
+  track("invite.sent", { user_id: actorId, plan_id: planId, props: { channel: "name", invitee: user.id } });
+  return m;
+}
+
+/**
+ * Demo only: pretend one invited friend responds. Gathering → someone taps "I'm in" (and votes if there are options);
+ * confirmed → someone pays their share. Returns what happened so the UI can toast it.
+ */
+export function simulateStep(planId: string): { action: "joined" | "voted" | "paid" | "idle"; name?: string; confirmed?: boolean; booked?: boolean } {
+  const plan = getPlan(planId);
+  if (plan.status === "draft" || plan.status === "voting") {
+    const next = membersOf(plan.id).find((m) => m.rsvp_status === "invited");
+    if (!next) return { action: "idle" };
+    next.rsvp_status = "joined"; next.joined_at = nowIso();
+    track("invite.accepted", { user_id: next.user_id, plan_id: plan.id, props: { channel: "simulated" } });
+    if (plan.status === "voting") {
+      const t = tallies(plan.id); const opts = suggestionsOf(plan.id).filter((s) => s.is_available);
+      const leader = opts.sort((a, b) => (t[b.id]?.length ?? 0) - (t[a.id]?.length ?? 0))[0];
+      const pick = Math.random() < 0.75 || !opts[1] ? leader : opts[1];
+      if (pick) { store.votes.set(voteKey(plan.id, next.user_id), { plan_id: plan.id, suggestion_id: pick.id, user_id: next.user_id, created_at: nowIso(), updated_at: nowIso() }); track("vote.cast", { user_id: next.user_id, plan_id: plan.id, props: { simulated: true } }); }
+      return { action: "voted", name: next.display_name, confirmed: evaluateLock(plan, next.user_id) };
+    }
+    return { action: "joined", name: next.display_name, confirmed: evaluateCommit(plan, next.user_id) };
+  }
+  if (plan.status === "locked") {
+    ensureSplits(plan);
+    const unpaid = joinedMembers(plan.id).find((m) => m.user_id !== plan.creator_id && mySplit(plan.id, m.user_id)?.status !== "captured");
+    if (!unpaid) return { action: "idle" };
+    paySplit(plan.id, unpaid.user_id);
+    return { action: "paid", name: unpaid.display_name, booked: maybeAutoBook(plan) };
+  }
+  return { action: "idle" };
+}
+
+/** Demo only: a joined friend drops out after confirm → their share is dropped/refunded, everyone else's recomputed. */
+export function simulateDrop(planId: string): { name?: string; remaining: number; per_head?: number } {
+  const plan = getPlan(planId);
+  const victim = joinedMembers(plan.id).filter((m) => m.user_id !== plan.creator_id).at(-1);
+  if (!victim) return { remaining: joinedMembers(plan.id).length };
+  leavePlan(plan.id, victim.user_id);
+  const s = plan.locked_suggestion_id ? store.suggestions.get(plan.locked_suggestion_id) : undefined;
+  return { name: victim.display_name, remaining: joinedMembers(plan.id).length, per_head: s?.est_cost_per_head };
 }
 
 /** Pay my share; for an already-booked plan, reserve one more seat per component first (never charge for a seat we can't get). */
@@ -226,6 +293,7 @@ export function evaluateLock(plan: Plan, actorId?: string): boolean {
   }
   plan.locked_suggestion_id = leaderId; plan.locked_at = nowIso();
   transition(plan, "locked", actorId, { suggestion_id: leaderId, votes: leaderVotes.length, joined: joined.length, seconds_to_lock: Math.round((Date.now() - new Date(plan.created_at).getTime()) / 1000) });
+  ensureSplits(plan);
   return true;
 }
 
@@ -238,6 +306,7 @@ export function leavePlan(planId: string, userId: string): Plan {
   track("member.left", { user_id: userId, plan_id: planId });
   if (["locked", "booked"].includes(plan.status)) ensureSplits(plan); // re-split: drop/refund their share
   // member drops after lock → re-confirm quorum (PRD edge case). Re-split happens in Phase 4.
+  if (plan.mode === "anchored" && plan.status === "locked" && joinedMembers(planId).length < 2) { transition(plan, "voting", userId, { reason: "everyone_dropped" }); plan.status = "draft"; }
   if (plan.mode === "open" && plan.status === "locked" && joinedMembers(planId).length < plan.quorum) {
     transition(plan, "voting", userId, { reason: "quorum_broken_after_lock" });
     plan.locked_suggestion_id = undefined; plan.locked_at = undefined;
@@ -283,6 +352,9 @@ export function planView(planId: string, viewerId?: string) {
     paid_count: summary.paid_count, paid_amount: summary.paid_amount,
     my_split: my ? { amount: my.amount, status: my.status, failure_reason: my.failure_reason } : undefined,
     bookings: money ? planBookings(planId).map((b) => ({ id: b.id, title: b.title, qty: b.qty, provider_ref: b.provider_ref })) : [],
+    pending_count: members.filter((m) => m.rsvp_status === "invited").length,
+    needed_to_confirm: plan.mode === "anchored" && plan.status === "draft" ? Math.max(plan.quorum - joined.length, Math.floor(members.filter((m) => m.rsvp_status !== "declined").length / 2) + 1 - joined.length, 0) : undefined,
+    has_pending_simulation: ["draft", "voting"].includes(plan.status) ? members.some((m) => m.rsvp_status === "invited") : plan.status === "locked" ? joined.some((m) => m.user_id !== plan.creator_id && summary.splits.find((s) => s.user_id === m.user_id)?.status !== "captured") : false,
   };
 }
 export type PlanView = ReturnType<typeof planView>;

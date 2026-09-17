@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { ArrowLeft } from "lucide-react";
 import { currentUser } from "@/lib/session";
 import { planView } from "@/lib/services/plan";
-import { friendsOf, store } from "@/lib/store/store";
+import { store } from "@/lib/store/store";
 import { StatusBadge } from "@/components/status-badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -23,9 +23,6 @@ export default async function PlanPage({ params, searchParams }: { params: Promi
   const view = planView(id, me.id);
   const h = await headers();
   const origin = `${h.get("x-forwarded-proto") ?? "http"}://${h.get("x-forwarded-host") ?? h.get("host")}`;
-  const friends = friendsOf(me.id)
-    .filter((f) => !view.members.some((m) => m.user_id === f.id))
-    .map((f) => ({ id: f.id, name: f.name, area: f.home_area ?? "" }));
   const live = ["draft", "voting", "locked", "booked"].includes(view.plan.status);
   const names = Object.fromEntries([...store.users.values()].map((u) => [u.id, u.name]));
 
@@ -35,7 +32,7 @@ export default async function PlanPage({ params, searchParams }: { params: Promi
         <Button variant="ghost" size="icon" asChild aria-label="Back">
           <Link href="/profile"><ArrowLeft /></Link>
         </Button>
-        <h1 className="flex-1 truncate text-sm font-medium">Plan</h1>
+        <h1 className="flex-1 truncate text-sm font-medium">{view.plan.status === "booked" ? "Booked" : view.plan.status === "locked" ? "Confirmed" : "Plan"}</h1>
         <div className="flex items-center gap-1">
           <StatusBadge status={view.plan.status} />
           {view.is_member && (
@@ -44,7 +41,7 @@ export default async function PlanPage({ params, searchParams }: { params: Promi
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-md flex-1 space-y-5 px-4 pt-4 pb-28">
+      <main className="mx-auto w-full max-w-md flex-1 space-y-4 px-4 pt-4 shell-nav-pad">
         <LiveRefresh every={3000} active={live} />
         {!view.is_member ? (
           <Card>
@@ -61,9 +58,8 @@ export default async function PlanPage({ params, searchParams }: { params: Promi
             view={view}
             meId={me.id}
             shareUrl={`${origin}/join/${view.plan.share_token}`}
-            friends={friends}
             names={names}
-            openInvite={["ep1", "ep2", "ep3", "ep4"].includes(from ?? "")}
+            from={from}
           />
         )}
       </main>

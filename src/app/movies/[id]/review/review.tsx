@@ -34,7 +34,7 @@ export function Review(p: Props) {
       if (split) {
         const today = new Date().toISOString().slice(0, 10);
         const r = await api<{ plan: { id: string } }>("/api/plans", { date_start: today, date_end: today, vibe: "movie", budget_band: "₹₹", quorum: Math.max(2, qty), anchor_kind: "movie", anchor_ref: p.showId });
-        router.push(`/plans/${r.plan.id}?from=ep3`);
+        router.push(`/plans/${r.plan.id}/invite`);
       } else {
         const r = await api<{ booking: { id: string } }>("/api/checkout", { kind: "movie", id: p.showId, qty });
         router.push(`/confirmation/${r.booking.id}`);
@@ -75,7 +75,7 @@ export function Review(p: Props) {
               <div className="flex items-center gap-3"><span className="grid size-9 place-items-center rounded-full bg-brand/25 text-brand-hot"><Users className="size-4" /></span><div><p className="text-sm font-semibold">Split & invite</p><p className="text-xs text-muted-foreground">Turn this into a group booking</p></div></div>
               <Switch checked={split} onCheckedChange={(v) => { setSplit(v); if (v && qty < 2) setQty(2); }} aria-label="Split and invite" />
             </div>
-            {split && <p className="mt-3 border-t border-white/10 pt-3 text-xs text-muted-foreground">You pay <span className="text-foreground">{inr(p.price)}</span> for your seat now. Friends join from a WhatsApp link and pay theirs via Splitpay — no app download.</p>}
+            {split && <p className="mt-3 border-t border-white/10 pt-3 text-xs text-muted-foreground">Next: choose who&apos;s coming. Everyone taps a free &ldquo;I&apos;m in&rdquo;; you all pay <span className="text-foreground">{inr(p.price)}</span> each via Splitpay only once the plan is confirmed.</p>}
           </section>
         </EntryPoint>
 
@@ -110,8 +110,8 @@ export function Review(p: Props) {
           <div className="flex items-center justify-between gap-3 pt-3">
             <div className="min-w-0"><p className="flex items-center gap-1 text-xs text-muted-foreground"><span className="inline-block size-3 rounded-full bg-[conic-gradient(#4285f4,#34a853,#fbbc05,#ea4335,#4285f4)]" /> Pay using <ChevronDown className="size-3" /></p><p className="truncate text-base font-medium">Google Pay UPI</p></div>
             <button disabled={pending} onClick={pay} className="flex items-center gap-4 rounded-2xl bg-white px-4 py-2.5 text-black disabled:opacity-60">
-              <span className="text-left leading-tight"><span className="block text-base font-semibold">{inr(split ? p.price + Math.round(p.price * 0.05 * 1.18) : total)}</span><span className="block text-[11px] text-black/60">{split ? "Your share" : "Total"}</span></span>
-              <span className="flex items-center text-lg font-semibold">{pending ? "…" : "Pay now"} <ChevronRight className="size-5" /></span>
+              <span className="text-left leading-tight"><span className="block text-base font-semibold">{inr(split ? p.price : total)}</span><span className="block text-[11px] text-black/60">{split ? "Your share, later" : "Total"}</span></span>
+              <span className="flex items-center text-lg font-semibold">{pending ? "…" : split ? "Invite crew" : "Pay now"} <ChevronRight className="size-5" /></span>
             </button>
           </div>
         </div>
