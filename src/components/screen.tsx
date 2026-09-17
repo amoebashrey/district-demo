@@ -17,7 +17,7 @@ export function Screen({ children, title, back, right, bottom }: { children: Rea
       )}
       <div className={cn("flex-1 space-y-5 px-4 pt-4", bottom ? "pb-28" : "pb-8")}>{children}</div>
       {bottom && (
-        <div className="fixed inset-x-0 bottom-0 z-20">
+        <div className="fixed inset-x-0 z-20" style={{ bottom: "var(--nav-h, 0px)" }}>
           <div className="mx-auto w-full max-w-md border-t bg-background/95 px-4 pt-3 pb-[max(16px,env(safe-area-inset-bottom))] backdrop-blur">{bottom}</div>
         </div>
       )}

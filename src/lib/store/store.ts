@@ -101,4 +101,6 @@ export const plansFor = (userId: string): Plan[] => {
   return [...store.plans.values()].filter((p) => ids.has(p.id) || p.creator_id === userId).sort((a, b) => b.created_at.localeCompare(a.created_at));
 };
 const membersOf_all = () => [...store.members.values()];
+export const bookingsOf = (planId: string): Booking[] => [...store.bookings.values()].filter((b) => b.plan_id === planId);
+export const splitsOf = (planId: string): Split[] => [...store.splits.values()].filter((s) => s.plan_id === planId);
 export const planByToken = (token: string) => [...store.plans.values()].find((p) => p.share_token === token);

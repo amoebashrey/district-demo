@@ -56,6 +56,10 @@ export interface Plan {
   status: PlanStatus;
   quorum: number;
   lock_rule: "majority";
+  /** open = crew votes between options; anchored = rides one existing item/booking (EP2–EP4), no vote. */
+  mode: "open" | "anchored";
+  anchor?: { kind: ComponentKind; ref: string };
+  booking_failed_reason?: string;
   share_token: string;
   invite_cap: number;
   expires_at: string;
@@ -127,8 +131,13 @@ export interface Vote {
 
 export interface Booking {
   id: string;
-  plan_id: string;
-  suggestion_id: string;
+  plan_id?: string; // undefined for a solo booking made at checkout
+  user_id?: string; // who booked (solo) / organiser
+  suggestion_id?: string;
+  qty: number;
+  title: string;
+  starts_at: string;
+  venue: string;
   category: ComponentKind;
   inventory_ref: string;
   provider: string;

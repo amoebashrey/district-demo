@@ -133,3 +133,30 @@
     @apply font-sans;
     }
 }
+/* ---------- Proposal highlight: slow rotating gradient border in District purples ---------- */
+@property --ep-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes ep-rotate { to { --ep-angle: 360deg; } }
+@keyframes ep-pulse { 0% { transform: scale(1); } 40% { transform: scale(1.015); } 100% { transform: scale(1); } }
+.ep { position: relative; isolation: isolate; }
+.ep::before {
+  content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px; pointer-events: none; z-index: 1;
+  background: conic-gradient(from var(--ep-angle), #6444e4, #8972fe, #6d49fd, #6444e4);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: ep-rotate 3s linear infinite;
+}
+.ep-pulse { animation: ep-pulse 600ms var(--ease-out, ease-out) 1; }
+.ep-tag {
+  position: absolute; top: -9px; left: 10px; z-index: 2; pointer-events: none;
+  min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9999px;
+  background: linear-gradient(135deg, #6444e4, #8972fe); color: #fff;
+  font-size: 11px; line-height: 18px; font-weight: 600; text-align: center;
+  box-shadow: 0 2px 8px -2px rgba(100,68,228,.6);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ep::before { animation: none; background: linear-gradient(135deg, #6444e4, #8972fe, #6d49fd); }
+  .ep-pulse { animation: none; }
+}
+/* App shell */
+.shell-nav-pad { padding-bottom: calc(64px + env(safe-area-inset-bottom)); }
