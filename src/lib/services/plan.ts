@@ -26,7 +26,7 @@ function transition(plan: Plan, to: PlanStatus, actor?: string, props: Record<st
   track(`plan.${to}`, { user_id: actor, plan_id: plan.id, props: { from, ...props } });
 }
 
-export interface CreatePlanInput { creator_id: string; date_start: string; date_end: string; vibe: string; budget_band: BudgetBand; quorum?: number; city?: Plan["city"] }
+export interface CreatePlanInput { creator_id: string; date_start: string; date_end: string; vibe: string; budget_band: BudgetBand; quorum?: number; city?: Plan["city"]; anchor?: Plan["anchor"] }
 
 export function createPlan(input: CreatePlanInput): Plan {
   const creator = getUser(input.creator_id); if (!creator) throw notFound("user");
@@ -37,6 +37,8 @@ export function createPlan(input: CreatePlanInput): Plan {
   const plan: Plan = {
     id: newId(), creator_id: creator.id, city: input.city ?? creator.city, date_start: input.date_start, date_end: input.date_end,
     vibe: input.vibe, budget_band: input.budget_band, status: "draft", quorum: Math.max(2, input.quorum ?? 2), lock_rule: "majority",
+    mode: input.anchor ? "anchored" : "open",
+    ...(input.anchor ? { anchor: input.anchor } : {}),
     share_token: newToken(), invite_cap: 12, expires_at: expires.toISOString(), created_at: nowIso(), updated_at: nowIso(),
   };
   store.plans.set(plan.id, plan);

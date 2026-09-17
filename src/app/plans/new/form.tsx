@@ -38,7 +38,7 @@ export function NewPlanForm({ city }: { city: string }) {
   const [pending, start] = useTransition();
   const w = W.find((x) => x.key === win)!;
   const submit = () => start(async () => {
-    try { const { plan } = await api<{ plan: { id: string } }>("/api/plans", { date_start: w.a, date_end: w.b, vibe, budget_band: band, quorum }); router.push(`/plans/${plan.id}`); }
+    try { const { plan } = await api<{ plan: { id: string } }>("/api/plans", { date_start: w.a, date_end: w.b, vibe, budget_band: band, quorum, mode: "open" }); router.push(`/plans/${plan.id}`); }
     catch (x) { toast.error((x as ApiError).message); }
   });
 

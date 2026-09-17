@@ -1,21 +1,22 @@
 import { redirect } from "next/navigation";
 import { currentUser } from "@/lib/session";
-import { feedFor } from "@/lib/services/inventory";
+import { listItems } from "@/lib/services/inventory";
 import { BottomNav } from "@/components/shell/nav";
 import { TopBar } from "@/components/shell/topbar";
-import { ForYouFeed } from "./feed";
+import { CategoryList } from "@/components/shell/category-list";
 
 export const dynamic = "force-dynamic";
 
-export default async function Home() {
+export default async function MoviesPage() {
   const me = await currentUser();
   if (!me) redirect("/switch");
-  const feed = feedFor(me.city);
+  const items = listItems("movie", me.city);
   return (
     <div className="flex flex-col min-h-full">
       <TopBar city={me.city} name={me.name} />
-      <main className="mx-auto w-full max-w-md flex-1 px-4 pt-4 pb-28 space-y-6">
-        <ForYouFeed feed={feed} city={me.city} />
+      <main className="mx-auto w-full max-w-md flex-1 px-4 pt-4 pb-28 space-y-4">
+        <h1 className="text-2xl font-semibold tracking-tight">Movies</h1>
+        <CategoryList items={items} basePath="/movies" />
       </main>
       <BottomNav />
     </div>
