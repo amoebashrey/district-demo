@@ -14,8 +14,9 @@ import { PlanHub, PlanMenu } from "./hub";
 
 export const dynamic = "force-dynamic";
 
-export default async function PlanPage({ params }: { params: Promise<{ id: string }> }) {
+export default async function PlanPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ from?: string }> }) {
   const { id } = await params;
+  const { from } = await searchParams;
   const me = await currentUser();
   if (!me) redirect("/switch");
   if (!store.plans.has(id)) notFound();
@@ -25,7 +26,7 @@ export default async function PlanPage({ params }: { params: Promise<{ id: strin
   const friends = friendsOf(me.id)
     .filter((f) => !view.members.some((m) => m.user_id === f.id))
     .map((f) => ({ id: f.id, name: f.name, area: f.home_area ?? "" }));
-  const live = ["draft", "voting", "locked"].includes(view.plan.status);
+  const live = ["draft", "voting", "locked", "booked"].includes(view.plan.status);
   const names = Object.fromEntries([...store.users.values()].map((u) => [u.id, u.name]));
 
   return (
@@ -62,6 +63,7 @@ export default async function PlanPage({ params }: { params: Promise<{ id: strin
             shareUrl={`${origin}/join/${view.plan.share_token}`}
             friends={friends}
             names={names}
+            openInvite={["ep1", "ep2", "ep3", "ep4"].includes(from ?? "")}
           />
         )}
       </main>

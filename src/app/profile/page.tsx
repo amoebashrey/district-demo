@@ -6,14 +6,15 @@ import { plansFor, joinedMembers, membersOf, store, voteKey } from "@/lib/store/
 import { getPlan } from "@/lib/services/plan";
 import { BottomNav } from "@/components/shell/nav";
 import { TopBar } from "@/components/shell/topbar";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { EntryPoint } from "@/components/highlight";
 import { StatusBadge } from "@/components/status-badge";
 import { Initials } from "@/components/screen";
-import { dateRange, firstName, vibeLabel } from "@/lib/format";
+import { dateRange, vibeLabel } from "@/lib/format";
+import { ReplanButton } from "../plans/[id]/hub";
 
 export const dynamic = "force-dynamic";
 
@@ -56,9 +57,7 @@ export default async function ProfilePage() {
                     Re-plan with your crew from {vibeLabel[lastCompleted.vibe] ?? lastCompleted.vibe} night
                   </p>
                 </div>
-                <Button size="sm" asChild>
-                  <Link href="/plans/new">Re-plan</Link>
-                </Button>
+                <ReplanButton planId={lastCompleted.id} />
               </CardContent>
             </Card>
           </EntryPoint>

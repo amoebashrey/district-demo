@@ -8,6 +8,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { EntryPoint } from "@/components/highlight";
 import { day, inr, time } from "@/lib/format";
+import { InviteToBookingButton } from "../group-button";
+import { Badge } from "@/components/ui/badge";
 
 export const dynamic = "force-dynamic";
 
@@ -40,9 +42,10 @@ export default async function ConfirmationPage({ params }: { params: Promise<{ i
           </CardHeader>
           <CardContent>
             <div className="flex items-center justify-between text-sm">
-              <span className="text-muted-foreground">{booking.qty} {booking.qty === 1 ? "ticket" : "tickets"}</span>
+              <span className="text-muted-foreground">{booking.qty} {booking.qty === 1 ? "ticket" : "tickets"} · paid via Splitpay</span>
               <span className="font-semibold">{inr(booking.amount)}</span>
             </div>
+            <div className="mt-3 flex items-center justify-between rounded-md border bg-muted/30 px-3 py-2 text-xs"><span className="text-muted-foreground">Booking ref</span><Badge variant="outline" className="font-mono">{booking.provider_ref}</Badge></div>
           </CardContent>
         </Card>
 
@@ -56,9 +59,7 @@ export default async function ConfirmationPage({ params }: { params: Promise<{ i
                   Share via WhatsApp. Friends tap the link, join the booking, and pay their share. No download needed to RSVP or pay.
                 </p>
               </div>
-              <Button className="w-full" asChild>
-                <Link href="/plans/new?from=ep4">Invite the crew to join</Link>
-              </Button>
+              <InviteToBookingButton bookingId={booking.id} planId={booking.plan_id} />
             </CardContent>
           </Card>
         </EntryPoint>

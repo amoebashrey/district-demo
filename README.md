@@ -18,7 +18,19 @@ npm run fixtures       # regenerate synthetic seed data → fixtures/out/
 ```
 Optional `.env.local`: `ANTHROPIC_API_KEY` for the LLM rationale (Phase 3). Everything else is mocked.
 
-## Demo flow
+## Demo flow (in-flow integration map)
+The plan layer now lives inside a recreated District shell. Toggle **Highlight my additions** (top bar) to mark the
+six proposed entry points with a rotating purple border and number.
+1. `/switch` → pick a Bengaluru person → **For You** feed.
+2. Toggle **Highlight my additions**. EP1 card (top), EP2 "Go together" on every item.
+3. Tap a glowing **Go together** → detail → checkout with **Split & invite** (EP3) on → **Plan with crew**.
+4. Plan hub opens with the invite sheet: **Share on WhatsApp** / copy link.
+5. Open the link in a private window → join as a guest (name only) → **Pay via Splitpay**.
+6. Back as the organiser → pay your share → plan **auto-books** when everyone has paid → shared plan card
+   (when, where, who paid, directions) + EP5 **Plan the next one**. EP6 lives in Profile → Your Plans.
+Also: **Book** solo → confirmation → EP4 "Invite the crew to join this booking" turns it into a plan.
+
+## Original open-vote flow
 1. `/switch` — pick a synthetic person (grouped by city; friends share a crew).
 2. **Start a plan** — date window, vibe, budget, "lock when N are in".
 3. Plan hub — **+ Invite**: copy the share link or pick friends from contacts. **Open voting** generates 2–3 nights.
@@ -28,9 +40,12 @@ Optional `.env.local`: `ANTHROPIC_API_KEY` for the LLM rationale (Phase 3). Ever
 
 ## Layout
 ```
-src/app/                    screens: / (your plans) · /switch · /plans/new · /plans/[id] · /join/[token]
+src/app/                    District shell: / (For You) · /events /movies /dining (+ /[id] detail+checkout) · /confirmation/[id] · /profile
+                            Plans layer: /plans/starter (EP1) · /plans/new · /plans/[id] (hub: invite · Splitpay · booked card) · /join/[token] · /switch
+src/components/shell/       nav, top bar, feed cards, detail/checkout shell · highlight.tsx = "Highlight my additions" + EntryPoint
 src/app/api/                route handlers — the backend surface (plans, vote, invite, respond, join, session, optout, health)
-src/lib/services/           plan.ts (state machine + atomic lock) · invite.ts (links, caps, opt-out) · candidates.ts (rules-based options) · analytics.ts
+src/lib/services/           plan.ts (open + anchored plans, lock, pay-share, re-plan) · invite.ts · candidates.ts · split.ts (Splitpay) · booking.ts (atomic book + refund) · inventory.ts · analytics.ts
+src/lib/providers/          payments.ts — provider interface + mock (refs ending "-fail" decline)
 src/lib/store/              in-memory store + domain types mirroring docs/data-model
 src/components/ui/          shadcn/ui (radix-nova preset, neutral, dark) — button, card, badge, avatar, tabs, toggle-group, drawer, dialog, alert, progress, sonner…
 src/components/screen.tsx   phone-width page shell · client.tsx: api(), LiveRefresh, ActionButton
@@ -60,7 +75,8 @@ instance and resets on cold start — expected for a demo, and why the real data
 - [x] Phase 1 — data model designed + verified on Postgres, then **moved to design docs**; runtime is the in-memory store
 - [x] Phase 2 — plan lifecycle: create → invite (link + contacts) → vote → auto-lock, expiry, cancel, leave, opt-out; all screens
 - [ ] Phase 3 — curation: group taste aggregation + Claude assembly with rationale + availability/budget guardrails + browse fallback
-- [ ] Phase 4 — booking + split with mock payments, refund rules
+- [x] Phase 4 — Splitpay shares + atomic booking with auto-refund (anchored plans book when everyone has paid)
+- [x] In-flow integration: District shell with EP1–EP6 and the highlight toggle
 - [ ] Phase 5 — analytics view, experiment flag, metrics (NSM + guardrails)
 - [ ] Phase 6 — ride, second category, saved crews (P1)
 

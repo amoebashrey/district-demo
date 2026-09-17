@@ -19,7 +19,7 @@ export function planForToken(token: string): Plan {
 /** Join via share link. Works for existing users and for guests (light account, no prior signup). */
 export function joinViaToken(token: string, who: { user_id?: string; guest_name?: string }): { plan: Plan; user: User } {
   const plan = planForToken(token);
-  if (!["draft", "voting", "locked"].includes(plan.status)) throw conflict("closed", `This plan is ${plan.status}`);
+  if (!["draft", "voting", "locked", "booked"].includes(plan.status)) throw conflict("closed", `This plan is ${plan.status}`);
   let user: User | undefined = who.user_id ? getUser(who.user_id) : undefined;
   if (!user) {
     const name = who.guest_name?.trim();
@@ -47,7 +47,7 @@ export function joinViaToken(token: string, who: { user_id?: string; guest_name?
 /** Invite friends from contacts (explicit consent is the UI's job; here we enforce cap + opt-out). */
 export function inviteContacts(planId: string, inviterId: string, friendIds: string[]): { invited: Invite[]; skipped: { user_id: string; reason: string }[] } {
   const plan = getPlan(planId); requireMember(plan, inviterId);
-  if (!["draft", "voting"].includes(plan.status)) throw conflict("closed", "Invites are closed for this plan");
+  if (!["draft", "voting", "locked", "booked"].includes(plan.status)) throw conflict("closed", "Invites are closed for this plan");
   const existing = invitesOf(planId).filter((i) => i.channel === "contact" && i.status !== "revoked");
   const invited: Invite[] = []; const skipped: { user_id: string; reason: string }[] = [];
   for (const fid of [...new Set(friendIds)]) {

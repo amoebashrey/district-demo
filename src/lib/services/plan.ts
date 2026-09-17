@@ -5,10 +5,13 @@
  * Owns lock logic (majority of joined members AND joined ≥ quorum), expiry, and membership changes.
  */
 import { store, newId, newToken, nowIso, voteKey, membersOf, joinedMembers, memberOf, suggestionsOf, votesOf, getUser } from "../store/store.ts";
-import type { BudgetBand, Plan, PlanMember, PlanStatus, Suggestion, User } from "../store/types.ts";
+import type { BudgetBand, Plan, PlanMember, PlanStatus, Suggestion, SuggestionComponent, User } from "../store/types.ts";
 import { ServiceError, conflict, forbidden, notFound } from "./errors.ts";
 import { track } from "./analytics.ts";
 import { checkAvailability, generateCandidates } from "./candidates.ts";
+import { ensureSplits, mySplit, paySplit, splitSummary } from "./split.ts";
+import { bookPlan, maybeAutoBook, planBookings } from "./booking.ts";
+import { getItem, release, reserve, toComponent } from "./inventory.ts";
 
 const EXPIRY_HOURS = 48;
 const TRANSITIONS: Record<PlanStatus, PlanStatus[]> = {
@@ -29,6 +32,10 @@ function transition(plan: Plan, to: PlanStatus, actor?: string, props: Record<st
 export interface CreatePlanInput { creator_id: string; date_start: string; date_end: string; vibe: string; budget_band: BudgetBand; quorum?: number; city?: Plan["city"]; anchor?: Plan["anchor"] }
 
 export function createPlan(input: CreatePlanInput): Plan {
+  if (input.anchor) {
+    const item = getItem(input.anchor.kind, input.anchor.ref); if (!item) throw notFound("item");
+    return createAnchoredPlan({ creator_id: input.creator_id, components: [toComponent(item)], title: item.title, quorum: input.quorum, anchor: input.anchor, source: "ep2" });
+  }
   const creator = getUser(input.creator_id); if (!creator) throw notFound("user");
   if (input.date_end < input.date_start) throw new ServiceError("bad_dates", "End date is before start date");
   const now = new Date();
@@ -45,6 +52,89 @@ export function createPlan(input: CreatePlanInput): Plan {
   addMember(plan, creator, "organiser", "joined");
   track("plan.created", { user_id: creator.id, plan_id: plan.id, props: { vibe: plan.vibe, budget_band: plan.budget_band, city: plan.city } });
   return plan;
+}
+
+const istDate = (iso: string) => new Date(new Date(iso).getTime() + 5.5 * 3_600_000).toISOString().slice(0, 10);
+const bandFor = (cost: number): BudgetBand => (cost <= 800 ? "₹" : cost <= 1600 ? "₹₹" : cost <= 2800 ? "₹₹₹" : "₹₹₹₹");
+
+export interface AnchoredInput { creator_id: string; components: SuggestionComponent[]; title: string; rationale?: string; quorum?: number; anchor?: Plan["anchor"]; source: "ep1" | "ep2" | "ep3" | "ep4" | "replan"; status?: "locked" | "booked" }
+
+/**
+ * Anchored plan (EP1–EP4): rides one existing item or bundle, so there is nothing to vote on.
+ * Created straight into `locked` with the item as the locked suggestion; friends join and pay their share.
+ */
+export function createAnchoredPlan(input: AnchoredInput): Plan {
+  const creator = getUser(input.creator_id); if (!creator) throw notFound("user");
+  if (input.components.length === 0) throw new ServiceError("no_components", "Nothing to plan around");
+  const first = [...input.components].sort((a, b) => a.starts_at.localeCompare(b.starts_at))[0];
+  const cost = input.components.reduce((n, c) => n + c.price_per_head, 0);
+  const date = first.starts_at ? istDate(first.starts_at) : new Date().toISOString().slice(0, 10);
+  const plan: Plan = {
+    id: newId(), creator_id: creator.id, city: creator.city, date_start: date, date_end: date,
+    vibe: first.tags[0] ?? "together", budget_band: bandFor(cost), status: "locked", quorum: Math.max(2, input.quorum ?? 2), lock_rule: "majority",
+    mode: "anchored", anchor: input.anchor, share_token: newToken(), invite_cap: 12,
+    expires_at: first.starts_at || new Date(Date.now() + EXPIRY_HOURS * 3_600_000).toISOString(),
+    locked_at: nowIso(), created_at: nowIso(), updated_at: nowIso(),
+  };
+  const s: Suggestion = { id: newId(), plan_id: plan.id, kind: "night_bundle", title: input.title, components: input.components, est_cost_per_head: cost, score: 1, rationale: input.rationale ?? `${input.title} — ${inrShort(cost)} a head, split with the crew.`, rationale_source: "rules", availability_checked_at: nowIso(), is_available: true, created_at: nowIso() };
+  store.suggestions.set(s.id, s);
+  plan.locked_suggestion_id = s.id;
+  if (input.status === "booked") plan.status = "booked";
+  store.plans.set(plan.id, plan);
+  addMember(plan, creator, "organiser", "joined");
+  ensureSplits(plan);
+  track("plan.created", { user_id: creator.id, plan_id: plan.id, props: { mode: "anchored", source: input.source, city: plan.city } });
+  track("plan.locked", { user_id: creator.id, plan_id: plan.id, props: { from: "draft", anchored: true, source: input.source } });
+  return plan;
+}
+const inrShort = (n: number) => `₹${n.toLocaleString("en-IN")}`;
+
+/** EP4: an existing solo booking becomes a group plan friends can join and pay into. */
+export function convertBookingToPlan(bookingId: string, userId: string): Plan {
+  const b = store.bookings.get(bookingId); if (!b) throw notFound("booking");
+  if (b.user_id !== userId) throw forbidden("That booking isn't yours");
+  if (b.plan_id) return getPlan(b.plan_id);
+  const item = getItem(b.category, b.inventory_ref); if (!item) throw notFound("item");
+  const plan = createAnchoredPlan({ creator_id: userId, components: [toComponent(item)], title: item.title, anchor: { kind: b.category, ref: b.inventory_ref }, source: "ep4", status: "booked" });
+  b.plan_id = plan.id; b.suggestion_id = plan.locked_suggestion_id; b.updated_at = nowIso();
+  // organiser already paid at checkout → their share is captured
+  const mine = mySplit(plan.id, userId); if (mine) { mine.status = "captured"; mine.payment_intent_ref = b.provider_ref; mine.updated_at = nowIso(); }
+  track("plan.from_booking", { user_id: userId, plan_id: plan.id, props: { booking_id: b.id } });
+  return plan;
+}
+
+/** EP5/EP6: one-tap re-plan with the same crew → new open plan, crew pre-invited. */
+export function replan(planId: string, actorId: string): Plan {
+  const prev = getPlan(planId);
+  const crew = membersOf(prev.id).filter((m) => m.rsvp_status === "joined" && m.user_id !== actorId);
+  const next = new Date(); const dow = next.getDay(); next.setDate(next.getDate() + ((6 - dow + 7) % 7 || 7));
+  const sat = next.toISOString().slice(0, 10); const sun = new Date(next); sun.setDate(next.getDate() + 1);
+  const plan = createPlan({ creator_id: actorId, date_start: sat, date_end: sun.toISOString().slice(0, 10), vibe: prev.vibe, budget_band: prev.budget_band, quorum: Math.min(prev.quorum, Math.max(2, crew.length + 1)) });
+  for (const m of crew) { const u = getUser(m.user_id); if (u) addMember(plan, u, "member", "invited"); }
+  track("plan.replanned", { user_id: actorId, plan_id: plan.id, props: { from_plan: prev.id, crew: crew.length } });
+  return plan;
+}
+
+/** Pay my share; for an already-booked plan, reserve one more seat per component first (never charge for a seat we can't get). */
+export function payShare(planId: string, userId: string): { booked: boolean } {
+  const plan = getPlan(planId);
+  requireMember(plan, userId);
+  if (plan.status === "booked") {
+    const s = store.suggestions.get(plan.locked_suggestion_id ?? ""); if (!s) throw conflict("not_locked", "Nothing to pay for");
+    const already = mySplit(planId, userId); if (already?.status === "captured") return { booked: true };
+    const done: SuggestionComponent[] = [];
+    for (const c of s.components) { if (!reserve(c, 1)) { done.forEach((d) => release(d, 1)); throw conflict("sold_out", `${c.title} is sold out — you can still come, but we couldn't add a seat`); } done.push(c); }
+    try { paySplit(planId, userId); } catch (e) { done.forEach((d) => release(d, 1)); throw e; }
+    for (const b of planBookings(planId)) { b.qty += 1; b.amount += s.components.find((c) => c.ref === b.inventory_ref)?.price_per_head ?? 0; b.quoted_amount = b.amount; b.updated_at = nowIso(); }
+    return { booked: true };
+  }
+  paySplit(planId, userId);
+  return { booked: maybeAutoBook(plan) };
+}
+
+export function confirmBooking(planId: string, actorId: string) {
+  const plan = getPlan(planId); requireOrganiser(plan, actorId);
+  return bookPlan(plan, actorId);
 }
 
 export function addMember(plan: Plan, user: User, role: PlanMember["role"], rsvp: PlanMember["rsvp_status"]): PlanMember {
@@ -146,8 +236,9 @@ export function leavePlan(planId: string, userId: string): Plan {
   m.rsvp_status = "left";
   store.votes.delete(voteKey(planId, userId));
   track("member.left", { user_id: userId, plan_id: planId });
+  if (["locked", "booked"].includes(plan.status)) ensureSplits(plan); // re-split: drop/refund their share
   // member drops after lock → re-confirm quorum (PRD edge case). Re-split happens in Phase 4.
-  if (plan.status === "locked" && joinedMembers(planId).length < plan.quorum) {
+  if (plan.mode === "open" && plan.status === "locked" && joinedMembers(planId).length < plan.quorum) {
     transition(plan, "voting", userId, { reason: "quorum_broken_after_lock" });
     plan.locked_suggestion_id = undefined; plan.locked_at = undefined;
   }
@@ -179,11 +270,19 @@ export function planView(planId: string, viewerId?: string) {
   const votesNeeded = Math.floor(Math.max(joined.length, plan.quorum) / 2) + 1;
   const myVote = viewerId ? store.votes.get(voteKey(planId, viewerId))?.suggestion_id : undefined;
   const me = viewerId ? memberOf(planId, viewerId) : undefined;
+  const money = ["locked", "booked"].includes(plan.status);
+  if (money) ensureSplits(plan);
+  const summary = money ? splitSummary(planId) : { total: 0, paid_amount: 0, paid_count: 0, count: 0, splits: [] };
+  const my = viewerId && money ? mySplit(planId, viewerId) : undefined;
   return {
     plan, members, joined_count: joined.length, votes_needed: votesNeeded,
     suggestions: suggestions.map((s) => ({ ...s, votes: t[s.id] ?? [] })),
     my_vote: myVote, my_role: me?.role, is_member: !!me && me.rsvp_status !== "left" && me.rsvp_status !== "declined",
     locked: plan.locked_suggestion_id ? suggestions.find((s) => s.id === plan.locked_suggestion_id) : undefined,
+    splits: summary.splits.map((s) => ({ user_id: s.user_id, amount: s.amount, status: s.status })),
+    paid_count: summary.paid_count, paid_amount: summary.paid_amount,
+    my_split: my ? { amount: my.amount, status: my.status, failure_reason: my.failure_reason } : undefined,
+    bookings: money ? planBookings(planId).map((b) => ({ id: b.id, title: b.title, qty: b.qty, provider_ref: b.provider_ref })) : [],
   };
 }
 export type PlanView = ReturnType<typeof planView>;

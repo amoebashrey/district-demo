@@ -15,7 +15,10 @@ const KEY = "district:highlight";
 export function HighlightProvider({ children }: { children: ReactNode }) {
   const [on, setOn] = useState(true);
   const [pulse, setPulse] = useState(0);
-  useEffect(() => { try { const v = localStorage.getItem(KEY); if (v !== null) setOn(v === "1"); } catch { /* ignore */ } }, []);
+  useEffect(() => {
+    const t = setTimeout(() => { try { const v = localStorage.getItem(KEY); if (v !== null) setOn(v === "1"); } catch { /* ignore */ } }, 0);
+    return () => clearTimeout(t);
+  }, []);
   const set = (v: boolean) => { setOn(v); if (v) setPulse((p) => p + 1); try { localStorage.setItem(KEY, v ? "1" : "0"); } catch { /* ignore */ } };
   return <Ctx.Provider value={{ on, set, pulse }}>{children}</Ctx.Provider>;
 }
@@ -35,7 +38,12 @@ export function HighlightToggle({ compact }: { compact?: boolean }) {
 export function EntryPoint({ n, children, className, block }: { n: 1 | 2 | 3 | 4 | 5 | 6; children: ReactNode; className?: string; block?: boolean }) {
   const { on, pulse } = useHighlight();
   const [pulsing, setPulsing] = useState(false);
-  useEffect(() => { if (pulse === 0) return; setPulsing(true); const t = setTimeout(() => setPulsing(false), 700); return () => clearTimeout(t); }, [pulse]);
+  useEffect(() => {
+    if (pulse === 0) return;
+    const t0 = setTimeout(() => setPulsing(true), 0);
+    const t1 = setTimeout(() => setPulsing(false), 700);
+    return () => { clearTimeout(t0); clearTimeout(t1); };
+  }, [pulse]);
   if (!on) return <div className={cn(block ? "block" : "inline-flex", "rounded-[inherit]", className)}>{children}</div>;
   return (
     <div className={cn("ep rounded-xl", block ? "block" : "inline-flex", pulsing && "ep-pulse", className)} data-ep={n}>

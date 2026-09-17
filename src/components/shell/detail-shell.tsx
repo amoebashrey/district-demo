@@ -21,7 +21,7 @@ import type { Item } from "@/lib/services/inventory";
  *  - If ?plan=1 or "Go together" tapped → opens plan creation → invite flow
  *  - EP3: "Split & invite" toggle inside checkout
  */
-export function DetailShell({ item, meCity, startWithPlan }: { item: Item; meCity: string; startWithPlan?: boolean }) {
+export function DetailShell({ item, startWithPlan }: { item: Item; meCity?: string; startWithPlan?: boolean }) {
   const router = useRouter();
   const [view, setView] = useState<"detail" | "checkout" | "confirming">("detail");
   const [withCrew, setWithCrew] = useState(startWithPlan ?? false);

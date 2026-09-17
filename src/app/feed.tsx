@@ -27,7 +27,7 @@ export function ForYouFeed({ feed, city }: { feed: Feed; city: string }) {
               <p className="text-xs text-muted-foreground mt-0.5">Plan a night with your crew →</p>
             </div>
             <Button size="sm" asChild>
-              <Link href="/plans/new">Let's go</Link>
+              <Link href="/plans/starter">Let&apos;s go</Link>
             </Button>
           </CardContent>
         </Card>
